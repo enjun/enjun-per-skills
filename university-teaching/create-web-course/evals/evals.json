@@ -1,0 +1,23 @@
+{
+  "skill_name": "create-web-course",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我要教大学生Web开发，想做一个博客系统的课程，使用Python Flask框架，大概8节课，学生只需要有基本的Python知识就可以",
+      "expected_output": "生成完整的Flask博客系统项目，包含lessons目录（index.html主页+8个HTML课程文档，每个课程都有固定左侧导航栏和当前课程高亮）、docs/quick-start.html（环境配置指南，包含pytest配置）、docs/syllabus.html（教学大纲）、questions.html（课后问题）、tests/目录（使用TDD方法开发的测试套件，包含模型和路由的测试）、src/目录（Flask博客源代码）、README.md",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "帮我想想怎么做一个Web开发课程，我想教学生做一个在线商城，用React + Node.js Express，10节课，学生已经学过HTML和CSS了",
+      "expected_output": "生成完整的React + Express商城系统项目，包含lessons目录（index.html主页+10个课程文档，每个课程都有固定左侧导航栏和当前课程高亮）、docs/quick-start.html（包含Node.js、npm、React环境配置和Jest测试配置）、docs/syllabus.html、questions.html、tests/目录（Jest测试套件，包含API和组件测试）、src/目录（前端React代码和后端Express代码）、README.md",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Create a web development course for building a todo app. Use Vue.js with Spring Boot backend. 6 lessons. Students know Java basics.",
+      "expected_output": "Generate complete Vue.js + Spring Boot todo app project with lessons/ (index.html main page + 6 HTML lesson docs, each with fixed sidebar navigation and current lesson highlighted), docs/quick-start.html (includes JUnit test setup), docs/syllabus.html, questions.html, tests/ (JUnit test suite for models and controllers), src/ (Vue frontend + Spring Boot backend), README.md",
+      "files": []
+    }
+  ]
+}
