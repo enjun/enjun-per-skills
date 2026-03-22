@@ -1,10 +1,10 @@
 ---
-name: research-technical-route
+name: write-technical-route
 description: Deep research into technical routes for scientific/engineering problems. MUST use this skill when users need to investigate technical methods, analyze solutions, review research progress, compare method performance, or write technical route reports. Supports systematic literature research through Zotero library, automatically identifies and classifies technical methods, and generates structured LaTeX technical reports.
 disable-model-invocation: false
 ---
 
-# Research Technical Route
+# Write Technical Route
 
 Systematically investigate and analyze technical routes for scientific or engineering problems. Query references through Zotero library, extract and critically examine technical methods, and generate a structured LaTeX technical report.
 
