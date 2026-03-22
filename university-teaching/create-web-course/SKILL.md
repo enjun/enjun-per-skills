@@ -35,8 +35,10 @@ Use `AskUserQuestion` tool to collect:
 **IMPORTANT**: Current working directory becomes the course root.
 
 ```bash
-# Initialize git
-git init
+# Initialize git (only if not already a git repository)
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    git init
+fi
 
 # Create directories
 mkdir -p main/src main/lessons main/docs
