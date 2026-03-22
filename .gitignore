@@ -136,3 +136,44 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# LaTeX compilation outputs
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+*.bbl
+*.blg
+*.brf
+*.cb
+*.cb2
+*.dvi
+*.idx
+*.ilg
+*.ind
+*.maf
+*.mlf
+*.mlf1
+*.mlt1
+*.nav
+*.snm
+*.vrb
+*.pdfsync
+*.ps
+*.eps
+*.thm
+*.figlist
+*.makefile
+*.xwm
+*.upa
+*.upb
+*.fls
+*.gz
+
+
