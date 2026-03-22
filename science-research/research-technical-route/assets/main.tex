@@ -1,50 +1,214 @@
-\documentclass[journal]{IEEEtran}  % IEEE期刊模板
-\usepackage{amsmath,amsfonts}      % amsmath提供多行公式对齐、矩阵环境等数学排版功能；amsfonts扩展数学符号库‌
-\usepackage{algorithmic}          % 实现算法伪代码环境，支持IF/WHILE等结构化语句排版‌
-\usepackage{algorithm}            % 配合algorithmic使用，提供浮动算法环境及标题控制‌
-\usepackage{graphicx}              % 图像插入核心工具，支持主流图片格式‌
-\usepackage{cite}                  % 智能处理参考文献引用排序与压缩格式‌
-\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore} %是LaTeX 中用于‌自定义单词断词规则‌的命令
-\graphicspath{{figures/}}  % 图片的路径
-\usepackage[unicode]{hyperref} %提供跳转链接
+\documentclass[journal]{IEEEtran}
+
+% 中文支持（必须在最前面）
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun}  % 或使用 "Microsoft YaHei", "FandolSong" 等
+\setCJKsansfont{SimHei}
+
+% 基础数学包
+\usepackage{amsmath,amsfonts}
+
+% 算法伪代码
+\usepackage{algorithmic}
+\usepackage{algorithm}
+
+% 图形和表格
+\usepackage{graphicx}
+\usepackage{booktabs}     % 专业表格线条（\toprule, \midrule, \bottomrule）
+\usepackage{multirow}     % 表格多行合并
+\usepackage{array}        % 增强表格功能
+\usepackage{adjustbox}    % 调整表格宽度
+
+% 参考文献
+\usepackage{cite}
+
+% 断词规则
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+
+% 图片路径
+\graphicspath{{figures/}}
+
+% 超链接
+\usepackage[unicode]{hyperref}
 
 \begin{document}
 
-\title{Secret}
+% ========== 标题和作者 ==========
+\title{技术路线调研报告}
 
-\author{Enjun Xia
-        % <-this % stops a space
-\thanks{Manuscript received xxxx, 2023; revised xxxx, 2023. This work was supported by . }% <-this % stops a space
-\thanks{The authors are with the School of (emails: ).}
-}
-
-% The paper headers
-\markboth{IEEE ,~Vol.~xx, No.~xx, xxxx,~2023}%
-{Xia \MakeLowercase{\textit{et al.}}: }
-
-%\IEEEpubid{0000--0000/00\$00.00~\copyright~2021 IEEE}
-% Remember, if you use this you must call \IEEEpubidadjcol in the second
-% column for its text to clear the IEEEpubid mark.
+% 作者信息留空，由用户自行填写
+\author{}
 
 \maketitle
 
+% ========== 摘要 ==========
 \begin{abstract}
-
+本报告针对\textbf{[研究问题]}进行了系统性的技术路线调研。通过分析XX篇相关文献，梳理出N类主要技术路线：[简要列出各类方法]。报告从理论基础、核心优势、局限性、适用范围等多个维度对各类技术路线进行了深入分析和对比，并提出了[问题]的改进方向。
 \end{abstract}
 
+% ========== 关键词 ==========
 \begin{IEEEkeywords}
-
+技术路线, [关键词1], [关键词2], [关键词3], [关键词4]
 \end{IEEEkeywords}
 
-\section{Introduction}
-\IEEEPARstart{D}{ifferent} from
+% ========== 第一部分：引言 ==========
+\section{引言}
 
+\subsection{问题背景}
+[描述研究问题的背景、重要性、应用场景]
 
+\subsection{技术背景}
+[介绍相关领域的总体技术状况]
 
+\subsection{报告结构}
+[简要说明报告各章节内容]
+
+% ========== 第二部分：技术路线分析 ==========
+\section{技术路线分析}
+
+\subsection{概述}
+[简要说明识别出的技术路线类别及其数量]
+
+% ----- 技术路线类别1 -----
+\subsection{[类别1名称]方法}
+
+\subsubsection{方法原理}
+[描述该类方法的核心思想，必须引用参考文献]
+
+该类方法基于[理论基础]，其核心思想是[简述]。关键技术包括：
+\begin{itemize}
+    \item [技术点1] \cite{ref1, ref2}
+    \item [技术点2] \cite{ref3}
+    \item [技术点3] \cite{ref4}
+\end{itemize}
+
+[如适用，添加数学模型或算法描述]
+
+\subsubsection{代表性工作}
+[分析2-3篇代表性文献]
+
+\textbf{[作者等]} 提出了[方法名称] \cite{ref1}，其主要贡献是：
+\begin{itemize}
+    \item [贡献1]
+    \item [贡献2]
+    \item [贡献3]
+\end{itemize}
+
+\textbf{[作者等]} 在上述工作基础上进行了改进 \cite{ref2}，引入了[改进点]。
+
+\subsubsection{演进脉络}
+[按时间梳理该技术路线的发展过程，指出关键突破]
+
+该技术路线的发展可分为以下阶段：
+\begin{enumerate}
+    \item [阶段1，时间范围]：[特点] \cite{ref1}
+    \item [阶段2，时间范围]：[特点] \cite{ref2, ref3}
+    \item [阶段3，当前]：[特点] \cite{ref4}
+\end{enumerate}
+
+\subsubsection{批判性分析}
+\textbf{假设条件}：[说明方法的假设前提及其合理性]
+
+\textbf{核心优势}：
+\begin{itemize}
+    \item [优势1]
+    \item [优势2]
+\end{itemize}
+
+\textbf{主要局限}：
+\begin{itemize}
+    \item [局限1]
+    \item [局限2]
+\end{itemize}
+
+\textbf{适用范围}：[说明适用的场景和边界条件]
+
+\textbf{实际挑战}：[说明工程实现和部署中的难点]
+
+% ----- 技术路线类别2 -----
+\subsection{[类别2名称]方法}
+[使用与上述相同的结构]
+
+% ----- 技术路线类别3 -----
+\subsection{[类别3名称]方法}
+[使用与上述相同的结构]
+
+% ========== 第三部分：技术路线对比 ==========
+\section{技术路线对比}
+
+\subsection{特征对比}
+使用以下表格对比各类技术路线的特征（所有描述必须基于文献内容并引用）：
+
+\begin{table*}[htbp]
+\centering
+\caption{各技术路线特征对比}
+\begin{tabular}{lcccc}
+\toprule
+技术路线 & 理论基础 & 核心优势 & 主要局限 & 适用场景 \\
+\midrule
+[类别1]方法 \cite{ref1,ref2} & [理论基础] & [优势] & [局限] & [场景] \\
+[类别2]方法 \cite{ref3} & [理论基础] & [优势] & [局限] & [场景] \\
+[类别3]方法 \cite{ref4,ref5} & [理论基础] & [优势] & [局限] & [场景] \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{性能指标对比}
+使用以下表格对比各类技术路线的性能指标（所有数据必须来自文献并注明出处）：
+
+\begin{table*}[htbp]
+\centering
+\caption{性能指标对比}
+\begin{tabular}{lcccc}
+\toprule
+技术路线 & [指标1名称] & [指标2名称] & [指标3名称] & 计算复杂度 \\
+\midrule
+[类别1]方法 \cite{ref1} & [数据] & [数据] & [数据] & [复杂度] \\
+[类别2]方法 \cite{ref3} & [数据] & [数据] & [数据] & [复杂度] \\
+[类别3]方法 \cite{ref4} & [数据] & [数据] & [数据] & [复杂度] \\
+\bottomrule
+\end{tabular}
+\label{tab:performance}
+\end{table*}
+
+\subsection{综合评估}
+[基于加权排序的结果，总结各类技术路线的适用性]
+
+根据[研究问题]的特点，我们确定了以下指标权重：[列出权重]。综合评分结果为：[排名结果]。
+
+% ========== 第四部分：总结与展望 ==========
+\section{总结与展望}
+
+\subsection{问题解决现状}
+[总结研究问题的解决状况]
+
+通过对各类技术路线的分析，我们认为[研究问题]：
+\begin{itemize}
+    \item [已解决的部分]：[说明哪些方面已有成熟方案]
+    \item [部分解决的部分]：[说明哪些方面有方案但不完善]
+    \item [未解决的部分]：[说明哪些方面仍是开放问题]
+\end{itemize}
+
+\subsection{改进方向}
+[基于前述分析的局限性，提出具体的改进建议]
+
+\subsubsection{技术融合方向}
+[说明不同技术路线融合的可能性]
+
+\subsubsection{新兴技术应用}
+[说明有潜力的新兴技术如何应用于该问题]
+
+\subsubsection{具体改进建议}
+[提出2-3条具体的、可操作的改进方向，每条都应该基于前述分析的某类技术的局限性]
+
+\begin{enumerate}
+    \item [改进方向1]：针对[某类技术]的[某局限性]，可以[具体建议]。
+    \item [改进方向2]：结合[技术A]和[技术B]的优势，有望[预期效果]。
+    \item [改进方向3]：[基于某技术路线的不足]提出的改进方向。
+\end{enumerate}
+
+% ========== 参考文献 ==========
 \bibliographystyle{IEEEtran}
 \bibliography{myref}
 
-
 \end{document}
-
-

@@ -1,113 +1,200 @@
 ---
 name: research-technical-route
-description: 围绕科学/工程问题，使用zotero-mcp查询文献，分析技术路线，生成LaTeX报告
-context: fork
-agent: general-purpose
-disable-model-invocation: true
+description: Deep research into technical routes for scientific/engineering problems. MUST use this skill when users need to investigate technical methods, analyze solutions, review research progress, compare method performance, or write technical route reports. Supports systematic literature research through Zotero library, automatically identifies and classifies technical methods, and generates structured LaTeX technical reports.
+disable-model-invocation: false
 ---
 
 # Research Technical Route
 
-## Overview
+Systematically investigate and analyze technical routes for scientific or engineering problems. Query references through Zotero library, extract and critically examine technical methods, and generate a structured LaTeX technical report.
 
-针对科学或工程问题，系统性地调研和分析相关技术路线。通过Zotero文献库查询参考文献，提炼和批判性审视技术方法，最终生成结构化的LaTeX技术报告。
+## Quick Start
 
-## Usage
+This skill follows a five-phase workflow:
 
-使用参数传递问题和文献集合：
+1. **Information Collection** - Understand the research question and literature source
+2. **Literature Search** - Search Zotero and extract detailed information
+3. **Technical Analysis** - Classify routes and analyze from multiple dimensions
+4. **Performance Comparison** - Compare metrics and rank technical routes
+5. **Report Generation** - Create LaTeX and Markdown technical reports
 
+For detailed guidance on each phase, refer to the reference documents listed below.
+
+---
+
+## Phase 0: Information Collection
+
+Use `AskUserQuestion` tool to collect:
+
+1. **Research Question**: Specific description of the problem to investigate
+2. **Literature Source**:
+   - A: Zotero search only
+   - B: User-provided bib file only
+   - C: Both combined
+3. **File Path** (if B or C selected): Path to the bib file
+
+Store responses as variables:
+- `research_question`: The problem described by the user
+- `literature_source`: A/B/C
+- `bib_file_path`: (if applicable) The file path provided
+
+---
+
+## Phase 1: Literature Search
+
+For detailed search strategies and information extraction methods, see:
+**→ [references/literature-search.md](references/literature-search.md)**
+
+### Quick Reference
+
+**Search Tools** (in priority order):
+- Semantic search: `mcp__zotero-mcp__zotero_semantic_search`
+- Advanced search: `mcp__zotero-mcp__zotero_advanced_search`
+- Tag search: `mcp__zotero-mcp__zotero_search_by_tag`
+
+**Extraction Tools**:
+- Metadata: `mcp__zotero-mcp__zotero_get_item_metadata`
+- Notes (critical!): `mcp__zotero-mcp__zotero_get_notes`
+- Children: `mcp__zotero-mcp__zotero_get_item_children`
+- Full text: `mcp__zotero-mcp__zotero_get_item_fulltext`
+
+---
+
+## Phase 2: Technical Route Classification
+
+For detailed classification strategy and relationship analysis, see:
+**→ [references/technical-analysis.md](references/technical-analysis.md#classification-strategy)**
+
+### Quick Reference
+
+**Classification Dimensions**:
+- Theoretical Foundation (e.g., Deep Learning / Graph Theory)
+- Technical Architecture (e.g., Centralized / Distributed)
+- Core Algorithm (e.g., CNN / Transformer)
+- Problem Modeling (e.g., Classification / Regression)
+- Optimization Objective (e.g., Accuracy-first / Efficiency-first)
+- Application Scenario (e.g., Medical Imaging / NLP)
+
+**Steps**:
+1. Choose the most appropriate dimension
+2. Divide literature into 3-6 categories
+3. Name categories professionally: "[Feature] Methods"
+4. Validate each classification
+
+---
+
+## Phase 3: Critical Analysis
+
+For the complete six-dimensional analysis framework, see:
+**→ [references/technical-analysis.md](references/technical-analysis.md#critical-analysis-dimensions)**
+
+### Quick Reference
+
+Analyze each technical route from six dimensions:
+
+| Dimension | Key Questions |
+|-----------|---------------|
+| **Assumptions** | What prerequisites are needed? Are they reasonable? |
+| **Advantages** | What are the core strengths and innovations? |
+| **Limitations** | What are the weaknesses and constraints? |
+| **Applicability** | When should this method be used? |
+| **Challenges** | What are the implementation difficulties? |
+| **Relevance** | Does it solve the target problem? |
+
+For each category, also identify:
+- Method principles (1-2 paragraphs)
+- Representative literature (2-3 papers)
+- Evolution lineage (chronological development)
+
+---
+
+## Phase 4: Performance Comparison
+
+For detailed metrics and weighted ranking method, see:
+**→ [references/technical-analysis.md](references/technical-analysis.md#performance-comparison)**
+
+### Quick Reference
+
+**Metrics to Collect**:
+- **Accuracy**: Precision, Recall, F1, domain-specific metrics
+- **Efficiency**: Time/space complexity, runtime, FLOPs
+- **Robustness**: Noise resistance, generalization
+- **Practicality**: Implementation difficulty, interpretability
+
+**Ranking Steps**:
+1. Clarify problem requirements (determine weights)
+2. Build scoring matrix
+3. Normalize scores to [0,1]
+4. Calculate composite score and rank
+
+---
+
+## Phase 5: Report Generation
+
+For LaTeX structure, writing principles, and compilation instructions, see:
+**→ [references/report-template.md](references/report-template.md)**
+
+### Quick Reference
+
+**Directory Setup**:
+```bash
+mkdir -p latex
+cp assets/* latex/
+# cp "user_bib_file" latex/myref.bib  # if applicable
 ```
-/research-technical-route <问题> <文献集合文件>
+
+**Compilation**:
+```bash
+cd latex
+latexmk -xelatex main.tex
+# or manually:
+# xelatex main.tex && bibtex main && xelatex main.tex && xelatex main.tex
 ```
 
-- `$ARGUMENTS[0]`: 要研究的科学/工程问题（必填）
-- `$ARGUMENTS[1]`: bib格式的文献集合文件（必填）
+**Important**: Chinese documents MUST use `xelatex`, not `pdflatex`.
 
-## Workflow
+---
 
-### 1. 深入研究 $ARGUMENTS[0]
+## Output to User
 
-使用zotero-mcp工具搜索 `$ARGUMENTS[1]` 文件中列出的每一条文献：
+After completing all phases, provide:
 
-- **语义搜索**: `mcp__zotero-mcp__zotero_semantic_search` - AI驱动的语义搜索
-- **标签搜索**: `mcp__zotero-mcp__zotero_search_by_tag` - 按标签筛选
-- **高级搜索**: `mcp__zotero-mcp__zotero_advanced_search` - 多条件组合搜索
+1. **Problem Overview**: Background and significance of the research question
+2. **Technical Route Overview**: List of identified main categories and count
+3. **Key Findings**:
+   - Core characteristics of each technical route (2-3 sentences)
+   - Relationships between technical routes
+   - Advantages and limitations of each route
+4. **Performance Comparison Summary**: Based on weighted ranking results
+5. **Problem Resolution Status**:
+   - Is the research problem fully solved?
+   - Remaining major challenges
+6. **Suggested Directions**:
+   - Most promising technical routes
+   - Specific improvement suggestions (based on analyzed limitations)
+   - Research directions yet to be explored
 
-搜索后获取文献的详细信息：
-- 使用 `mcp__zotero-mcp__zotero_get_item_metadata` 获取元数据
-- 使用 `mcp__zotero-mcp__zotero_get_notes` 获取笔记内容
+Then inform user of generated files:
+- LaTeX report: `latex/main.tex` and `latex/main.pdf`
+- Markdown version: `latex/main.md`
+- Reference file: `latex/myref.bib`
 
-### 2. 提炼技术路线
+---
 
-分析参考文献，提取相关技术路线和方法（保证数据、观点的准确性，避免错误或误导性信息）：
-
-- **优先使用笔记**: 如果文献的笔记中包含技术路线描述，直接提炼采用
-- **从内容总结**: 如果笔记不包含，根据文献正文总结技术路线
-- **分类**: 根据技术路线的特征和方法原理，将文献分类。
-
-### 3. 批判性审视
-
-对每个技术路线进行多维度评估：
-
-| 评估维度 | 说明 |
-|---------|------|
-| 假设条件 | 方法成立的前提条件是否合理 |
-| 局限性 | 方法的不足和约束 |
-| 优势 | 方法的核心优势和创新点 |
-| 适用范围 | 方法适用的场景和边界 |
-| 关联性 | 与目标问题的相关程度 |
-| 实际挑战 | 应用中的问题和难点 |
-
-### 4. 性能排序
-
-总结相关性能指标，按重要性对技术路线进行加权排序。
-
-### 5. 生成报告
-
-#### 创建目录和文件
-- 在当前目录创建 `latex` 目录
-- 将 `assets`目录中的所有文件复制到 `.\latex` 目录
-- 将 `$ARGUMENTS[1]` 文件复制到 `.\latex` 目录，重命名为 `myref.bib`。
-- 在 `latex/main.tex`文件中，写入以下内容：
-    - **标题**: `$ARGUMENTS[0]的技术路线`
-    - **背景**: 阐述 `$ARGUMENTS[0]` 的背景和技术背景
-    - **技术路线分析**: 每一篇文献不要单独罗列，需要把属于一类方法的文献放在一起进行讨论（每种方法必须引用参考文献），不同文献的方法之间既有联系又有区别，一类方法指的是具有某种共同的典型特征的方法集合。如果某种方法对于解决 ARGUMENTS[0] 有重要贡献，则必须深入分析其方法原理，前提假设，优势和局限性。论述必须逻辑清晰，语句连贯。
-    - **对比表格**: 使用\begin{table*}[htbp]（双栏文档中的跨栏表格），展示所有技术路线的综合比较（每种技术路线需要引用参考文献），需要包括关键性能指标（数据必须保证真实可靠，来源必须引用文献）。
-    - **总结**: `$ARGUMENTS[0]` 是否被完全解决，如果未解决，提出建设性、有启发意义、具体的改进方向。
-- 编译tex文件，生成pdf文件
-    ```bash
-    # 编译文档
-    latexmk -xelatex "main.tex"
-
-    # 清理构建文件
-    latexmk -c
-    ```
-- 在 `latex` 目录下，生成与 `main.tex` 文件内容相同的 `main.md` 文件，markdown文件中需要引用参考文献。
-
-## 输出
-
-向用户输出：
-
-1. 阐述 `$ARGUMENTS[0]`（问题）
-2. 介绍相关的技术路线和方法
-3. 总结 `$ARGUMENTS[0]` 是否被完全解决，以及未解决的改进方向
-
-## Resources
+## Bundled Resources
 
 ### assets/
-
-LaTeX模板文件，用于生成技术路线报告：
-
-- `main.tex`: LaTeX文档模板，包含标准结构和中文字体支持
-- `IEEEabrv.bib`: 包含IEEE标准的缩写文献引用
-- `IEEEtran.bst`: IEEE论文LaTeX样式文件
-- `IEEEtran.cls`: IEEE论文LaTeX类文件
-- `myref.bib`: 参考文献文件
+LaTeX template files:
+- `main.tex` - LaTeX document template with Chinese support
+- `IEEEabrv.bib` - IEEE standard abbreviations
+- `IEEEtran.bst` - IEEE bibliography style
+- `IEEEtran.cls` - IEEE document class
 
 ### references/
-
-无额外参考文档。工作流程已在本SKILL.md中完整描述。
+Detailed guidance documents:
+- **literature-search.md** - Zotero search strategies and information extraction
+- **technical-analysis.md** - Classification, analysis framework, and performance comparison
+- **report-template.md** - LaTeX structure, writing principles, and compilation
 
 ### scripts/
-
-无脚本文件。所有操作通过标准工具（zotero-mcp、latexmk）完成。
+No script files. All operations use standard tools (zotero-mcp, latexmk).

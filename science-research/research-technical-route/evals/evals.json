@@ -1,0 +1,39 @@
+{
+  "skill_name": "research-technical-route",
+  "evals": [
+    {
+      "id": 1,
+      "name": "wireless-channel-estimation",
+      "prompt": "请调研无线通信系统中的信道估计技术，使用以下参考文献文件：d:/workspace/git/claude-code-my-skills/science-research/research-technical-route-workspace/test_refs.bib",
+      "expected_output": "生成一份结构完整的技术路线LaTeX报告，包含：1）问题背景介绍；2）按理论基础分类的技术路线分析（至少2类方法）；3）每类方法的原理、代表性工作、演进脉络和批判性分析；4）技术路线对比表格；5）总结与展望。",
+      "files": [],
+      "assertions": [
+        {
+          "name": "has_introduction",
+          "description": "报告应包含引言部分",
+          "check": "latex/main.tex包含引言相关章节"
+        },
+        {
+          "name": "has_classification",
+          "description": "技术路线应按类别组织",
+          "check": "包含至少2个技术路线类别的章节"
+        },
+        {
+          "name": "has_comparison_table",
+          "description": "应包含技术路线对比表格",
+          "check": "latex/main.tex包含表格环境"
+        },
+        {
+          "name": "has_summary",
+          "description": "应包含总结与展望部分",
+          "check": "latex/main.tex包含总结相关章节"
+        },
+        {
+          "name": "latex_compilable",
+          "description": "LaTeX文档应该可以编译",
+          "check": "latex/main.pdf文件存在"
+        }
+      ]
+    }
+  ]
+}
