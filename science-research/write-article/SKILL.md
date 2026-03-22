@@ -1,5 +1,5 @@
 ---
-name: scientific-writing
+name: write-article
 description: Write original research articles in wireless communications. Search Zotero library for literature, structure manuscripts using IMRAD format, and generate publication-ready LaTeX documents. Use this skill when users need to write research papers on wireless communication topics.
 ---
 
