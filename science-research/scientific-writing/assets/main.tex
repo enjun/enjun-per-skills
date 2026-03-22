@@ -1,0 +1,252 @@
+\documentclass[journal]{IEEEtran}
+% Alternative options:
+% \documentclass[conference]{IEEEtran}  % For conference papers
+% \documentclass[letterpaper]{IEEEtran}  % For US letter size
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+
+\usepackage{amsmath,amsfonts}      % Mathematical symbols and environments
+\usepackage{algorithmic}            % Algorithm pseudocode
+\usepackage{algorithm}              % Algorithm float environment
+\usepackage{graphicx}               % Image insertion
+\usepackage{cite}                   % Citation management
+\usepackage{booktabs}               % Professional tables
+\usepackage[unicode]{hyperref}      % Hyperlinks
+
+% Chinese support (remove for English-only papers)
+\usepackage{ctex}
+
+% Image path
+\graphicspath{{figures/}}
+
+% Custom hyphenation (add more as needed)
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+
+% ============================================================================
+% CUSTOM COMMANDS FOR WIRELESS COMMUNICATIONS
+% ============================================================================
+
+% Mathematical symbols
+\newcommand{\E}{\mathbb{E}}           % Expectation
+\newcommand{\R}{\mathbb{R}}           % Real numbers
+\newcommand{\C}{\mathbb{C}}           % Complex numbers
+\newcommand{\bx}{\mathbf{x}}          % Bold vectors
+\newcommand{\by}{\mathbf{y}}          % Bold vectors
+\newcommand{\bz}{\mathbf{z}}          % Bold vectors
+\newcommand{\bw}{\mathbf{w}}          % Bold vectors
+\newcommand{\bH}{\mathbf{H}}          % Bold matrices
+\newcommand{\bG}{\mathbf{G}}          % Bold matrices
+\newcommand{\bW}{\mathbf{W}}          % Bold matrices
+\newcommand{\bI}{\mathbf{I}}          % Identity matrix
+
+% Functions
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+
+% ============================================================================
+% DOCUMENT BEGIN
+% ============================================================================
+
+\begin{document}
+
+% ----------------------------------------------------------------------------
+% TITLE AND AUTHORS
+% ----------------------------------------------------------------------------
+
+\title{Resource Allocation for NOMA Systems\\with Deep Reinforcement Learning}
+
+\author{Author Name\thanks{Manuscript received xxxx, 2024; revised xxxx, 2024. This work was supported by the National Science Foundation under Grant XXXXXXXX.}% <-this % stops a space
+\thanks{The authors are with the Department of Electrical Engineering, University Name, City, Country (e-mail: author@university.edu).}
+}
+
+% The paper headers
+\markboth{IEEE Transactions on Communications,~Vol.~xx, No.~xx, xxxx,~2024}%
+{Author Name \MakeLowercase{\textit{et al.}}: Resource Allocation for NOMA}
+
+% Copyright notice (optional)
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2024 IEEE}
+
+\maketitle
+
+% ----------------------------------------------------------------------------
+% ABSTRACT
+% ----------------------------------------------------------------------------
+
+\begin{abstract}
+Non-orthogonal multiple access (NOMA) has emerged as a promising technique for
+enhancing spectral efficiency in 5G networks. However, conventional power
+allocation schemes fail to adapt to dynamic channel conditions and user
+requirements. This paper proposes a deep reinforcement learning-based power
+allocation framework that optimizes sum-rate while maintaining user fairness.
+Our approach employs a multi-agent deep deterministic policy gradient algorithm
+that learns optimal power allocation policies through continuous interaction
+with the wireless environment. Simulation results demonstrate that the proposed
+scheme achieves 23\% higher sum-rate and 35\% improvement in user fairness
+compared to conventional fixed power allocation.
+\end{abstract}
+
+\begin{IEEEkeywords}
+NOMA, deep reinforcement learning, power allocation, 5G, user fairness
+\end{IEEEkeywords}
+
+% ----------------------------------------------------------------------------
+% INTRODUCTION
+% ----------------------------------------------------------------------------
+
+\section{Introduction}
+\label{sec:introduction}
+
+\IEEEPARstart{T}{he} exponential growth of mobile data traffic has driven the
+development of fifth-generation (5G) wireless networks. Among the key enabling
+technologies for 5G, non-orthogonal multiple access (NOMA) has attracted
+significant attention due to its potential to improve spectral efficiency.
+
+Despite the theoretical benefits of NOMA, practical implementation faces several
+challenges. Conventional power allocation schemes typically rely on fixed power
+ratios determined by channel state information, which fail to adapt to dynamic
+network conditions and varying user requirements.
+
+Several approaches have been proposed to address power allocation in NOMA
+systems. Game-theoretic methods provide distributed solutions but often
+converge to local optima. Optimization-based approaches guarantee optimality
+but require complete channel state information and high computational
+complexity. Recent works have explored machine learning techniques, yet most
+rely on supervised learning requiring extensive labeled training data.
+
+This paper proposes a deep reinforcement learning-based power allocation
+framework for NOMA systems that addresses the limitations of existing approaches.
+Our main contributions are:
+\begin{itemize}
+    \item We formulate the power allocation problem as a Markov decision process.
+    \item We design a multi-agent deep deterministic policy gradient algorithm.
+    \item We demonstrate significant improvements in sum-rate and user fairness.
+\end{itemize}
+
+The remainder of this paper is organized as follows. Section~\ref{sec:system_model}
+presents the system model. Section~\ref{sec:proposed_method} describes the
+proposed method. Section~\ref{sec:results} presents simulation results.
+Section~\ref{sec:conclusion} concludes the paper.
+
+% ----------------------------------------------------------------------------
+% SYSTEM MODEL
+% ----------------------------------------------------------------------------
+
+\section{System Model}
+\label{sec:system_model}
+
+Consider a downlink single-cell NOMA system where a base station (BS) equipped
+with $N_t$ antennas serves $K$ single-antenna users. The channel vector between
+the BS and user $k$ is denoted as $\mathbf{h}_k \in \mathbb{C}^{N_t \times 1}$.
+
+The transmitted signal at the BS is given by
+\begin{equation}
+\label{eq:transmitted_signal}
+\mathbf{x} = \sum_{k=1}^K \sqrt{p_k}s_k,
+\end{equation}
+where $p_k$ is the allocated power for user $k$ and $s_k$ is the normalized data
+symbol with $\mathbb{E}[|s_k|^2] = 1$. The received signal at user $k$ is
+\begin{equation}
+\label{eq:received_signal}
+y_k = \mathbf{h}_k^H\mathbf{x} + n_k,
+\end{equation}
+where $n_k \sim \mathcal{CN}(0, \sigma^2)$ is additive white Gaussian noise.
+
+% ----------------------------------------------------------------------------
+% PROPOSED METHOD
+% ----------------------------------------------------------------------------
+
+\section{Proposed Method}
+\label{sec:proposed_method}
+
+\subsection{Problem Formulation}
+
+The power allocation problem is formulated as
+\begin{align}
+\label{eq:optimization}
+\max_{p_1,\ldots,p_K} \quad & \sum_{k=1}^K R_k \\
+\text{s.t.} \quad & \sum_{k=1}^K p_k \leq P_{\mathrm{total}}.
+\end{align}
+
+\subsection{Deep Reinforcement Learning Framework}
+
+We employ a deep deterministic policy gradient (DDPG) algorithm to learn the
+optimal power allocation policy.
+
+% ----------------------------------------------------------------------------
+% SIMULATION RESULTS
+% ----------------------------------------------------------------------------
+
+\section{Simulation Results}
+\label{sec:results}
+
+\subsection{Simulation Setup}
+
+We consider a single-cell NOMA system with $K=10$ users. Table~\ref{tab:parameters}
+summarizes the simulation parameters.
+
+\begin{table}[htbp]
+\centering
+\caption{Simulation Parameters}
+\label{tab:parameters}
+\begin{tabular}{lc}
+\hline
+Parameter & Value \\
+\hline
+Number of users ($K$) & 10 \\
+Number of BS antennas ($N_t$) & 4 \\
+Cell radius & 500 m \\
+Path loss exponent ($n$) & 3.7 \\
+Transmit power ($P_{\mathrm{total}}$) & 43 dBm \\
+Noise power ($\sigma^2$) & -90 dBm \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Performance Comparison}
+
+Figure~\ref{fig:results} shows the performance comparison. The proposed scheme
+achieves significant improvements over baseline methods.
+
+\begin{figure}[htbp]
+\centering
+% Replace with actual figure: \includegraphics[width=0.8\columnwidth]{figures/results.pdf}
+\fbox{\parbox{0.8\columnwidth}{\centering\vspace{2cm}[Insert Figure Here]\vspace{2cm}}}
+\caption{Performance comparison of different schemes.}
+\label{fig:results}
+\end{figure}
+
+% ----------------------------------------------------------------------------
+% CONCLUSION
+% ----------------------------------------------------------------------------
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper proposed a deep reinforcement learning-based power allocation
+framework for NOMA systems. Simulation results demonstrate that the proposed
+scheme achieves significant improvements in both sum-rate and user fairness
+compared to conventional schemes. Future work will extend the framework to
+multi-cell scenarios.
+
+% ----------------------------------------------------------------------------
+% ACKNOWLEDGMENT
+% ----------------------------------------------------------------------------
+
+\section*{Acknowledgment}
+The authors would like to thank the anonymous reviewers for their valuable
+comments and suggestions.
+
+% ----------------------------------------------------------------------------
+% REFERENCES
+% ----------------------------------------------------------------------------
+
+\bibliographystyle{IEEEtran}
+\bibliography{myref}
+
+% ============================================================================
+% END DOCUMENT
+% ============================================================================
+
+\end{document}
