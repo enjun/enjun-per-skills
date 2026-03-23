@@ -156,7 +156,22 @@ git add -A && git commit -m "Initial: Set up project structure"
 - Logic (fallacies, claim strength)
 - Literature (coverage, recency, balance)
 
-### Step 2: Document Analysis
+### Step 2: Check Writing Requirements
+
+⚠️ **IMPORTANT**: Verify essential writing quality requirements:
+
+```
+Consult: [writing-requirements.md](references/writing-requirements.md)
+```
+
+**Check**:
+- **Data authenticity**: Verify data sources, check for fabrication signs
+- **Mathematical rigor**: Ensure proofs and derivations in Appendix
+- **LaTeX formatting**: Table/figure widths, cross-references, citations, Chinese characters
+
+**Document findings** in the analysis report (see Step 3).
+
+### Step 3: Document Analysis
 
 Save to `history/YYYY-MM-DD-HHMMSS-analysis.md`:
 
@@ -186,6 +201,8 @@ Save to `history/YYYY-MM-DD-HHMMSS-analysis.md`:
 - Gap identification: [What's missing]
 ```
 
+📖 **For Related Work Issues**: If literature assessment reveals problems with the Related Work section, consult [related-work-improvement.md](references/related-work-improvement.md) for targeted improvement strategies.
+
 **Commit the analysis record**:
 ```bash
 git add history/YYYY-MM-DD-HHMMSS-analysis.md
@@ -210,6 +227,10 @@ git commit -m "Add: Critical analysis report for YYYY-MM-DD
 | Minor | Polish | P3 - Nice to fix |
 
 ### Step 2: Generate Plan
+
+📖 **Strategy References**: When developing action plans for specific issues, consult:
+- [improvement-strategies.md](references/improvement-strategies.md) - Quick fixes by category (methodology, statistics, logic, clarity, citations)
+- [related-work-improvement.md](references/related-work-improvement.md) - Related Work section improvement strategies
 
 Create improvement plan at `plans/IMPROVEMENT_PLAN.md`:
 
@@ -277,6 +298,13 @@ git checkout -b improvement-$(date +%Y%m%d-%H%M%S)
 | Citations | Missing, outdated, cherry-picking | Add/balance citations |
 | Related Work | Coverage, gaps, positioning | Organize, identify gap |
 
+📖 **Quick Reference Guide**: For detailed strategies and examples for each category, consult [improvement-strategies.md](references/improvement-strategies.md)
+
+**Special Focus - Related Work**: When improving literature review sections, use [related-work-improvement.md](references/related-work-improvement.md) for:
+- Thematic organization strategies
+- Gap identification techniques
+- Positioning and framing methods
+
 **Available Tools** (use when needed):
 
 - **Zotero** - For literature search and citation improvements
@@ -306,6 +334,14 @@ git commit -m "Fix: [Brief description]
 - [ ] All high-importance improvements done
 - [ ] Claims supported by evidence
 - [ ] Limitations acknowledged
+
+⚠️ **Writing Requirements Check** (see [writing-requirements.md](references/writing-requirements.md)):
+- [ ] **Data authenticity**: All sources verified, no fabrication signs
+- [ ] **Mathematical rigor**: All proofs/derivations in Appendix
+- [ ] **LaTeX formatting**: Tables/figures within width limits
+- [ ] **Cross-references**: All use `\label{}` + `\ref{}` (no hard-coded "Table 1")
+- [ ] **Citations**: All references cited, all citations valid
+- [ ] **Language**: No Chinese characters in English text
 
 
 **Compile**:
@@ -428,7 +464,5 @@ When only specific aspects need improvement:
 |----------|---------|-------------|
 | **[improvement-strategies.md](references/improvement-strategies.md)** | Quick fix strategies by category | Implementing specific improvements |
 | **[related-work-improvement.md](references/related-work-improvement.md)** | Related Work improvement guide | Improving literature review |
-
----
-
+| **[writing-requirements.md](references/writing-requirements.md)** | Data authenticity, mathematical proofs, LaTeX formatting | Ensuring paper quality and formatting standards |
 
