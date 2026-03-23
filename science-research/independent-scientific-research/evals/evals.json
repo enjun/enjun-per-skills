@@ -1,0 +1,78 @@
+{
+  "skill_name": "independent-scientific-research",
+  "description": "Test cases for the hybrid parallel pipeline architecture (Proposer → Supporter+Critic Parallel → Evaluator)",
+  "evals": [
+    {
+      "id": 1,
+      "name": "RIS_beam_training",
+      "prompt": "研究问题：为6G网络中的可重构智能表面(RIS)设计近场波束训练方案。系统需要在低训练开销的同时保持良好的波束成形增益。目标场景是室内毫米波通信，设备能耗受限。",
+      "expected_output": "技能应执行：1)文献调研，2)Proposer通过头脑风暴提出方案，3)Supporter和Critic并行辩论(含实验验证)，4)Evaluator做出决策并给出理由，5)生成IEEE格式的LaTeX论文",
+      "files": [],
+      "assertions": [
+        {
+          "name": "literature_search",
+          "expected": "Stage 1 应执行 Zotero 文献搜索",
+          "check": "docs/literature-summary.md 存在且包含 3-5 篇相关论文"
+        },
+        {
+          "name": "brainstorming_trace",
+          "expected": "Proposer 应包含头脑风暴痕迹",
+          "check": "docs/proposal.json 中 brainstorming_trace 字段包含至少 5 个生成的想法"
+        },
+        {
+          "name": "parallel_debate",
+          "expected": "Stage 3 应生成并行的支持和批判",
+          "check": "docs/support.json 和 docs/critique.json 都存在且各自包含论点和实验"
+        },
+        {
+          "name": "evaluator_decision",
+          "expected": "Evaluator 应做出明确决策",
+          "check": "docs/evaluation.json 中 decision 为 ACCEPT/REVISE/REJECT 之一，包含 rationale"
+        },
+        {
+          "name": "latex_output",
+          "expected": "应生成 LaTeX 文件",
+          "check": "latex/main.tex 和 latex/main.pdf 存在"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "NOMA_IoT",
+      "prompt": "研究问题：为大规模IoT网络设计高效的NOMA(非正交多址)随机接入方案。系统需要支持1000+设备，信令开销低，碰撞概率小。",
+      "expected_output": "Proposer应通过头脑风暴生成多个NOMA方案方向(功率域、码域、混合等)，Supporter提供实验验证，Critic挑战假设，Evaluator综合决策",
+      "files": [],
+      "assertions": [
+        {
+          "name": "diverse_ideas",
+          "expected": "Proposer 应生成多样化的NOMA想法",
+          "check": "docs/proposal.json 中包含至少 3 种不同的NOMA方案方向"
+        },
+        {
+          "name": "experimental_validation",
+          "expected": "Supporter 应运行碰撞概率和吞吐量实验",
+          "check": "docs/support.json 中包含实验结果和图表路径"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "massive_MIMO_pilot",
+      "prompt": "研究问题：减小时变信道中大规模MIMO系统的导频开销。方案需要平衡估计精度和开销效率。",
+      "expected_output": "应侧重导频优化算法设计，包含与基线方法的对比实验",
+      "files": [],
+      "assertions": [
+        {
+          "name": "algorithm_focus",
+          "expected": "提案应侧重算法设计",
+          "check": "docs/proposal.json 中包含具体的算法描述和复杂度分析"
+        },
+        {
+          "name": "baseline_comparison",
+          "expected": "应与基线方法对比",
+          "check": "docs/support.json 或 docs/critique.json 中包含基线对比实验"
+        }
+      ]
+    }
+  ]
+}
