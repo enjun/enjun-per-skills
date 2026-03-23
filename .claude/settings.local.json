@@ -1,4 +1,8 @@
 {
+  "enabledMcpjsonServers": [
+    "zotero-mcp"
+  ],
+  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
       "Edit(~/.claude/skills/write-survey-paper-workspace/**)",
