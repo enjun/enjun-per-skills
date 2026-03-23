@@ -186,6 +186,15 @@ Save to `history/YYYY-MM-DD-HHMMSS-analysis.md`:
 - Gap identification: [What's missing]
 ```
 
+**Commit the analysis record**:
+```bash
+git add history/YYYY-MM-DD-HHMMSS-analysis.md
+git commit -m "Add: Critical analysis report for YYYY-MM-DD
+
+- Identified X critical, Y important, Z minor issues
+- Literature assessment completed"
+```
+
 ---
 
 ## Phase 2: Plan Generation & Approval
@@ -323,6 +332,16 @@ Save to `history/YYYY-MM-DD-HHMMSS-improvement.md`:
 
 ## Files Modified
 - latex/main.tex (sections/lines changed)
+```
+
+**Commit the improvement record**:
+```bash
+git add history/YYYY-MM-DD-HHMMSS-improvement.md
+git commit -m "Add: Improvement record for YYYY-MM-DD
+
+- Resolved X critical issues
+- Addressed Y important improvements
+- Quality metrics updated"
 ```
 
 ### Step 3: Merge to Master
