@@ -380,7 +380,29 @@ git commit -m "Add: Improvement record for YYYY-MM-DD
 - Quality metrics updated"
 ```
 
-### Step 3: Merge to Master
+### Step 3: Verify Clean State Before Merge ⚠️
+
+**CRITICAL**: Before merging, ensure all files are written and committed:
+
+```bash
+# Check git status - must show "working tree clean"
+git status
+
+# Verify all changes committed
+if [ -n "$(git status --porcelain)" ]; then
+    echo "ERROR: Uncommitted changes detected!"
+    echo "Please commit all changes before merging."
+    git status
+    exit 1
+fi
+
+# Confirm ready to merge
+echo "✓ All changes committed. Ready to merge."
+```
+
+**Only proceed with merge if working tree is clean.**
+
+### Step 4: Merge to Master
 
 ```bash
 git checkout master
