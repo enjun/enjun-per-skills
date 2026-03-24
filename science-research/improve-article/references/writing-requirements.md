@@ -180,6 +180,38 @@ grep -n "[，。；：（）【】《》]" *.tex
 | ； | `;` |
 | ： | `:` |
 
+### 3.5 Multi-Line Equation Alignment
+
+**推荐使用 `align` 环境进行多行公式对齐**
+
+```latex
+% 两行对齐（单个编号）
+\begin{equation}
+\begin{aligned}
+&\text{第一行} \\
+&= \text{第二行}
+\end{aligned}
+\end{equation}
+
+% 多行对齐（每行独立编号）
+\begin{align}
+a &= b + c \\
+&= d + e
+\end{align}
+
+% 多行对齐（不编号）
+\begin{align*}
+a &= b + c \\
+&= d + e
+\end{align*}
+```
+
+**对齐说明**：
+- `&` 符号指定对齐位置（通常放在等号前）
+- `\\` 换行
+- `align` 每行独立编号，`equation` 整体一个编号
+- `align*` 不编号
+
 ---
 
 ## 4. Pre-Submission Checklist
