@@ -182,6 +182,8 @@ For detailed writing guidance for each section, see:
 
 **IMPORTANT**: When generating LaTeX output, all content **MUST** comply with IEEEtran.cls format requirements. See **→ [references/ieeetran-format-guide.md](references/ieeetran-format-guide.md)** for mandatory formatting rules.
 
+**IMPORTANT**: When including simulation results with Python code, all figures **MUST** be output in EPS format. See **→ [references/simulation-code.md](references/simulation-code.md)** for Python code requirements.
+
 ### Quick Reference
 
 **Section Structure**:
@@ -280,6 +282,7 @@ Generate publication-ready documents using the IEEE LaTeX template.
 - [ ] All symbols defined at first use
 - [ ] No missing equation numbers
 - [ ] Proper figure/table placement
+- [ ] All figures in EPS format (see simulation-code.md)
 - [ ] Compilation succeeds without errors
 - [ ] **IEEEtran.cls compliance verified** (see ieeetran-format-guide.md):
   - [ ] Document class uses `\documentclass[10pt,journal]{IEEEtran}` or `\documentclass[10pt,conference]{IEEEtran}`
@@ -388,6 +391,7 @@ Detailed guidance documents:
 - **literature-search.md** - Zotero search strategies and information extraction
 - **article-structure.md** - IMRAD structure and section-by-section writing guidance
 - **ieeetran-format-guide.md** - IEEEtran.cls LaTeX format requirements (MANDATORY for all LaTeX output)
+- **simulation-code.md** - Python simulation code requirements (EPS format, reproducibility, code organization)
 
 ### scripts/
 No script files. All operations use standard tools (zotero-mcp, latexmk).

@@ -118,9 +118,72 @@ Essential requirements for research paper writing: data authenticity, theoretica
 % Figure width fix
 \begin{figure}[h]
 \centering
-\includegraphics[width=\columnwidth]{file.pdf}
+\includegraphics[width=\columnwidth]{file.eps}
 \caption{...}\label{fig:name}
 \end{figure}
+```
+
+### 3.1.1 Figure File Format
+
+**⚠️ CRITICAL REQUIREMENT**: All figures inserted into LaTeX must be in **EPS (Encapsulated PostScript)** format.
+
+| Format | Allowed | Reason |
+|--------|---------|--------|
+| `.eps` | ✅ **REQUIRED** | Standard for academic LaTeX, vector quality |
+| `.pdf` | ⚠️ Acceptable alternative | When EPS unavailable |
+| `.png`, `.jpg` | ❌ **NOT RECOMMENDED** | Raster format, quality loss |
+
+**Python Code Requirements** (matplotlib):
+
+When generating figures with Python, use the following code pattern:
+
+```python
+import matplotlib.pyplot as plt
+
+# Create your plot
+fig, ax = plt.subplots()
+ax.plot(x, y)
+ax.set_xlabel('X Label')
+ax.set_ylabel('Y Label')
+ax.set_title('Figure Title')
+
+# ⚠️ CRITICAL: Save as EPS format
+plt.savefig('figure_name.eps', format='eps', bbox_inches='tight')
+plt.close()
+```
+
+**Required parameters**:
+- `format='eps'` - Explicitly set EPS format
+- `bbox_inches='tight'` - Remove extra whitespace
+
+**Recommended additional parameters**:
+```python
+plt.savefig('figure_name.eps',
+            format='eps',
+            bbox_inches='tight',
+            dpi=300,           # High resolution
+            transparent=False)  # White background (default)
+```
+
+**Conversion commands**:
+```bash
+# Convert PDF to EPS
+pdftops -eps input.pdf output.eps
+
+# Convert PNG to EPS (low quality)
+convert input.png output.eps
+
+# Convert using GIMP (better quality)
+# Open PNG in GIMP → File → Export As → Select EPS
+```
+
+**Verification**:
+```bash
+# Check figure formats in LaTeX
+grep -n "\includegraphics" *.tex | grep -v "\.eps"
+
+# Check Python code for EPS format
+grep -n "savefig" code/*.py | grep -v "format='eps'"
 ```
 
 ### 3.2 Labeling & Cross-Referencing
