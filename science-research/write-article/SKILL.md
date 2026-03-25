@@ -180,6 +180,8 @@ Structure your manuscript using IMRAD format (Introduction, Methods, Results, An
 For detailed writing guidance for each section, see:
 **→ [references/article-structure.md](references/article-structure.md)**
 
+**IMPORTANT**: When generating LaTeX output, all content **MUST** comply with IEEEtran.cls format requirements. See **→ [references/ieeetran-format-guide.md](references/ieeetran-format-guide.md)** for mandatory formatting rules.
+
 ### Quick Reference
 
 **Section Structure**:
@@ -227,6 +229,8 @@ Update TodoWrite as you complete sections:
 
 Generate publication-ready documents using the IEEE LaTeX template.
 
+**CRITICAL REQUIREMENT**: All generated LaTeX documents **MUST** comply with IEEEtran.cls format requirements. See **→ [references/ieeetran-format-guide.md](references/ieeetran-format-guide.md)** for mandatory formatting rules.
+
 ### Mode-Specific Guidance
 
 **Quick Mode**:
@@ -241,12 +245,14 @@ Generate publication-ready documents using the IEEE LaTeX template.
   - All references cited
   - Equations numbered sequentially
   - Figures/tables referenced in text
+  - **IEEEtran.cls format compliance verified** (see ieeetran-format-guide.md)
 - Confirm compilation success
 
 **Detailed Mode**:
 - Explain template structure in detail
 - Add helpful comments in LaTeX code
 - Run comprehensive quality checks (see below)
+- **Verify IEEEtran.cls format compliance** (see ieeetran-format-guide.md)
 - Review compiled PDF with user
 - Suggest improvements and refinements
 
@@ -275,6 +281,13 @@ Generate publication-ready documents using the IEEE LaTeX template.
 - [ ] No missing equation numbers
 - [ ] Proper figure/table placement
 - [ ] Compilation succeeds without errors
+- [ ] **IEEEtran.cls compliance verified** (see ieeetran-format-guide.md):
+  - [ ] Document class uses `\documentclass[10pt,journal]{IEEEtran}` or `\documentclass[10pt,conference]{IEEEtran}`
+  - [ ] Package loading order follows IEEEtran recommendations (hyperref last)
+  - [ ] Author block uses `\IEEEauthorblockN` and `\IEEEauthorblockA`
+  - [ ] Keywords use `\begin{IEEEkeywords}...\end{IEEEkeywords}`
+  - [ ] Figures use appropriate width (`\columnwidth` for double-column, `\textwidth` for single-column)
+  - [ ] Algorithm environment uses proper `algorithmic` syntax
 
 **Language Quality**:
 - [ ] Complete paragraphs (no bullet points in main text)
@@ -296,7 +309,9 @@ cd latex
 latexmk -xelatex main.tex
 ```
 
-**Important**: Chinese documents MUST use `xelatex`, not `pdflatex`.
+**Important**:
+- Chinese documents MUST use `xelatex`, not `pdflatex`
+- **All LaTeX output MUST comply with IEEEtran.cls format requirements** (see ieeetran-format-guide.md)
 
 ### Progress Update
 
@@ -372,6 +387,7 @@ LaTeX template files:
 Detailed guidance documents:
 - **literature-search.md** - Zotero search strategies and information extraction
 - **article-structure.md** - IMRAD structure and section-by-section writing guidance
+- **ieeetran-format-guide.md** - IEEEtran.cls LaTeX format requirements (MANDATORY for all LaTeX output)
 
 ### scripts/
 No script files. All operations use standard tools (zotero-mcp, latexmk).
