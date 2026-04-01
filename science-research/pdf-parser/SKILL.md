@@ -5,6 +5,7 @@ description: >-
   structured formats (Markdown, JSON, HTML, plain text). Supports multi-column layouts,
   tables, headings, lists, images, formulas, and OCR for scanned documents.
   Based on opendataloader-pdf (Apache 2.0). Requires Java 11+ and Python 3.10+.
+  Note: Does NOT extract or save images from papers.
 ---
 
 # PDF Parser (opendataloader-pdf)
@@ -26,7 +27,8 @@ Parse PDF files into AI-ready structured data using opendataloader-pdf — a hig
 1. **Batch first** — Each CLI invocation spawns a JVM process. Always combine multiple PDFs into a single command rather than running separate calls.
 2. **Choose the right mode** — Use local mode for simple, text-heavy PDFs (0.05s/page). Use hybrid mode for complex tables, scanned documents, or when maximum accuracy is needed (0.43s/page).
 3. **Markdown output** — Always output Markdown format for reading/RAG.
-4. **Content safety by default** — The tool automatically filters hidden text, off-page content, and invisible layers. Use `--sanitize` for PII redaction.
+4. **No image extraction** — Do NOT use `--image-output external` or any image extraction options. Only extract text content.
+5. **Content safety by default** — The tool automatically filters hidden text, off-page content, and invisible layers. Use `--sanitize` for PII redaction.
 
 ## Quick Start
 
@@ -121,9 +123,10 @@ opendataloader-pdf ./pdfs/ -o ./output -f markdown
 ```bash
 opendataloader-pdf input.pdf -o ./output -f markdown \
   --pages "1,3,5-7" \
-  --image-output external \
   --table-method cluster
 ```
+
+> **Note:** Do NOT add `--image-output external` or similar image extraction flags. Images from papers are not extracted or saved.
 
 **Hybrid mode:**
 
@@ -159,7 +162,7 @@ opendataloader-pdf encrypted.pdf -p "password" -o ./output -f json
 ls ./output/
 ```
 
-Output files are named after the source PDF (e.g., `document.md`). Images are extracted to a subdirectory when using `--image-output external`.
+Output files are named after the source PDF (e.g., `document.md`). Images are NOT extracted.
 
 ### Step 3.2: Present Results to the User
 
@@ -171,7 +174,7 @@ Output files are named after the source PDF (e.g., `document.md`). Images are ex
 
 Provide the user with:
 1. The output file path(s)
-2. A brief summary of what was extracted (pages, tables, images, headings)
+2. A brief summary of what was extracted (pages, tables, headings)
 3. Any warnings or issues (e.g., pages that fell back to local mode in hybrid)
 
 ---
