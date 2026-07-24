@@ -1,0 +1,20 @@
+{
+  "skill_name": "marp-slide-format",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我需要制作一个Marp幻灯片，其中有一页包含参数表格，需要居中显示。表格内容是系统配置参数：频率28GHz，带宽800MHz，天线数64。",
+      "expected_output": "生成的Marp代码应包含CSS样式定义center-table类，以及使用_class: center-table的表格页面"
+    },
+    {
+      "id": 2,
+      "prompt": "帮我调整Marp幻灯片中的图片大小，当前图片太大了，需要缩小到250像素高度，同时居中显示。图片路径是results/plot.png",
+      "expected_output": "应提供使用HTML img标签的代码，height=250，并用表格包裹实现居中"
+    },
+    {
+      "id": 3,
+      "prompt": "创建一个双列布局的Marp幻灯片页面，左侧是实验参数，右侧是实验结论",
+      "expected_output": "应提供使用<div class='columns'>的双列布局代码"
+    }
+  ]
+}
