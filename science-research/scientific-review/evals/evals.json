@@ -1,0 +1,26 @@
+{
+  "skill_name": "scientific-review",
+  "evals": [
+    {
+      "id": 1,
+      "name": "review-manuscript",
+      "prompt": "请对这篇期刊稿件进行同行评审：latex/main.tex。请给出结构化的评审报告，包含摘要声明、主要意见和次要意见。",
+      "expected_output": "The skill should route to the article review framework and produce a structured peer review report: summary statement with recommendation, numbered major comments with concrete solutions, numbered minor comments, and questions to the author. Tone should be constructive and professional.",
+      "files": ["latex/main.tex"]
+    },
+    {
+      "id": 2,
+      "name": "review-nsfc",
+      "prompt": "请帮我评审这份国家自然科学基金申请书（NSFC），文件是 proposal.docx。给出四大核心部分（立项依据、研究内容与目标、研究方案、创新特色）的评估和改进建议。",
+      "expected_output": "The skill should route to the NSFC proposal review framework and evaluate the four core parts (立项依据, 研究内容与目标, 研究方案及可行性, 创新特色), following the funding-tier conclusion standard (优先资助/可资助/不予资助) and providing concrete improvement suggestions.",
+      "files": ["proposal.docx"]
+    },
+    {
+      "id": 3,
+      "name": "evaluate-survey",
+      "prompt": "请给这篇无线通信综述文章打分（满分100分）：survey.md。",
+      "expected_output": "The skill should route to the survey evaluation framework and apply the 7-dimension, 100-point rubric, providing per-dimension scores with bands and justification, a total score, and a written evaluation report with strengths, weaknesses, and improvement suggestions.",
+      "files": ["survey.md"]
+    }
+  ]
+}

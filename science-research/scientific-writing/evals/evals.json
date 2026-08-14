@@ -1,0 +1,33 @@
+{
+  "skill_name": "scientific-writing",
+  "evals": [
+    {
+      "id": 1,
+      "name": "article-writing",
+      "prompt": "I want to write an original research paper on NOMA-assisted millimeter wave beam management in 6G networks. I have Zotero for literature management. Please guide me through writing the paper.",
+      "expected_output": "The skill should determine the document type (research article), search Zotero for relevant literature, structure the manuscript using IMRAD format (with quick/standard/detailed mode selection), and generate a publication-ready IEEE LaTeX document that compiles successfully.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "survey-writing",
+      "prompt": "I want to write a survey paper on RIS-assisted near-field beam management. I have my references in a BibTeX file called myref.bib and I use Zotero for literature management. Please guide me through the process.",
+      "expected_output": "The skill should route to the survey workflow and follow the 9-step process: 1) build references index using Zotero search, 2) extract literature summaries via zotero_get_notes, 3) deep analysis of important papers via zotero_get_item_fulltext, 4) clear session, 5) structure and write, 6) detail improvements, 7) self-evaluate using the 7-dimension rubric, 8) iterate if score < 90, 9) compile LaTeX.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "technical-route",
+      "prompt": "请调研无线通信系统中的信道估计技术，使用以下参考文献文件：test_refs.bib",
+      "expected_output": "The skill should route to the technical route workflow and generate a structured LaTeX technical report with: 1) problem background, 2) technical route classification (at least 2 method categories), 3) per-route principles, representative works, evolution and critical analysis, 4) comparison table, 5) summary and outlook.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "improve-existing",
+      "prompt": "Help me improve my existing research paper on terahertz communications. The paper is in latex/main.tex. Address the methodology weaknesses and improve the Related Work section.",
+      "expected_output": "The skill should route to the improvement workflow: critically analyze the paper (using the scientific-thinking skill's critical analysis), generate an improvement plan for user approval, implement changes on a Git branch, verify quality, and merge back with an improvement record.",
+      "files": ["latex/main.tex"]
+    }
+  ]
+}

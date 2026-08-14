@@ -1,0 +1,19 @@
+{
+  "skill_name": "scientific-thinking",
+  "evals": [
+    {
+      "id": 1,
+      "name": "brainstorm-ideas",
+      "prompt": "我想探索一个新的研究方向：将可重构智能表面（RIS）应用于太赫兹通信的波束管理。帮我头脑风暴一些新颖的研究想法。",
+      "expected_output": "The skill should route to brainstorm mode and engage in a conversational, collaborative ideation session: understand the user's context, diverge with multiple creative ideas (including cross-disciplinary analogies and assumption challenges), connect patterns, critically evaluate the promising candidates, and synthesize concrete next steps with novelty and feasibility notes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "critical-evaluate",
+      "prompt": "请用批判性思维评估这篇论文的方法学质量：paper.md。重点关注实验设计是否有效、是否存在偏倚、统计方法是否恰当。",
+      "expected_output": "The skill should route to critical thinking mode and systematically evaluate the paper's methodology, experimental design validity, potential biases, and statistical soundness using the established frameworks, producing a structured critique with strengths, concerns organized by severity, and specific recommendations.",
+      "files": ["paper.md"]
+    }
+  ]
+}
