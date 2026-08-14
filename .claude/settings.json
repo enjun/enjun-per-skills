@@ -1,11 +1,3 @@
 {
-  "permissions": {
-    "allow": [
-      "Edit(~/.claude/skills/skill-creator/**)",
-      "mcp__zotero-mcp__zotero_search_by_tag"
-    ],
-    "additionalDirectories": [
-      "C:\\Users\\hp\\.claude\\skills\\skill-creator\\independent-scientific-research-workspace\\iteration-1\\eval-0\\with_skill\\outputs\\docs"
-    ]
-  }
+  
 }
