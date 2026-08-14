@@ -1,5 +1,5 @@
 ---
-name: batch-paper-analyzer
+name: pdf-parser-paper
 description: >
   Batch process multiple academic papers from Zotero library. Downloads PDFs, parses them into
   structured Markdown, fixes formulas/tables/heading issues, and extracts key context information.
@@ -10,7 +10,7 @@ description: >
   paper_context.md output.
 ---
 
-# Batch Paper Analyzer
+# PDF Parser Paper
 
 Process one or more academic papers from Zotero into clean, structured Markdown with extracted context.
 
