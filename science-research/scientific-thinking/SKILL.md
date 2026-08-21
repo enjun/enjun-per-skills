@@ -1,6 +1,6 @@
 ---
 name: scientific-thinking
-description: Scientific thinking skills with two modes — brainstorming and critical thinking. Brainstorm mode generates novel research ideas, explores cross-disciplinary connections, challenges assumptions, and identifies research gaps (use whenever the user mentions 头脑风暴, 构思, 研究想法, 创新, 探索方向, or needs help coming up with research directions). Critical-thinking mode evaluates scientific claims, evidence quality, experimental design, biases, statistical validity, and logical fallacies using established frameworks (GRADE, Cochrane risk of bias); use for "evaluate this methodology", "check the evidence", "批判分析", "帮我看看这篇论文的方法学有没有问题". For formal review writing use scientific-review; for writing papers use scientific-writing.
+description: Scientific thinking skills with two modes — brainstorming and critical thinking. Brainstorm mode generates novel research ideas, explores cross-disciplinary connections, challenges assumptions, and identifies research gaps with systematic problem depth assessment including SOTA analysis and literature evaluation (use whenever the user mentions 头脑风暴, 构思, 研究想法, 创新, 探索方向, 评估问题深度, SOTA现状分析, 避免重复研究, 研究价值评估, or needs help coming up with research directions). Critical-thinking mode evaluates scientific claims, evidence quality, experimental design, biases, statistical validity, and logical fallacies using established frameworks (GRADE, Cochrane risk of bias); use for "evaluate this methodology", "check the evidence", "批判分析", "帮我看看这篇论文的方法学有没有问题", "分析SOTA现状", "评估研究空白". For formal review writing use scientific-review; for writing papers use scientific-writing.
 allowed-tools: [Read, Write, Edit, Bash]
 license: MIT license
 ---
@@ -41,6 +41,22 @@ Read **→ [brainstorming.md](references/brainstorming.md)** and follow its five
 - Let ideas flow before evaluating (quantity over quality in the divergent phase)
 - Don't announce which method you're using unless asked — apply it naturally
 - Give people space to think; comfortable silence is productive
+
+**Problem Depth Assessment:**
+When refining research questions, avoid overly broad or superficial problems. Each question must address:
+
+1. **Why research this** - Scientific value and practical significance
+2. **Current research progress** - SOTA (State of the Art) status and precise positioning
+3. **Is the problem solved** - Avoid redundant research
+
+Standard evaluation process:
+- Deep literature search (semantic retrieval + title search + key abstracts)
+- Web search for important literature outside knowledge base (especially latest reviews and competing work)
+- Issue a ruling for each question: valid / valid after narrowing / should be dropped as solved
+- Clearly state "whose shoulders you're standing on" — cite key foundational work
+- When important literature is found but full text unavailable, list title and source for user to download
+
+**Why:** The value of grant applications/topic selection depends on precise distance from SOTA. If existing research has basically solved a problem, further research is wasted effort; you must stand on giants' shoulders.
 
 ---
 

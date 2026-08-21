@@ -182,3 +182,4 @@ skill-creator-workspaces/
 # claude code 配置
 .mcp.json
 .claude/settings.local.json
+.repo_memory/
