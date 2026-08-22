@@ -1,13 +1,11 @@
 ---
 name: pdf-parser-paper
 description: >
-  Batch process multiple academic papers from Zotero library. Downloads PDFs, parses them into
-  structured Markdown, fixes formulas/tables/heading issues, and extracts key context information.
-  Use this skill whenever the user wants to analyze one or more papers, process papers in batch,
-  extract paper context, or mentions "analyze paper", "process paper", "batch papers", "多篇论文",
-  "分析论文", "批量处理". Also trigger when the user provides a list of paper titles or authors
-  to analyze. Handles everything from Zotero PDF retrieval through to clean paper.md and
-  paper_context.md output.
+  Batch process academic papers from Zotero library into clean Markdown. Downloads PDFs, parses them,
+  fixes LaTeX formulas/tables/headings, and extracts paper context. ONLY trigger when user explicitly
+  mentions: "解析PDF论文", "PDF论文转Markdown", "parse PDF papers", "PDF papers to Markdown". Do not
+  trigger based solely on paper titles/authors/DOI without these keywords. Outputs paper.md and
+  paper_context.md with clean LaTeX notation and proper structure.
 ---
 
 # PDF Parser Paper
@@ -108,9 +106,18 @@ Read the raw parsed Markdown and systematically fix all issues described below. 
 - Inline math: `$...$`. Display math: `$$...$$`.
 - Number display equations with `\tag{n}` at the end.
 - **Never use multiple `\tag` in a single `$$...$$` block** (e.g., in `aligned` environments, only one `\tag` per block — use plain text for the rest).
+- **Never use `\tag` inside `aligned` environments** — place `\tag{number}` after the `\end{aligned}` to avoid rendering errors.
 - **Never use `\tag` in inline math** (e.g., `$x=1 \tag{1}$` is wrong — use `$x=1$ (1)` instead).
 - All LaTeX subscripts must use braces: `\delta_{\alpha}`, not `\delta\alpha`.
 - Function calls like `\sin\theta`, `\cos\varphi` are NOT subscripts — no braces needed.
+- **Convert inline math expressions to standard LaTeX format**:
+  - Collections/sequences: `{wk}k∈K` → `$\{w_k\}_{k \in \mathcal{K}}$`
+  - Greek letters: `δ`, `α`, `θ` → `$\delta$`, `$\alpha$`, `$\theta$`
+  - Math functions: `sin`, `cos`, `log` → `$\sin$`, `$\cos$`, `$\log$`
+  - Vectors/matrices: use `\mathbf{}`, `\vec{}`, or `\mathcal{}` as appropriate
+- **Ensure variable name consistency throughout the document**:
+  - Same variable must use same format everywhere (e.g., if `$R_k$` is used, never use `Rk` or `R_k`)
+  - Choose standard LaTeX format for all variables and apply consistently
 
 #### 4.3 Table and Figure Fixes
 - Simple empty tables (header-only): reconstruct from the paper's textual description.
@@ -203,3 +210,38 @@ When the user provides multiple papers:
 - The cleaning step (Step 4) is the most critical — take your time and be thorough
 - After cleaning, read through the entire `paper.md` once more to catch any remaining issues
 - The `paper_context.md` should be comprehensive enough that someone can understand the paper's key contributions without reading the full paper.md
+
+---
+
+## Final Checklist
+
+Use this checklist for **each processed paper** to ensure quality and completeness:
+
+### File Organization
+- [ ] Directory named correctly: `<FirstAuthorLastName><TitleWord1><TitleWord2><TitleWord3><Year>`
+- [ ] Directory contains **only** `paper.md` and `paper_context.md` (all PDFs, temp files, debris removed)
+
+### Content Structure  
+- [ ] Headings follow hierarchy: `#` title, `##` sections, `###` subsections
+- [ ] No scattered markdown markers misidentified as headings (e.g., `# M`, `### y = Xh + n`)
+- [ ] Sections properly ordered (no V.A/V.B interleaving)
+- [ ] IEEE headers/footers/copyright/DOI lines removed, author biographies separated with `---`
+
+### Mathematical Notation
+- [ ] Display math: `$$...$$` with `\tag{n}` **outside** `aligned` environments
+- [ ] No `\tag` in inline math (use `$x=1$ (1)` not `$x=1 \tag{1}$`)
+- [ ] LaTeX subscripts use braces: `\delta_{\alpha}` not `\delta\alpha`
+- [ ] Sampled 3+ random inline math expressions: all use LaTeX format (Greek letters, functions, collections)
+- [ ] Checked main variables (5-10 key variables): each uses consistent format throughout document
+
+### Visual Elements
+- [ ] Tables with headers only or minimal data: reconstructed from textual description
+- [ ] Tables with complex structure (multiple merged cells, nested tables): removed (descriptive text preserved)
+- [ ] Figure references removed (captions and descriptions preserved)
+
+### Formatting
+- [ ] Text markers (Firstly, Secondly, Property 1, Theorem 1, etc.) in **bold**
+- [ ] Proof markers in italics (*Proof*, *Q.E.D.*)
+- [ ] References formatted: author, "title", *journal*, vol/issue/pages, month year
+- [ ] Footnote markers converted to inline citations or deleted
+
