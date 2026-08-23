@@ -6,7 +6,7 @@ description:
   本技能确保：关键词覆盖多维度、搜索结果可追溯、结论结构化展示给用户。
 metadata:
   author: user
-  version: "1.1"
+  version: "1.2"
   created: 2026-08-22
   modified: 2026-08-23
 ---
@@ -86,27 +86,29 @@ curl -s http://localhost:3456/new --data-raw 'https://ieeexplore.ieee.org/search
 ```
 同时创建多个（6-8 个为宜，避免浏览器负担过重）。
 
-### Step 3：等待页面加载，提取结果
+### Step 3：提取搜索结果
+代理 `/new` 已内置页面加载等待，无需额外 sleep，直接提取：
 ```bash
-sleep 5  # 等待页面完全加载
-curl -s "http://localhost:3456/eval?target=<ID>" -d 'JSON.stringify(Array.from(document.querySelectorAll("h3 a, [class*=title] a")).map(a => ({title: a.textContent.trim(), href: a.href})).slice(0, 8))'
+curl -s "http://localhost:3456/eval?target=<ID>" -d 'JSON.stringify(Array.from(document.querySelectorAll(".fw-bold")).map(a => ({title: a.textContent.trim(), href: a.href})).slice(0, 15))'
 ```
 
-### Step 4：识别高相关论文（分阶段读取）
-**重要：如果某轮搜索命中论文超过 10 篇，按以下规则分阶段处理：**
-
-1. **第一轮（快速筛选）**：只读取标题和链接，记录所有候选论文
-2. **第二轮（摘要读取）**：按相关度排序，每次导航到 3-4 篇论文的详情页读取摘要
-3. **第三轮（深度阅读）**：仅对前 3-4 篇最相关的论文导航到详情页完整阅读
-4. **每轮结束后向用户反馈**，询问是否需要继续读取更多论文
-
+### Step 4：自动读取前 10 篇论文摘要
+**关键改进**：仅凭标题难以判断论文价值，必须读取摘要。对每轮搜索的前 10 篇论文，在**同一搜索标签页**中依次导航读取摘要，然后重新导航回搜索结果页：
 ```bash
-# 导航到论文页
-curl -s -X POST --data-raw '<完整IEEE URL>' "http://localhost:3456/navigate?target=<ID>"
-sleep 3
+# 第1篇：导航到论文页（代理自动等待加载）
+curl -s -X POST --data-raw '<论文URL>' "http://localhost:3456/navigate?target=<搜索页targetID>"
+sleep 5  # IEEE 论文页加载较慢
 # 读取摘要
-curl -s "http://localhost:3456/eval?target=<ID>" -d 'document.querySelector(".abstract-content, [class*=abstract]")?.innerText?.substring(0, 1500) || document.body.innerText.substring(0, 1200)'
+curl -s "http://localhost:3456/eval?target=<搜索页targetID>" -d 'document.querySelector(".abstract-text-content")?.innerText?.substring(0, 1500)'
+# 重新导航回搜索结果页
+curl -s -X POST --data-raw '<搜索URL>' "http://localhost:3456/navigate?target=<搜索页targetID>"
+sleep 5  # IEEE 搜索结果 JS 渲染需要重建 DOM
+# 重复上述流程，读完所有论文
 ```
+**注意**：
+- 摘要选择器使用 `.abstract-text-content`（IEEE Xplore 论文页标准类名）
+- 搜索页重建需 `sleep 5`，因 IEEE 使用 JS 动态渲染列表
+- 重新导航回搜索页比 `/back` 更可靠，避免 DOM 未重建的问题
 
 ### Step 5：关闭标签页，整理结果
 ```bash
@@ -117,9 +119,9 @@ curl -s "http://localhost:3456/close?target=<ID>"  # 逐个关闭
 每次完成一个搜索轮次后，向用户汇报：
 - 本轮搜索的关键词
 - 命中论文数
-- 高相关论文（已读摘要的）
-- 候选论文（仅记录标题的，等待后续读取）
-- 询问是否继续搜索或读取更多论文
+- 前 10 篇论文的摘要（含核心方法和主要结论）
+- 关键发现（是否有满足条件的文献）
+- 询问是否继续搜索其他关键词组合
 
 ---
 
@@ -155,25 +157,26 @@ curl -s "http://localhost:3456/close?target=<ID>"  # 逐个关闭
 - 搜索时间：YYYY-MM-DD HH:MM
 - 关键词总数：N 组
 - 累计命中论文：M 篇
-- 高相关论文：K 篇
+- 已读摘要论文：K 篇
 
 ### 搜索关键词（按维度分类）
-| 维度 | 关键词组合 | 命中数 |
-|:---|:---|:---:|
-| ... | ... | ... |
-
-### 核心发现
-**结论**：...
-
-### 最接近的文献（按相关度排序）
-| 文献 | 相关度 | 排序理由 | 关键差异 |
-|:---|:---:|:---|:---|
+| 维度 | 关键词组合 | 命中数 | 已读摘要 |
+|:---|:---|:---:|:---:|
 | ... | ... | ... | ... |
 
+### 论文摘要（按相关度排序，前10篇）
+| # | 标题 | 核心方法 | 主要结论 | 差异 |
+|:---:|:---|:---|:---|:---|
+| 1 | [标题](IEEE链接) | 方法简述 | 结论简述 | 与目标差距 |
+| ... | ... | ... | ... | ... |
+
+### 核心发现
+**结论**：...（基于摘要的综合判断）
+
 ### 完整参考文献
-| 简称 | 引用 | IEEE链接 |
-|:---|:---|:---|
-| ... | ... | https://ieeexplore.ieee.org/document/... |
+| # | 引用 | IEEE链接 | 已读摘要 |
+|:---:|:---|:---|:---:|
+| 1 | 作者, 年份, 期刊 | https://ieeexplore.ieee.org/document/... | ✅ |
 ```
 
 ---
@@ -189,9 +192,8 @@ curl -s "http://localhost:3456/close?target=<ID>"  # 逐个关闭
 - **跨系统架构搜索**：将 RIS 替换为 MIMO / 天线阵列 / phased array 进行搜索
 
 ### 页面加载
-- IEEE Xplore 搜索结果页需要 3-5 秒加载，务必 `sleep 5`
-- 摘要页需要 2-3 秒，`sleep 3` 足够
-- 超时或空白时，检查 `document.title` 确认页面是否加载
+- 代理 `/new` 和 `/navigate` 已内置页面加载等待（polling `document.readyState`），无需额外 `sleep`
+- 超时或空白时，检查 `document.title` 确认页面是否正常加载：`curl -s "http://localhost:3456/eval?target=<ID>" -d 'document.title'`
 
 ### 链接获取
 - 搜索结果中的链接格式：`https://ieeexplore.ieee.org/document/<DOI号>/`
