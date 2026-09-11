@@ -1,0 +1,606 @@
+{
+  "course": "Python 语言程序设计",
+  "week": "第 2 周",
+  "output": "第2周_Python核心语法.pptx",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "WEEK 02",
+      "title_lines": ["Python 核心语法"],
+      "subtitle": "Variables, Types, Control Flow, Data Structures, Functions",
+      "credit": "Python 语言程序设计 · 第 2 周 · 课堂课件"
+    },
+    {
+      "type": "agenda",
+      "section": "课程导览",
+      "title": "本周内容导览",
+      "items": [
+        {"no": "1", "title": "一、基础语法", "desc": "变量、内置类型与运算符 · 输入输出与 f-string · 控制流", "color": "blue"},
+        {"no": "2", "title": "二、数据结构", "desc": "字符串 · 切片（重点） · 列表、元组、字典、集合", "color": "green"},
+        {"no": "3", "title": "三、函数", "desc": "参数机制 · lambda · 类型注解 · 作用域 LEGB · 闭包", "color": "purple"},
+        {"no": "4", "title": "四、进阶特性", "desc": "推导式 · 生成器与迭代器 · 装饰器 · 异常处理 · 模块与 with", "color": "orange"},
+        {"no": "5", "title": "课堂练习", "desc": "【1】–【4】任意精度整数 · 综合小工具 · 示例代码 · AI 追问", "color": "red"}
+      ],
+      "sidebar": {
+        "heading": "学习节奏",
+        "steps": ["概念讲解", "代码示例", "Java/C++ 对比", "AI 辅助提问", "课堂练习"]
+      }
+    },
+    {
+      "type": "two_cards",
+      "section": "本周目标",
+      "title": "本周目标",
+      "cards": [
+        {"style": "header", "accent": "blue", "title": "📘 知识目标", "badge": {"text": "5", "bg": "yellow", "fg": "blue"},
+         "blocks": [
+           {"kind": "bullets", "size": 13, "height": 2.9, "items": [
+             "掌握 Python 基础语法：变量与内置类型、运算符、输入输出、控制流",
+             "掌握核心数据结构：字符串、列表、元组、字典、集合及其操作",
+             "掌握函数：参数机制、lambda、作用域、闭包、类型注解",
+             "掌握 Python 进阶特性：推导式、生成器、装饰器、异常处理、模块与 with 语句",
+             "理解上述语法与 Java/C++ 的差异"
+           ]}
+         ]},
+        {"style": "header", "accent": "orange", "title": "🤖 AI 辅助学习目标", "badge": {"text": "3", "bg": "yellow", "fg": "blue"},
+         "blocks": [
+           {"kind": "bullets", "size": 13, "height": 1.9, "items": [
+             "用 AI 解释语法细节、对比 Java/C++ 写法",
+             "用 AI 把 Java/C++ 代码片段翻译成 Pythonic 写法",
+             "用 AI 排查语法错误与异常"
+           ]}
+         ]}
+      ]
+    },
+    {
+      "type": "divider",
+      "no": "01",
+      "title": "一、基础语法",
+      "subtitle": "变量、内置类型与运算符 · 输入输出与 f-string · 控制流",
+      "color": "blue"
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 1 · 变量、内置类型与运算符",
+      "title": "知识点 1：变量、内置类型与运算符",
+      "subtitle": "概念讲解",
+      "widths": [5.6, 6.55],
+      "cards": [
+        {"style": "strip", "accent": "blue", "title": "动态类型与运算符", "blocks": [
+          {"kind": "text", "size": 12, "height": 0.62, "text": "Python 是**动态类型**语言：变量无需声明类型，赋值时自动推断，同一变量可重新指向不同类型。"},
+          {"kind": "text", "size": 12, "height": 0.62, "text": "**运算符**：算术（+ - * / // % **）、比较（== != > < >= <=）、逻辑（and or not）、成员（in）、身份（is）、位（& | ^ ~ << >>）。"}
+        ]},
+        {"style": "strip", "accent": "green", "title": "内置基本类型", "blocks": [
+          {"kind": "table", "row_h": 0.32, "size": 10, "widths": [1.05, 1.55, 3.0], "rows": [
+            [{"text": "类型", "bold": true}, {"text": "例子", "bold": true}, {"text": "说明", "bold": true}],
+            ["int", "42", "任意精度整数（不会溢出）"],
+            ["float", "3.14", "双精度浮点"],
+            ["str", "\"hello\"", "不可变字符串（Unicode）"],
+            ["bool", "True / False", "布尔（首字母大写）"],
+            ["NoneType", "None", "空值，类似 Java 的 null"],
+            ["complex", "1+2j", "复数"]
+          ]},
+          {"kind": "text", "size": 12, "height": 0.3, "text": "**类型转换**：`int(\"42\")`、`float(\"3.14\")`、`str(42)`、`bool(0)`。"}
+        ]}
+      ]
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 1 · 变量、内置类型与运算符",
+      "title": "易错点：is vs ==",
+      "scenario": {"style": "header", "accent": "red", "title": "⚠️ C/Java 背景常见易错点：is vs ==", "blocks": [
+        {"kind": "text", "size": 11, "height": 1.0, "text": "Java 用 `==` 比字符串/对象是比较引用，Python 的 `==` 比**值**、`is` 比**身份（是否为同一个对象）**。不应使用 `is` 替代 `==`："},
+        {"kind": "callout", "height": 0.75, "text": "规则：比值永远用 ==，只有判断 is None / is not None 时才用 is"}
+      ]},
+      "code": {"filename": "is_vs_eq.py", "size": 10.5, "code": "# is 和 == 的区别：值相等不等于同一个对象\na = 1000\nb = int(\"1000\")        # 构造路径不同 → 另造一个对象\nprint(a == b)          # True   值相等，判断数值就看这个\nprint(a is b)          # False  不是同一个对象（id 不同）\nprint(id(a), id(b))    # 两个不同的地址：is 的本质就是比 id\n# 小整数缓存：is 偶尔“碰巧”为 True，极具迷惑性\nx, y = 256, 256\nprint(x is y)          # True —— CPython 把 -5~256 预先缓存为单例，纯属实现细节，勿依赖\nprint(\"abc\" == \"abc\")  # True（比值，即为所需）"}
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 1 · 与 Java/C++ 对比",
+      "title": "与 Java/C++ 对比：类型声明",
+      "cards": [
+        {"style": "strip", "accent": "red", "title": "C++ / Java：必须声明类型", "blocks": [
+          {"kind": "code", "label": "C++", "size": 11, "height": 1.35, "code": "// C++ - 必须声明类型\nint x = 10;\ndouble y = 3.14;\n// x = \"hello\";  // 编译错误"},
+          {"kind": "code", "label": "Java", "size": 11, "height": 1.35, "code": "// Java - 必须声明类型\nint x = 10;\nString s = \"hello\";"}
+        ]},
+        {"style": "strip", "accent": "blue", "title": "Python：动态类型", "blocks": [
+          {"kind": "code", "label": "python", "size": 11, "height": 1.55, "code": "# Python - 动态类型\nx = 10            # int\nx = \"hello\"       # 现在是 str（允许，但不推荐随意改）\ny = 3.14\nbig = 10 ** 100   # 任意精度，不会溢出"},
+          {"kind": "callout", "height": 0.85, "text": "注意：Python 的 / 是真除法（7/2 == 3.5），// 是整除（7//2 == 3），** 是幂（2**10 == 1024）。这和 C/Java 不同。"}
+        ]}
+      ]
+    },
+    {
+      "type": "code_full",
+      "section": "知识点 1 · 代码示例",
+      "title": "知识点 1 · 代码示例",
+      "subtitle": "运行 demo_basics()，观察输出",
+      "code": {"filename": "demo_basics.py", "size": 12, "height": 3.2, "code": "def demo_basics():\n    print(type(42), type(3.14), type(\"a\"), type(True), type(None))\n\n    # 运算符\n    print(7 / 2, 7 // 2, 7 % 2, 2 ** 10)\n\n    # 链式比较（Python 特有，C/Java 没有）\n    score = 85\n    print(\"优秀\" if score >= 90 else \"及格\")  # 三元表达式\n    print(60 <= score < 90)  # True，链式比较\n\ndemo_basics()"}
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 2 · 输入输出与 f-string",
+      "title": "知识点 2：输入输出与 f-string",
+      "subtitle": "概念讲解",
+      "cards": [
+        {"style": "strip", "accent": "blue", "title": "要点", "blocks": [
+          {"kind": "bullets", "size": 12, "height": 2.4, "items": [
+            "`print(...)`：输出，`sep` 控制分隔符，`end` 控制结尾。",
+            "`input(prompt)`：从键盘读取一行，**返回 str**（需要数字时要转换）。",
+            "**f-string**（3.6+）：在字符串前加 `f`，用 `{表达式}` 插值，最推荐的格式化方式。"
+          ]}
+        ]},
+        {"style": "strip", "accent": "green", "title": "f-string 用法示例", "blocks": [
+          {"kind": "code", "label": "fstring.py", "size": 11, "height": 2.45, "code": "name = input(\"姓名：\")        # 返回 str\nage = int(input(\"年龄：\"))    # 转成 int\n\nprint(name, age, sep=\" | \", end=\"\\n\")\nprint(f\"{name} 明年 {age + 1} 岁\")          # 基本插值\nprint(f\"圆周率 {3.14159:.2f}\")              # 保留2位 → 3.14\nprint(f\"{'居中':^20}\")                       # 居中宽20\nprint(f\"{1024:>10,}\")                        # 右对齐+千分位"}
+        ]}
+      ]
+    },
+    {
+      "type": "code_compare",
+      "section": "知识点 2 · 与 Java 对比",
+      "title": "与 Java 对比：格式化输出",
+      "cards": [
+        {"lang": "Java", "filename": "format.java", "color": "red", "code": "// Java\nSystem.out.printf(\"%s 明年 %d 岁%n\", name, age + 1);\nString s = String.format(\"%.2f\", 3.14159);"},
+        {"lang": "Python", "filename": "format.py", "color": "blue", "code": "# Python f-string 更直观\nprint(f\"{name} 明年 {age + 1} 岁\")\nprint(f\"{3.14159:.2f}\")"}
+      ],
+      "notes": [
+        {"icon": "💬", "text": "Java 需要占位符 %s / %d，类型要一一对应"},
+        {"icon": "🐍", "text": "f-string 直接内嵌表达式，无需占位符", "color": "blue"}
+      ]
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 3 · 控制流",
+      "title": "知识点 3：控制流",
+      "subtitle": "概念讲解",
+      "widths": [7.5, 4.45],
+      "cards": [
+        {"style": "strip", "accent": "blue", "title": "分支与循环", "blocks": [
+          {"kind": "bullets", "size": 13, "height": 2.3, "items": [
+            "**分支**：`if / elif / else`（注意是 `elif`，不是 `else if`）。",
+            "**三元表达式**：`a if cond else b`。",
+            "**for 循环**：遍历可迭代对象，常配 `range(start, stop, step)`。",
+            "**while 循环**：条件为真时重复。",
+            "**break / continue / pass**：跳出 / 跳过 / 空操作占位。"
+          ]}
+        ]},
+        {"style": "strip", "accent": "orange", "title": "Python 特有", "blocks": [
+          {"kind": "bullets", "size": 12, "height": 2.4, "items": [
+            "**match-case**（3.10+）：结构化模式匹配，类似 C/Java 的 switch 但更强。",
+            "**循环 else**：循环正常结束（未 break）时执行，C/Java 没有。"
+          ]}
+        ]}
+      ]
+    },
+    {
+      "type": "code_full",
+      "section": "知识点 3 · 代码示例",
+      "title": "知识点 3 · 代码示例（上）",
+      "subtitle": "demo_control_flow()：for + range 求和 · while 阶乘",
+      "code": {"filename": "demo_control_flow.py（1/2）", "size": 12, "height": 3.6, "code": "def demo_control_flow():\n    # for + range\n    total = 0\n    for i in range(1, 11):   # 1..10\n        total += i\n    print(f\"1+...+10 = {total}\")\n\n    # while\n    n, fact = 5, 1\n    while n > 0:\n        fact *= n\n        n -= 1\n    print(f\"5! = {fact}\")"}
+    },
+    {
+      "type": "code_full",
+      "section": "知识点 3 · 代码示例",
+      "title": "知识点 3 · 代码示例（下）",
+      "subtitle": "for-else：循环没被 break 打断时才执行 else（C/Java 没有）",
+      "code": {"filename": "demo_control_flow.py（2/2）", "size": 12, "height": 4.8, "code": "\n    # for-else：循环没被 break 打断时，才执行 else（C/Java 没有）\n    for x in [1, 3, 5, 9]:\n        if x == 7:\n            print(\"找到 7\")\n            break\n    else:\n        print(\"没找到 7\")   # 7 不在列表 → 循环跑完没 break → 走 else\n\n    # 对比：找到时 break，else 不执行\n    for x in [1, 3, 5, 9]:\n        if x == 5:\n            print(\"找到 5\")\n            break\n    else:\n        print(\"没找到 5\")   # 这句不会打印\n\ndemo_control_flow()"}
+    },
+    {
+      "type": "ai_prompts",
+      "section": "知识点 1–3 · AI 辅助",
+      "title": "🤖 AI 辅助学习：基础语法",
+      "prompts": [
+        {"label": "知识点1", "text": "\"Python 的 / 、// 、% 有什么区别？和 C/Java 对照说明\""},
+        {"label": "知识点1", "text": "\"为什么 Python 的整数不会溢出？\""},
+        {"label": "知识点2", "text": "\"f-string 的各种格式化语法（对齐、宽度、千分位、日期）整理成表\""},
+        {"label": "知识点3", "text": "\"Python 的 for-else 是什么？什么时候用？给实际例子\""},
+        {"label": "知识点3", "text": "\"match-case 相比 if-elif 有什么优势？\""}
+      ]
+    },
+    {
+      "type": "divider",
+      "no": "02",
+      "title": "二、数据结构",
+      "subtitle": "字符串 · 切片（重点） · 列表、元组、字典、集合",
+      "color": "green"
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 4 · 字符串",
+      "title": "知识点 4：字符串",
+      "subtitle": "概念讲解",
+      "cards": [
+        {"style": "strip", "accent": "blue", "title": "不可变（Unicode）", "blocks": [
+          {"kind": "text", "size": 12, "height": 0.62, "text": "Python 字符串**不可变**（Unicode），没有单独的“字符”类型——单个字符也是长度为 1 的字符串。"},
+          {"kind": "code", "label": "string_basic.py", "size": 11, "height": 1.55, "code": "s = \"Hello, Python\"\nprint(len(s))            # 13\nprint(s[0], s[-1])       # H n（下标从 0 开始，负下标从右数）\n# s[0] = \"h\"            # ❌ TypeError：字符串不可变"},
+          {"kind": "text", "size": 12, "height": 0.55, "text": "取子串、反转、跳着取……这些“取一段”的操作统一用**切片**，见知识点 5。"}
+        ]},
+        {"style": "strip", "accent": "green", "title": "常用方法", "blocks": [
+          {"kind": "text", "size": 12, "height": 0.62, "text": "**常用方法**：`upper / lower / strip / split / join / replace / find / startswith / isdigit`。"},
+          {"kind": "code", "label": "string_methods.py", "size": 10.5, "height": 1.75, "code": "words = \"a,b,c\".split(\",\")        # ['a', 'b', 'c']  按分隔符切\njoined = \"-\".join(words)          # 'a-b-c'           用分隔符拼\nprint(\"  hi  \".strip())          # 'hi'              去两端空白\nprint(\"abc\".replace(\"a\", \"A\"))   # 'Abc'"}
+        ]}
+      ]
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 4 · 与 Java 对比",
+      "title": "与 Java 对比：字符串",
+      "cards": [
+        {"style": "strip", "accent": "red", "title": "Java：字符有单独类型 char", "blocks": [
+          {"kind": "code", "label": "Str.java", "size": 11, "height": 1.55, "code": "// Java：字符有单独类型 char\nString s = \"Hello\";\nchar c = s.charAt(0);            // 'H' 是 char，不是 String\nString sub = s.substring(0, 3);  // 取子串用专门方法"}
+        ]},
+        {"style": "strip", "accent": "blue", "title": "Python：没有 char，单字符也是 str", "blocks": [
+          {"kind": "code", "label": "str_demo.py", "size": 11, "height": 1.35, "code": "# Python：没有 char，单字符也是 str\ns = \"Hello\"\nc = s[0]            # 'H'，类型仍是 str\nsub = s[0:3]        # 'Hel'，取子串用切片"}
+        ]}
+      ]
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 5 · 切片（重点）",
+      "title": "知识点 5：切片（重点）",
+      "subtitle": "概念讲解",
+      "cards": [
+        {"style": "strip", "accent": "blue", "title": "统一语法", "blocks": [
+          {"kind": "text", "size": 12, "height": 0.62, "text": "**切片**是 Python 取序列“一段”的统一语法，适用于 **str / list / tuple** 等所有序列类型："},
+          {"kind": "code", "label": "切片语法", "size": 12, "height": 0.85, "code": "seq[start:stop:step]   # 左闭右开：含 start，不含 stop"},
+          {"kind": "text", "size": 12, "height": 0.35, "text": "三个参数都可省略，省略时取默认值（start=0、stop=末尾、step=1）。"}
+        ]},
+        {"style": "strip", "accent": "purple", "title": "切片返回副本（新对象）", "blocks": [
+          {"kind": "code", "label": "slice_copy.py", "size": 11, "height": 1.55, "code": "xs = [10, 20, 30, 40, 50]\nsub = xs[1:4]          # [20, 30, 40]，这是一份新列表\nsub[0] = 999\nprint(xs)              # [10, 20, 30, 40, 50] —— 原列表没被改动"}
+        ]}
+      ]
+    },
+    {
+      "type": "table",
+      "section": "知识点 5 · 切片（重点）",
+      "title": "知识点 5：切片 · 完整写法对照",
+      "note": "以 xs = [10, 20, 30, 40, 50] 为例，下标 0~4",
+      "headers": ["写法", "含义", "结果"],
+      "widths": [2.2, 4.8, 5.15],
+      "aligns": ["left", "left", "left"],
+      "first_col_bold": true,
+      "header_h": 0.5,
+      "row_h": 0.46,
+      "rows": [
+        ["xs[1:4]", "下标 1、2、3", "[20, 30, 40]"],
+        ["xs[:3]", "从头到下标 2", "[10, 20, 30]"],
+        ["xs[2:]", "从下标 2 到末尾", "[30, 40, 50]"],
+        ["xs[:]", "全部（常用作复制）", "[10, 20, 30, 40, 50]"],
+        ["xs[::2]", "步长 2，每隔一个取", "[10, 30, 50]"],
+        ["xs[-1]", "最后一个（负下标从右数）", "50"],
+        ["xs[-2:]", "最后两个", "[40, 50]"],
+        ["xs[::-1]", "步长 -1，整体反转", "[50, 40, 30, 20, 10]"]
+      ]
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 5 · 切片（重点）",
+      "title": "切片三个要点 · 与 Java/C++ 对比",
+      "cards": [
+        {"style": "strip", "accent": "blue", "title": "三个要点", "blocks": [
+          {"kind": "bullets", "size": 12, "height": 2.9, "items": [
+            "**左闭右开**：`xs[1:4]` 含 1 不含 4，和 `range(1, 4)` 一致——`stop` 永远取不到。",
+            "**越界不报错**：`xs[1:100]` 自动截到末尾得 `[20, 30, 40, 50]`，不会 IndexError；但**单下标** `xs[100]` 会报错。",
+            "**切片返回副本**：得到一个**新对象**，改它不影响原序列（对可变的 list 尤其重要）。"
+          ]}
+        ]},
+        {"style": "strip", "accent": "red", "title": "C/Java：没有统一语法", "blocks": [
+          {"kind": "text", "size": 11, "height": 0.35, "text": "C/Java 取子串/子数组只能用专门方法或手写循环，没有统一语法："},
+          {"kind": "code", "label": "java", "size": 10.5, "height": 0.95, "code": "String sub = s.substring(0, 3);   // 只能用于 String\n// 数组要取一段？得手写循环或调 System.arraycopy"},
+          {"kind": "code", "label": "python", "size": 10.5, "height": 1.35, "code": "# Python 一套切片语法通吃字符串、列表、元组\n\"Hello\"[0:3]         # 'Hel'\n[10, 20, 30][0:2]    # [10, 20]\n(1, 2, 3)[::-1]      # (3, 2, 1)"}
+        ]}
+      ]
+    },
+    {
+      "type": "code_full",
+      "section": "知识点 5 · 代码示例",
+      "title": "知识点 5 · 代码示例",
+      "subtitle": "运行 demo_slice()，观察输出",
+      "code": {"filename": "demo_slice.py", "size": 12, "height": 3.6, "code": "def demo_slice():\n    s = \"Hello, Python\"\n    print(s[7:])          # 'Python'\n    print(s[:5])          # 'Hello'\n    print(s[-6:])         # 'Python'（最后 6 个字符）\n    print(s[::-1])        # 反转：'nohtyP ,olleH'\n\n    xs = [10, 20, 30, 40, 50]\n    print(xs[1:4])        # [20, 30, 40]\n    print(xs[::2])        # [10, 30, 50]\n    print(xs[::-1])       # [50, 40, 30, 20, 10]\n\ndemo_slice()"}
+    },
+    {
+      "type": "table",
+      "section": "知识点 6 · 列表、元组、字典、集合",
+      "title": "知识点 6：列表、元组、字典、集合",
+      "headers": ["类型", "字面量", "可变", "有序", "特点"],
+      "widths": [1.5, 2.0, 1.2, 1.6, 5.85],
+      "row_h": 0.5,
+      "rows": [
+        ["list", "[1, 2, 3]", "✅", "✅", "最常用，类似 Java 的 ArrayList"],
+        ["tuple", "(1, 2, 3)", "❌", "✅", "不可变，可作字典键"],
+        ["dict", "{\"a\": 1}", "✅", "✅(3.7+)", "键值对，类似 Java 的 HashMap"],
+        ["set", "{1, 2, 3}", "✅", "❌", "去重、集合运算"]
+      ]
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 6 · 列表、元组、字典、集合",
+      "title": "列表与字典：常用操作",
+      "cards": [
+        {"style": "strip", "accent": "blue", "title": "列表常用操作", "blocks": [
+          {"kind": "code", "label": "list_ops.py", "size": 11, "height": 2.15, "code": "xs = [1, 2, 3]\nxs.append(4)          # 追加\nxs.insert(0, 0)       # 指定位置插入\nxs.extend([5, 6])     # 扩展\nxs.pop()              # 弹出末尾\nxs.sort()             # 原地排序\nprint(xs[1:4])        # 切片\nprint(3 in xs)        # 成员判断"}
+        ]},
+        {"style": "strip", "accent": "green", "title": "字典", "blocks": [
+          {"kind": "code", "label": "dict_ops.py", "size": 11, "height": 1.75, "code": "d = {\"name\": \"张三\", \"age\": 20}\nd[\"email\"] = \"a@b.c\"          # 增\nprint(d[\"name\"])              # 取（键不存在会 KeyError）\nprint(d.get(\"phone\", \"无\"))   # 安全取，默认值\nfor k, v in d.items():        # 遍历\n    print(k, v)"}
+        ]}
+      ]
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 6 · 列表、元组、字典、集合",
+      "title": "集合运算 · 解包（Python 特色）",
+      "cards": [
+        {"style": "strip", "accent": "purple", "title": "集合运算", "blocks": [
+          {"kind": "code", "label": "set_ops.py", "size": 11, "height": 1.55, "code": "a = {1, 2, 3}\nb = {3, 4, 5}\nprint(a & b)   # 交集 {3}\nprint(a | b)   # 并集 {1,2,3,4,5}\nprint(a - b)   # 差集 {1,2}"}
+        ]},
+        {"style": "strip", "accent": "orange", "title": "解包（Python 特色）", "blocks": [
+          {"kind": "text", "size": 12, "height": 0.35, "text": "**解包（Python 特色）**：把右边的“一包”数据拆开，按位置分给左边的变量。"},
+          {"kind": "code", "label": "unpack.py", "size": 10.5, "height": 2.1, "code": "# 重点 1：右边是元组，按位置一一对应地拆\na, b, c = (1, 2, 3)            # a=1, b=2, c=3（元组）\n\n# 重点 2：带 * 的变量的作用是“打包”多个元素赋给变量\nfirst, *rest = [1, 2, 3, 4]    # first=1, rest=[2, 3, 4]\n*head, last = [1, 2, 3, 4]     # head=[1, 2, 3], last=4\n# 不写 * 时，左右数量必须严格一致，否则报错：\n# a, b = [1, 2, 3, 4]   →  ValueError: too many values to unpack"}
+        ]}
+      ]
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 6 · 与 Java/C++ 对比",
+      "title": "与 Java/C++ 对比：容器",
+      "cards": [
+        {"style": "strip", "accent": "red", "title": "C++ / Java", "blocks": [
+          {"kind": "code", "label": "C++", "size": 10.5, "height": 0.9, "code": "// C++ 数组长度固定\nint arr[5] = {1,2,3,4,5};"},
+          {"kind": "code", "label": "Java", "size": 10.5, "height": 1.1, "code": "// Java 列表\nList<Integer> xs = new ArrayList<>();\nxs.add(1);"}
+        ]},
+        {"style": "strip", "accent": "blue", "title": "Python", "blocks": [
+          {"kind": "text", "size": 11, "height": 0.3, "text": "**注意**：带 * 的列表或元组在做解包动作："},
+          {"kind": "code", "label": "unpack_call.py", "size": 10.5, "height": 0.95, "code": "print(*[1, 2, 3])      # * 在右边 → 解包，等价于 print(1, 2, 3) → 输出 1 2 3"},
+          {"kind": "code", "label": "list.py", "size": 10.5, "height": 1.3, "code": "# Python 列表长度可变、可混合类型\nxs = [1, \"two\", 3.0]\nxs.append(4)"}
+        ]}
+      ]
+    },
+    {
+      "type": "ai_prompts",
+      "section": "知识点 4–6 · AI 辅助",
+      "title": "🤖 AI 辅助学习：数据结构",
+      "prompts": [
+        {"label": "知识点4", "text": "\"Python 字符串常用方法整理成表\""},
+        {"label": "知识点4", "text": "\"Python 字符串和 Java String 有哪些关键区别？\""},
+        {"label": "知识点5", "text": "\"用一张表整理 Python 切片 start:stop:step 的所有常见写法\""},
+        {"label": "知识点5", "text": "\"为什么 xs[1:100] 不报错，但 xs[100] 会 IndexError？\""},
+        {"label": "知识点6", "text": "\"列表和元组什么时候该用哪个？字典和集合的使用场景？\""},
+        {"label": "知识点6", "text": "\"Python 的浅拷贝深拷贝怎么区分？\""}
+      ]
+    },
+    {
+      "type": "divider",
+      "no": "03",
+      "title": "三、函数",
+      "subtitle": "函数、参数、lambda、作用域、闭包",
+      "color": "purple"
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 7 · 函数、参数、lambda、作用域、闭包",
+      "title": "知识点 7：函数定义与参数",
+      "scenario": {"style": "header", "accent": "purple", "title": "*args 与 **kwargs", "blocks": [
+        {"kind": "text", "size": 11, "height": 1.35, "text": "`*args`、`**kwargs` 就是“打包”用在函数参数上：`*` 收成元组、`**` 连名字一起收成字典；`args`/`kwargs` 只是约定俗成的名字，真正起作用的是 `*` 和 `**`（写成 `*nums, **opts` 也行）。"}
+      ]},
+      "code": {"filename": "func_args.py", "size": 10.5, "code": "def add(a, b):              # 基本定义\n    \"\"\"返回 a+b（文档字符串）\"\"\"\n    return a + b\n\ndef greet(name, msg=\"你好\"):  # 默认参数\n    return f\"{msg}, {name}\"\n\ndef varargs(*args, **kwargs):  # *args 收位置参数→元组；**kwargs 收关键字参数→字典\n    print(\"位置参数:\", args)    # (1, 2)  ← 没名字的，进 args\n    print(\"关键字参数:\", kwargs) # {'x': 3, 'y': 4} ← 带名字的，进 kwargs\n\nvarargs(1, 2, x=3, y=4)\n# 1, 2 光秃秃 → 位置参数 → args；x=3, y=4 带名字 → 关键字参数 → kwargs\n\n# 关键字参数调用\ngreet(msg=\"嗨\", name=\"张三\")"}
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 7 · 函数、参数、lambda、作用域、闭包",
+      "title": "lambda 与类型注解",
+      "cards": [
+        {"style": "strip", "accent": "blue", "title": "lambda：匿名函数，单表达式", "blocks": [
+          {"kind": "code", "label": "lambda_demo.py", "size": 11, "height": 1.35, "code": "square = lambda x: x * x\nprint(square(5))   # 25\nnums = [3, 1, 2]\nprint(sorted(nums, key=lambda x: -x))   # 按降序"}
+        ]},
+        {"style": "strip", "accent": "green", "title": "类型注解", "blocks": [
+          {"kind": "text", "size": 12, "height": 0.35, "text": "**类型注解**（3.5+，可选，不强制运行时检查）："},
+          {"kind": "code", "label": "typing_demo.py", "size": 11, "height": 0.95, "code": "def add(a: int, b: int) -> int:\n    return a + b"}
+        ]}
+      ]
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 7 · 函数、参数、lambda、作用域、闭包",
+      "title": "作用域 LEGB",
+      "scenario": {"style": "header", "accent": "purple", "title": "L → E → G → B", "blocks": [
+        {"kind": "text", "size": 11, "height": 1.6, "text": "**作用域 LEGB**：引用一个名字时，按 **L→E→G→B** 顺序查找——**L**ocal（当前函数）→ **E**nclosing（外层函数）→ **G**lobal（模块顶层）→ **B**uilt-in（`len`/`print` 等内置）。"}
+      ]},
+      "code": {"filename": "legb.py", "size": 11, "height": 3.4, "code": "x = \"Global\"               # G：模块顶层\ndef outer():\n    x = \"Enclosing\"        # E：外层函数\n    def inner():\n        x = \"Local\"        # L：当前函数\n        print(\"inner:\", x) # 内层有就用内层 → Local\n    inner()\n    print(\"outer:\", x)     # Local 不会泄漏到外层 → Enclosing\nouter()\nprint(\"global:\", x)        # → Global\n\n# inner 里若没定义 x，就沿 E→G→B 逐层往外找\nprint(len([1, 2, 3]))      # 3 —— len 没定义却能用，来自 Built-in"}
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 7 · 函数、参数、lambda、作用域、闭包",
+      "title": "闭包 · 与 Java 对比",
+      "cards": [
+        {"style": "strip", "accent": "purple", "title": "闭包：内层函数捕获外层变量", "blocks": [
+          {"kind": "code", "label": "closure.py", "size": 11, "height": 2.0, "code": "def make_counter():\n    count = 0\n    def inc():\n        nonlocal count\n        count += 1\n        return count\n    return inc\n"}
+        ]},
+        {"style": "strip", "accent": "red", "title": "Java vs Python", "blocks": [
+          {"kind": "code", "label": "Func.java", "size": 10.5, "height": 1.2, "code": "// Java 没有默认参数（要用重载/构造），lambda 较繁琐\nMath.sqrt(x);\nBiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;"},
+          {"kind": "code", "label": "func.py", "size": 10.5, "height": 1.2, "code": "# Python 默认参数、可变参数、lambda 都更简洁\ndef f(a, b=2, *args, **kwargs): ...\nsorted(xs, key=lambda x: x.age)"}
+        ]}
+      ]
+    },
+    {
+      "type": "ai_prompts",
+      "section": "知识点 7–8 · AI 辅助",
+      "title": "🤖 AI 辅助学习：函数与推导式",
+      "prompts": [
+        {"label": "知识点7", "text": "\"Python 的 *args 和 **kwargs 怎么用？举例\""},
+        {"label": "知识点7", "text": "\"nonlocal 和 global 有什么区别？什么时候用闭包？\""},
+        {"label": "知识点8", "text": "\"把这段 for 循环改成推导式：[代码]\""},
+        {"label": "知识点8", "text": "\"推导式什么时候该用、什么时候会降低可读性？\""}
+      ]
+    },
+    {
+      "type": "divider",
+      "no": "04",
+      "title": "四、进阶特性",
+      "subtitle": "推导式 · 生成器与迭代器 · 装饰器 · 异常处理 · 模块与 with",
+      "color": "orange"
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 8 · 推导式",
+      "title": "知识点 8：推导式",
+      "scenario": {"style": "header", "accent": "orange", "title": "comprehension", "blocks": [
+        {"kind": "text", "size": 11, "height": 0.8, "text": "推导式（comprehension）是 Python 的特色语法，用一行生成集合。"}
+      ]},
+      "code": {"filename": "comprehension.py", "size": 11, "height": 3.1, "code": "# 列表推导式\nsquares = [i*i for i in range(10)]\neven_squares = [i*i for i in range(10) if i % 2 == 0]\n\n# 字典推导式\nsquare_map = {i: i*i for i in range(5)}\n\n# 集合推导式\nuniq_len = {len(w) for w in [\"a\", \"ab\", \"a\"]}\n\n# 嵌套\ncoords = [(x, y) for x in range(3) for y in range(3)]"}
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 8 · 与 Java 对比",
+      "title": "与 Java 对比：推导式",
+      "cards": [
+        {"style": "strip", "accent": "red", "title": "Java", "blocks": [
+          {"kind": "code", "label": "Squares.java", "size": 11, "height": 1.35, "code": "// Java\nList<Integer> squares = new ArrayList<>();\nfor (int i = 0; i < 10; i++) squares.add(i * i);"}
+        ]},
+        {"style": "strip", "accent": "blue", "title": "Python", "blocks": [
+          {"kind": "code", "label": "squares.py", "size": 11, "height": 0.95, "code": "# Python 一行\nsquares = [i * i for i in range(10)]"}
+        ]}
+      ]
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 9 · 生成器与迭代器",
+      "title": "知识点 9：生成器",
+      "scenario": {"style": "header", "accent": "orange", "title": "generator", "blocks": [
+        {"kind": "text", "size": 11, "height": 0.8, "text": "**生成器**：用 `yield` 逐个产出值，惰性求值，节省内存。"}
+      ]},
+      "code": {"filename": "generator.py", "size": 11, "height": 2.9, "code": "def counter(n):\n    i = 0\n    while i < n:\n        yield i        # 产出并暂停\n        i += 1\n\nfor x in counter(3):\n    print(x)           # 0 1 2\n\n# 生成器表达式（推导式的惰性版）\ngen = (i*i for i in range(1000000))\nprint(sum(gen))        # 不一次性占内存"}
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 9 · 生成器与迭代器",
+      "title": "迭代器协议",
+      "widths": [6.6, 5.3],
+      "cards": [
+        {"style": "strip", "accent": "orange", "title": "迭代器协议", "blocks": [
+          {"kind": "text", "size": 12, "height": 0.9, "text": "**迭代器协议**：实现 `__iter__` 和 `__next__` 的对象。`for` 循环本质是不断调用 `next()` 直到 `StopIteration`。"}
+        ]},
+        {"style": "strip", "accent": "blue", "title": "next() 与 StopIteration", "blocks": [
+          {"kind": "code", "label": "iterator.py", "size": 10.5, "height": 1.3, "code": "gen = (x for x in range(3))\nprint(next(gen), next(gen), next(gen))  # 0 1 2\n# next(gen)  # 再取会抛 StopIteration"}
+        ]}
+      ]
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 10 · 装饰器",
+      "title": "知识点 10：装饰器",
+      "scenario": {"style": "header", "accent": "orange", "title": "decorator", "blocks": [
+        {"kind": "text", "size": 11, "height": 0.8, "text": "装饰器：接收函数、返回新函数，用 `@` 语法套用。常用于日志、计时、缓存、权限。"}
+      ]},
+      "code": {"filename": "log_decorator.py", "size": 11, "height": 3.3, "code": "def log(func):\n    def wrapper(*args, **kwargs):\n        print(f\"→ 调用 {func.__name__}\")\n        result = func(*args, **kwargs)   # 真正调用原函数\n        print(f\"← {func.__name__} 完成\")\n        return result                    # 把原函数的结果返回\n    return wrapper\n\n@log                 # 等价于 hi = log(hi)\ndef hi(name):\n    return f\"hi {name}\"\n\nprint(hi(\"张三\"))"}
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 10 · 装饰器",
+      "title": "带参数的装饰器（再多一层）",
+      "scenario": {"style": "header", "accent": "orange", "title": "带参数的装饰器", "blocks": [
+        {"kind": "text", "size": 11, "height": 0.62, "text": "`functools.wraps` 用于保留原函数的元信息（名字、文档字符串），写装饰器时建议加上。"},
+        {"kind": "text", "size": 11, "height": 0.62, "text": "Java 要实现类似功能通常用代理模式或注解 + AOP 框架，比 Python 的装饰器繁琐得多。"}
+      ]},
+      "code": {"filename": "repeat.py", "size": 11, "height": 3.1, "code": "def repeat(n):\n    def decorator(func):\n        def wrapper(*args, **kwargs):\n            return [func(*args, **kwargs) for _ in range(n)]\n        return wrapper\n    return decorator\n\n@repeat(3)\ndef hi(name):\n    return f\"hi {name}\"\n\nprint(hi(\"张三\"))   # ['hi 张三', 'hi 张三', 'hi 张三']"}
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 11 · 异常处理",
+      "title": "知识点 11：异常处理",
+      "scenario": {"style": "header", "accent": "red", "title": "自定义异常", "blocks": [
+        {"kind": "text", "size": 11, "height": 0.3, "text": "**自定义异常**："},
+        {"kind": "code", "label": "my_error.py", "size": 10, "height": 1.65, "code": "class MyError(Exception):\n    def __init__(self, msg, code=0):\n        super().__init__(msg)\n        self.code = code\n\nraise MyError(\"出错了\", code=42)"},
+        {"kind": "text", "size": 11, "height": 0.62, "text": "Python 推崇 **EAFP**（先做，出错再处理）而非 **LBYL**（先查再做）。"}
+      ]},
+      "code": {"filename": "exceptions.py", "size": 11, "height": 3.8, "code": "try:\n    x = int(input(\"数字：\"))\n    result = 10 / x\nexcept ValueError:            # 捕获特定异常\n    print(\"不是数字\")\nexcept ZeroDivisionError as e:\n    print(f\"除零错误：{e}\")\nexcept Exception as e:        # 兜底（尽量具体，少用兜底）\n    print(f\"其他错误：{e}\")\nelse:\n    print(f\"结果 {result}\")   # 没异常时执行\nfinally:\n    print(\"总会执行\")          # 无论如何都执行（清理资源）\n\nraise ValueError(\"自定义抛出\")  # 主动抛出"}
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 11 · 与 Java/C++ 对比",
+      "title": "与 Java 对比：异常",
+      "cards": [
+        {"style": "strip", "accent": "red", "title": "Java", "blocks": [
+          {"kind": "code", "label": "Try.java", "size": 11, "height": 1.8, "code": "// Java\ntry {\n    int x = Integer.parseInt(s);\n} catch (NumberFormatException e) {\n    ...\n} finally { ... }"}
+        ]},
+        {"style": "strip", "accent": "blue", "title": "Python：EAFP", "blocks": [
+          {"kind": "code", "label": "eafp.py", "size": 11, "height": 2.1, "code": "# Python 写法类似，但 try 更轻量，常配合 EAFP（请求原谅比许可容易）\ntry:\n    value = d[key]\nexcept KeyError:\n    value = default"}
+        ]}
+      ]
+    },
+    {
+      "type": "two_cards",
+      "section": "知识点 12 · 模块、包与 with 语句",
+      "title": "知识点 12：模块与包",
+      "widths": [5.4, 6.55],
+      "cards": [
+        {"style": "strip", "accent": "orange", "title": "模块与包", "blocks": [
+          {"kind": "text", "size": 12, "height": 0.62, "text": "**包**：含 `__init__.py` 的目录（Python 3.3+ 普通目录也可作命名空间包）。"},
+          {"kind": "code", "label": "imports.py", "size": 10.5, "height": 1.55, "code": "import math                 # 导入整个模块\nfrom datetime import date   # 从模块导入特定名字\nimport numpy as np          # 起别名\n\nprint(math.pi)\nprint(date.today())"}
+        ]},
+        {"style": "strip", "accent": "blue", "title": "`__name__` 与模块入口", "blocks": [
+          {"kind": "code", "label": "mymodule.py", "size": 10.5, "height": 2.0, "code": "# mymodule.py\ndef main():\n    print(\"运行\")\n\nif __name__ == \"__main__\":   # 直接运行本文件时为 \"__main__\"，被 import 时不执行\n    main()"}
+        ]}
+      ]
+    },
+    {
+      "type": "code_demo",
+      "section": "知识点 12 · 模块、包与 with 语句",
+      "title": "with 语句",
+      "scenario": {"style": "header", "accent": "orange", "title": "with 自动管理资源", "blocks": [
+        {"kind": "text", "size": 11, "height": 0.62, "text": "`with` 自动管理资源（文件、锁、连接），退出时自动清理，即使出错也会释放。"},
+        {"kind": "text", "size": 11, "height": 0.62, "text": "Java 7+ 的 try-with-resources 与 Python 的 `with` 思路一致，都自动释放资源。"}
+      ]},
+      "code": {"filename": "with_demo.py", "size": 11, "height": 1.8, "code": "with open(\"a.txt\", \"w\", encoding=\"utf-8\") as f:   # 退出时自动 close\n    f.write(\"hello\")\n\n# 同时管理多个\nwith open(\"in.txt\") as fi, open(\"out.txt\", \"w\") as fo:\n    fo.write(fi.read())"}
+    },
+    {
+      "type": "ai_prompts",
+      "section": "知识点 9–12 · AI 辅助",
+      "title": "🤖 AI 辅助学习：进阶特性",
+      "prompts": [
+        {"label": "知识点9", "text": "\"yield 的执行流程是怎样的？画一下\""},
+        {"label": "知识点9", "text": "\"生成器和列表在内存与性能上的取舍？\""},
+        {"label": "知识点10", "text": "\"用最简单的话解释装饰器原理（函数是一等公民）\""},
+        {"label": "知识点10", "text": "\"写一个带参数的、能记录函数调用日志的装饰器\""},
+        {"label": "知识点11", "text": "\"常见 Python 异常类型有哪些？分别什么场景出现？\""},
+        {"label": "知识点11", "text": "\"EAFP 和 LBYL 是什么？Python 推荐哪个？\""},
+        {"label": "知识点12", "text": "\"`if __name__ == '__main__'` 是什么意思？为什么要有？\""}
+      ]
+    },
+    {
+      "type": "table",
+      "section": "课堂练习",
+      "title": "课堂练习",
+      "headers": ["练习", "内容"],
+      "widths": [1.3, 10.85],
+      "aligns": ["center", "left"],
+      "first_col_bold": true,
+      "header_h": 0.5,
+      "row_h": 0.95,
+      "rows": [
+        ["【1】", "研究 Python 整数为什么“没有大小限制”（如 `10 ** 100` 也能算出结果）。提示：了解“任意精度整数”的存储方式，并对比 C/Java 中 `int` 的固定字长与溢出问题。"],
+        ["【2】", "综合练习：自建一个包（含 `__init__.py` 的目录），在其中实现一个数据处理小工具，综合运用——可变参数（`*args`、`**kwargs`）接收任意输入、生成器惰性产出中间结果、`lambda` 配合 `sorted`/`filter` 完成排序或筛选；最后从外部脚本 `import` 该包并调用验证。可参考“成绩统计”“词频统计”等场景。"],
+        ["【3】", "跑通本课对应的所有示例代码。写下你思考的内容。"],
+        ["【4】", "阅读本课程内容，挑出你有疑惑的部分，向网页版 AI 聊天工具提问。通过多轮追问深入理解，然后将自己的理解陈述给 AI，请它判断你是否理解正确。最后将聊天记录截图提交。"]
+      ]
+    },
+    {
+      "type": "qa",
+      "headline": "Q & A",
+      "sub_cn": "第 2 周 · Python 核心语法",
+      "sub_en": "Core Syntax: Types, Control Flow, Data Structures, Functions",
+      "thanks": "感谢聆听 · 课堂练习见上页",
+      "quote": {
+        "label": "今日一言",
+        "en": "\"Simple is better than complex.\"",
+        "cn": "简洁胜于复杂。",
+        "attribution": "— Tim Peters，《Python 之禅》"
+      },
+      "resources": {
+        "label": "📚 课后资源",
+        "text": "课堂练习【1】–【4】 · 示例代码见课程仓库"
+      }
+    }
+  ]
+}
+
+
+
