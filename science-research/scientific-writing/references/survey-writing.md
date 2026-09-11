@@ -139,6 +139,7 @@ Read `docs/references-summary.json` to understand all collected materials.
 - Follow examples in `writing-examples.md`
 - Group related papers together, discuss comparatively
 - Use transitions between paragraphs and sections
+- When describing any prior work, apply the Core Principles in [related-work-improvement.md](related-work-improvement.md): verify against full texts（查证）, classify-then-layer structure（结构）, source-based terminology（措辞）, keep evidence sentences for every classification（流程）
 
 #### Step 6: Detail Improvements
 

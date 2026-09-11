@@ -2,16 +2,19 @@
 
 This guide explains how to search your Zotero library for relevant literature, and how to work from a user-provided `.bib` file. It applies to all document types in this skill (research articles, survey papers, technical route reports, and article improvement).
 
+The full pipeline is two-phase: **Zotero first (this file), then mandatory IEEE Xplore supplementation** via the `ieee-literature-search` skill, so that important literature is not limited to what happens to be in the user's library.
+
 ## Table of Contents
 
 1. [Bib File Collection](#bib-file-collection)
-2. [Search Tools Overview](#search-tools-overview)
-3. [Information Extraction](#information-extraction)
-4. [Search Strategy for Wireless Communications](#search-strategy-for-wireless-communications)
-5. [Wireless Communications Search Examples](#wireless-communications-search-examples)
-6. [Extracting Key Information for Your Article](#extracting-key-information-for-your-article)
-7. [Organizing Findings](#organizing-findings)
-8. [Best Practices](#best-practices)
+2. [IEEE Xplore Supplementation (Mandatory Phase)](#ieee-xplore-supplementation-mandatory-phase)
+3. [Search Tools Overview](#search-tools-overview)
+4. [Information Extraction](#information-extraction)
+5. [Search Strategy for Wireless Communications](#search-strategy-for-wireless-communications)
+6. [Wireless Communications Search Examples](#wireless-communications-search-examples)
+7. [Extracting Key Information for Your Article](#extracting-key-information-for-your-article)
+8. [Organizing Findings](#organizing-findings)
+9. [Best Practices](#best-practices)
 
 ---
 
@@ -26,6 +29,18 @@ When the user provides a `.bib` file (common for survey papers and technical rou
    - Year
    - Journal/Conference
 3. **Cross-Reference with Zotero**: Use literature titles as keywords to search complete content in Zotero
+
+---
+
+## IEEE Xplore Supplementation (Mandatory Phase)
+
+After the Zotero search converges, use the **`ieee-literature-search`** skill to search IEEE Xplore for important papers the Zotero library missed:
+
+1. **Invoke the skill** (Skill tool, name `ieee-literature-search`) with the research topic. It performs systematic search with a multi-dimensional keyword matrix (core topic terms / method terms / architecture terms) and produces traceable, structured results
+2. **Deduplicate** against the Zotero hits already collected — keep only genuinely missing important papers
+3. **Merge** supplemented papers into the reference list / bib; download PDFs via institutional login when full text is needed
+
+**Skill availability**: `ieee-literature-search` is installed by default. If it is not available, stop and prompt the user to install it — do not silently skip this phase.
 
 ---
 

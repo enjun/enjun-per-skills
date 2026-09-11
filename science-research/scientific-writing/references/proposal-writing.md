@@ -882,7 +882,7 @@ Q3-Q4：
 
 ## Step 4: Document Finalization & Quality Check
 
-根据 Step 0.3 中选择的输出格式，使用相应的模板和质量检查清单。
+根据 Step 0.2 中选择的输出格式，使用相应的模板和质量检查清单。
 
 ---
 

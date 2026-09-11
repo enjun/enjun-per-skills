@@ -77,6 +77,8 @@ Use these dimensions to group literature into technical route categories:
    - If a paper involves multiple categories, classify by its primary method
    - Explain multi-method characteristics in the analysis
 
+**Evidence rule**: classify from full texts, not abstracts; record the original-text evidence sentence for every classification conclusion in a persistent file (grep-verifiable). See Core Principles in [related-work-improvement.md](related-work-improvement.md).
+
 ---
 
 ## Literature Relationships

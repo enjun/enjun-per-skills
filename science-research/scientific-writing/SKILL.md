@@ -1,11 +1,11 @@
 ---
 name: scientific-writing
-description: Write and improve scientific documents in wireless communications — original research articles, survey papers (综述), technical route reports, NSFC proposals (国自然基金申请书), and improvement of existing manuscripts. Integrates Zotero literature search, structured per-type writing workflows, quality evaluation, and publication-ready IEEE LaTeX output. MUST use this skill whenever the user wants to write a research paper, write a survey on a wireless topic, investigate/analyze technical routes, write an NSFC proposal, or improve an existing paper — including "write my paper", "写一篇综述", "调研技术路线", "撰写基金申请书", "写国自然本子", "improve my article", "strengthen methodology", "enhance Related Work", "address reviewer comments". Use the scientific-review skill for evaluating others' work, and scientific-thinking for brainstorming or critical analysis.
+description: Write and improve scientific documents in wireless communications — original research articles, survey papers (综述), technical route reports, NSFC proposals (国自然基金申请书), and improvement of existing manuscripts. Integrates Zotero literature search plus mandatory IEEE Xplore supplementation (ieee-literature-search skill), structured per-type writing workflows, quality evaluation, and publication-ready IEEE LaTeX output. MUST use this skill whenever the user wants to write a research paper, write a survey on a wireless topic, investigate/analyze technical routes, write an NSFC proposal, or improve an existing paper — including "write my paper", "写一篇综述", "调研技术路线", "撰写基金申请书", "写国自然本子", "improve my article", "strengthen methodology", "enhance Related Work", "address reviewer comments". Use the scientific-review skill for evaluating others' work, and scientific-thinking for brainstorming or critical analysis.
 ---
 
 # Scientific Writing
 
-Produce or improve scientific documents — original research articles, survey papers, technical route reports, NSFC proposals — with Zotero-backed literature grounding and publication-ready IEEE LaTeX output.
+Produce or improve scientific documents — original research articles, survey papers, technical route reports, NSFC proposals — with Zotero + IEEE Xplore literature grounding and publication-ready IEEE LaTeX output.
 
 ## Why one skill covers five workflows
 
@@ -16,7 +16,7 @@ These five tasks share the same foundation: Zotero literature search, structured
 ```
 Step 0: Determine document type
    ↓ (article / survey / technical route / proposal / improve existing)
-Step 1: Literature search (shared, Zotero + bib)
+Step 1: Literature search (shared: Zotero + bib → IEEE Xplore 补充遗漏文献)
    ↓
 Step 2: Type-specific workflow (references/<type>.md)
    ↓
@@ -116,12 +116,14 @@ Choose the output format for the final document:
 - **LaTeX (IEEE format)** — Publication-ready IEEE LaTeX with `.tex` source and compiled PDF
 - **Markdown** — Structured Markdown with proper formatting, suitable for conversion to other formats or direct viewing
 
-### 0.3 Literature Search Source
+### 0.3 Literature Search Pipeline (Fixed — no user choice needed)
 
-Select the source for literature search:
-- **Zotero only** — Search and extract papers from your Zotero library using semantic/advanced/tag search
-- **IEEE Xplore only** — Search IEEE Xplore database for papers in wireless communications and related fields
-- **Both (Zotero + IEEE)** — Comprehensive search combining your Zotero library and IEEE Xplore for broader coverage
+Literature search always runs in two phases:
+
+1. **Zotero (primary)** — semantic/advanced/tag search of the user's library; PDFs attached, so full-text extraction is fast
+2. **IEEE Xplore (mandatory supplementation)** — use the **`ieee-literature-search`** skill to search IEEE Xplore and supplement important papers missing from Zotero
+
+The `ieee-literature-search` skill is installed by default. If it is not available, stop and prompt the user to install it — do not silently skip the IEEE phase.
 
 ### 0.4 Additional Information
 
@@ -134,11 +136,10 @@ Also collect, as needed:
 
 ## Step 1: Literature Search (Shared)
 
-Ground the document in the literature before writing. Search strategy depends on the source(s) selected in Step 0.3.
+Ground the document in the literature before writing. The pipeline is fixed: **Zotero first, then IEEE Xplore supplementation** — important literature must not be limited to what happens to be in the user's library.
 
-**Search Tools by Source:**
+### Phase 1: Zotero Search (Primary Source)
 
-### Zotero Search (when Zotero only or Both selected)
 For the full Zotero search strategy (semantic → advanced → tag), extraction methods, bib-file collection, and wireless-specific query examples, see:
 **→ [references/literature-search.md](references/literature-search.md)**
 
@@ -146,34 +147,31 @@ For the full Zotero search strategy (semantic → advanced → tag), extraction 
 - Advanced search: `mcp__zotero-mcp__zotero_advanced_search`
 - Tag search: `mcp__zotero-mcp__zotero_search_by_tag`
 
-### IEEE Xplore Search (when IEEE only or Both selected)
-Use the `ieee-literature-search` skill to systematically search IEEE Xplore database:
-- Multi-dimensional keyword coverage
-- Traceable search results
-- Structured conclusions for analysis
-
-### Combined Search (when Both selected)
-Execute both Zotero and IEEE searches:
-1. Start with Zotero search for papers in your library
-2. Complement with IEEE Xplore search for broader coverage
-3. Merge results, removing duplicates
-4. Prioritize Zotero papers for full-text extraction (faster access)
-
-**Extraction tools** (for Zotero papers):
+**Extraction tools** (Zotero papers have PDFs attached, so prefer them for full-text extraction):
 - Metadata: `mcp__zotero-mcp__zotero_get_item_metadata`
 - Notes (read first!): `mcp__zotero-mcp__zotero_get_notes`
 - Children: `mcp__zotero-mcp__zotero_get_item_children`
 - Full text: `mcp__zotero-mcp__zotero_get_item_fulltext`
 
-**Note**: IEEE papers require PDF download and parsing; Zotero papers typically have PDFs already attached.
-
 When the user provides a `.bib` file, also follow the **Bib File Collection** steps in the reference: extract entries, record metadata, then cross-reference each title with Zotero for full content.
+
+### Phase 2: IEEE Xplore Supplementation (Mandatory)
+
+Use the **`ieee-literature-search`** skill to search IEEE Xplore for important papers missing from Zotero:
+
+1. Invoke the `ieee-literature-search` skill with the research topic — multi-dimensional keyword coverage (core topic terms / method terms / architecture terms), traceable results, structured conclusions
+2. Deduplicate against the Phase 1 Zotero hits — add only genuinely missing important papers
+3. Merge supplemented papers into the reference list / bib; download PDFs via institutional login when full text is needed (IEEE papers require PDF download and parsing)
+
+**Skill availability**: `ieee-literature-search` is installed by default. If it is not available, stop and prompt the user to install it — do not silently skip this phase.
 
 ---
 
 ## Step 2: Type-Specific Workflow
 
 Open the reference matching the document type and follow its workflow. Each reference is self-contained — it contains the full step-by-step process for that document type.
+
+**Cross-cutting rule**: whenever any workflow describes prior work — Introduction literature paragraph, Related Work section, survey body, technical route comparison, 立项依据 — follow the core principles in [related-work-improvement.md](references/related-work-improvement.md)（查证：对照原文核准；结构：分类分层；措辞：术语溯源；流程：证据留痕、引用同步）.
 
 **For each type, read:**
 - **Research article** → [article-writing.md](references/article-writing.md) — IMRAD structure, quick/standard/detailed guidance modes, section-by-section workflow. Writing structure details in [article-structure.md](references/article-structure.md).
@@ -290,12 +288,15 @@ Verify before presenting the result:
 - [ ] All sections present and complete; abstract matches content
 - [ ] Proper heading hierarchy (H1 → H2 → H3)
 - [ ] Introduction states contributions clearly
+- [ ] Related Work section includes a comparison table of existing methods (categories, references, core ideas, strengths, limitations)
 - [ ] Conclusion matches abstract and results
 - [ ] If simulation results included, user provided real data
 
 **Citation Quality**
 - [ ] Citations properly formatted (numerical or author-year style)
 - [ ] Bibliography section included with full references
+- [ ] Each reference entry on its own line, separated by blank lines (no merged entries)
+- [ ] Entries with fields marked 待补 include a source link (e.g., IEEE Xplore) for later verification
 - [ ] Links to bibliography entries work correctly
 
 **Format Quality**
@@ -331,7 +332,7 @@ Verify before presenting the result:
 After completing all phases, summarize:
 
 1. **Document summary** — title, abstract, key contributions/results (survey: 7-dimension score; technical route: ranked routes)
-2. **Literature grounding** — number of references, key papers, search sources used (Zotero/IEEE/both)
+2. **Literature grounding** — number of references, key papers, Zotero hits + IEEE Xplore supplemented papers
 3. **Generated files** — Depends on output format:
    - **LaTeX**: `latex/main.tex`, `latex/main.pdf`, `latex/myref.bib`
    - **Markdown**: `main.md`, `references/myref.bib`, `assets/figures/` (if any)
@@ -369,5 +370,5 @@ Shared IEEE class files plus type-specific templates and bibliographies:
 | [proposal-writing.md](references/proposal-writing.md) | Type = NSFC proposal (国自然基金申请书) — Three-part framework with proposal-specific literature search, feasibility demonstration, and research hypothesis articulation |
 | [article-improving.md](references/article-improving.md) | Type = improve existing |
 | [improvement-strategies.md](references/improvement-strategies.md) | Improvement — quick fixes by category |
-| [related-work-improvement.md](references/related-work-improvement.md) | Improvement — Related Work section strategies |
+| [related-work-improvement.md](references/related-work-improvement.md) | **Any description of prior work** — core principles（查证/结构/措辞/流程）+ Related Work improvement strategies |
 | [writing-requirements.md](references/writing-requirements.md) | Improvement — data authenticity & formatting requirements |

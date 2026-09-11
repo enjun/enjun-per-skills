@@ -4,6 +4,37 @@ Systematic approach to improving a paper's Related Work section using Zotero.
 
 ---
 
+## Core Principles（描述他人工作的核心原则）
+
+These principles apply to **any writing that describes prior work** — Related Work sections, Introduction literature paragraphs, survey body sections, and technical route comparisons. Read this section before drafting; the rest of this file covers the search/assessment workflow.
+
+### A. 查证——每条陈述经得起对照原文
+
+1. **描述他人工作前读原文正文**，不能只看摘要——摘要常掩盖甚至美化真实方法，仅凭摘要归类他人方法容易出错。
+2. **逐篇核准目标函数与约束结构**（maximize 还是 minimize、约束是什么），标题与关键词推不出来。
+3. **共性陈述的量词要确定**：逐篇核实后写 all/none；确实无法核实才用限定表述并向用户说明依据。不用 mostly/some——显得没做功课。
+4. **不写无法论证的断言**：首创性（seminal / takes the first step）、历史起源（originated in）、演进方向（has followed the evolution into）——难以辩护，审稿人可举反例。用中性动词 investigates / studies / considers / maximizes。
+
+### B. 结构——逻辑靠分层，不靠修辞
+
+5. **分类框架先行**：段首给分类轴（按误差模型/场景/方法），每篇文献的出场位置因此有依据；分类轴的末级应正对本文贡献所在的位置。
+6. **重点分层**：与本文最接近的文献单独成句、给"做了什么"级细节（目标函数+场景）；同类型合并一句、各带辨识标签；非重点一句带过。
+7. **详略的双约束**：读者既要看到具体研究进展，又不能是平铺列举。不要逐句列举。有效粒度 = 分类句 + 分层句，每篇有可辨识内容。
+8. **总结已有研究存在的局限性和问题，阐明本文研究动机**，直接衔接贡献段，形成问题→方案钩子。
+9. **与最近前作的对比写假设/模型差异**——具体到哪个假设不同、模型不同、方法不同，不写泛泛的"场景不同"。
+
+### C. 措辞——术语与动词都有技术含义
+
+10. **不确定的动词/术语查源头文献的正式命名**，不用转手叫法。
+11. **动词精确、不越界**：技术行话各有所指，同一术语在不同子领域含义不同，不确定时以源头用法为准；不夸大单一技术作用。
+
+### D. 流程——证据可复核、引用同步
+
+12. **归类结论留原文证据句**：每条归类/共性结论附原文证据句，写入持久化文件，保证 grep 可复核。
+13. **参考文献键与正文引用同步增删改**：删文献必须清空其所有引用点，改键名必须全局替换（检查命令见 [writing-requirements.md](writing-requirements.md) §3.3 Citation Verification）。
+
+---
+
 ## Assessment Framework
 
 | Dimension | What to Check |
@@ -164,6 +195,21 @@ framework that addresses both simultaneously.
    It is important to note that [alternative approach] [cite]
    is better suited for [specific condition].
    Our approach is designed for [different condition].
+   ```
+
+5. **Include a method comparison table (REQUIRED)**
+   - The Related Work section MUST contain a table comparing existing research methods, so readers can see the design space and the gap at a glance.
+   - Suggested columns: Category / Method, Key References, Core Idea, Strengths, Limitations.
+   - Place it near the positioning discussion; keep each cell concise (a phrase, not a sentence).
+   - Markdown example:
+
+   ```markdown
+   | Category | Key References | Core Idea | Strengths | Limitations |
+   |----------|----------------|-----------|-----------|-------------|
+   | Location-sampling codebook | [2], [3], [4] | Sample angle–distance grid, focus each codeword on one point | Matches near-field channel directly | Assumes true user location lies on the sampling grid |
+   | Hierarchical search | [5]–[10] | Layer-by-layer narrowing of the 2D search region | Low training overhead | Sensitive to angular estimation errors |
+   | Beam-shape customization | [11]–[15] | Variable-width / ring / multi-beam patterns | Flexible coverage control | Idealizes continuous phase control |
+   | Far-field codebook reuse | [17], [18] | Extract angle–range from DFT beam pattern | No dedicated codebook needed | Off-grid estimation adds complexity |
    ```
 
 ---

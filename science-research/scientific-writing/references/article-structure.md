@@ -125,6 +125,8 @@ the impact of estimation errors and interference from neighboring cells.
 - What are their limitations?
 - How does your work differ?
 
+> Follow the Core Principles in [related-work-improvement.md](related-work-improvement.md)（查证：读原文正文、核准目标函数；结构：分类分层、局限→动机；措辞：中性动词、术语溯源）— verify each paper against its full text before describing it.
+
 **Example**:
 ```
 Several approaches have been proposed to address power allocation in NOMA

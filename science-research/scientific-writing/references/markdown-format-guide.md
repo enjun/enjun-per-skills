@@ -172,6 +172,8 @@ The proposed method builds upon Smith (2023) and extends it...
 
 ### Bibliography Guidelines
 
+- **Each reference entry MUST occupy its own line** — separate entries with a blank line (paragraph break). Never place multiple entries on consecutive lines without blank lines, and never merge entries into a single paragraph; Markdown would otherwise join them into one line when rendered.
+- **Entries with fields marked 待补 MUST include a link to the source record** (e.g., `[IEEE Xplore](https://ieeexplore.ieee.org/document/<id>/)`) so the missing fields can be verified and filled in later.
 - Number references consecutively in order of appearance
 - Use standard IEEE citation format
 - Include DOIs when available
