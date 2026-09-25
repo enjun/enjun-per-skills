@@ -152,7 +152,7 @@ curl -s -X POST "http://localhost:3456/eval?target=<批改tab>" -d '<上述JS>'
 node "C:/Users/hp/.claude/skills/chaoxing-grading/scripts/fetch-images.mjs" <img-url1> <img-url2> ...
 ```
 
-- 脚本自动从浏览器 CDP（DevToolsActivePort）取全量 cookie 供 ananas 图床（curl 无 cookie 是 403），cldisk 图床只需 UA+Referer；全部 URL **并行下载**，打印本地路径 JSON。
+- 脚本经 ck-cookie-daemon（端口 39217，常驻持有唯一 CDP 连接，未运行时自动拉起）取全量 cookie 供 ananas 图床（curl 无 cookie 是 403），cldisk 图床只需 UA+Referer；新版 Chrome 每条新建 CDP WebSocket 都弹授权窗，daemon 常驻连接保证除首次外零弹窗。全部 URL **并行下载**，打印本地路径 JSON。
 - 随后把多个本地文件**在同一消息中并行 Read** 识图；下一位学生的提取调用可与当前识图批量并发。
 - 直接下载是原图，比视口截图更清晰，且不会像截图那样裁掉竖版/旋转照片的边缘（曾致证据漏看）。
 
@@ -220,6 +220,7 @@ curl -s -X POST --data-raw '<img-url>' "http://localhost:3456/navigate?target=<�
 |------|------|
 | 点击"批阅"按钮无反应 | 从 `a.cz_py` 的 data 属性取 URL 直接打开 |
 | **学生截图提取为 0** | **先查域名：截图可能托管在 `p.ananas.chaoxing.com` 或 `p.cldisk.com`，只过滤 ananas 会漏图**（2026-09-12 卢雨欣因此被误判纯文字打 80，实际 3 张完整截图）。提取正则必须兼容两个域名；仍为 0 时再滚动页面排除懒加载 |
+| **0 图 + 空文字 ≠ 空白提交** | **先查附件提交**：答案区有 `iframe.attach-iframe`（带 filename/filetype/objectid）说明学生上传了 docx/pdf，实操截图都嵌在附件里（2026-09-24 彭思媛/木拉迪力因此被误打 80）。GET `https://mooc1.chaoxing.com/ueditorupload/read?objectId=<objectid>&fileOriName=<文件名urlencode>` 开预览页，`a.btnDown` 取 cldisk 签名直链（curl 需 UA + Referer mooc1），docx 用 python zipfile 解出 `word/document.xml` 文字 + `word/media/*` 截图 |
 | 图片直下 403 | ananas 需带 CDP 取出的 cookie（`document.cookie` 不含 HttpOnly）+ UA；cldisk 只需 UA+Referer；脚本已封装 |
 | 脚本连不上 CDP | 浏览器未开远程调试时退回 tab navigate + screenshot |
 | `/screenshot` 报 "CDP 命令超时: Page.captureScreenshot" | sleep 3 后重试同一调用，均能成功 |

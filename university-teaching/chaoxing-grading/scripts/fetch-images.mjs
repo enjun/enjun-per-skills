@@ -10,14 +10,22 @@ import os from 'node:os';
 import path from 'node:path';
 
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36';
+// 所有 fetch 带 Connection: close：不让 undici 连接池在 process 退出时残留打开句柄
+// （Windows 下 process.exit 与未关句柄竞态会触发 libuv 断言，污染 stdout 重定向文件）
+const CLOSE = { 'Connection': 'close' };
 const args = process.argv.slice(2);
 const outIdx = args.indexOf('--out');
 const outDir = outIdx >= 0 ? args[outIdx + 1] : path.join(os.tmpdir(), 'chaoxing_imgs');
-const urls = args.filter((a, i) => a && !a.startsWith('--') && (outIdx < 0 || i !== outIdx + 1));
+const urls = args.filter((a, i) => a && !a.startsWith('--') && (outIdx < 0 || i !== outIdx + 1))
+  .map(a => a.replace(/^["']+/g, '').replace(/["']+$/g, '')); // 清洗 shell 误传的字面引号
 if (!urls.length) { console.error('用法: node fetch-images.mjs <url...> [--out <dir>]'); process.exit(2); }
 fs.mkdirSync(outDir, { recursive: true });
 
-// --- 端口发现: 复用 web-access 的浏览器发现逻辑（Chrome 优先，Edge 兜底） ---
+// --- 取 cookie：优先走 ck-cookie-daemon（唯一长连接，授权窗只弹一次），直连仅兜底 ---
+// 新版 Chrome 对每条新建 CDP WebSocket 都弹「远程调试授权」窗，绝不能每名学生直连一次。
+const DAEMON = `http://127.0.0.1:${process.env.CHAOXING_COOKIE_PORT || '39217'}`;
+const daemonPath = path.join(import.meta.dirname, 'ck-cookie-daemon.mjs');
+
 function devToolsPorts() {
   const local = process.env.LOCALAPPDATA;
   const candidates = [
@@ -35,6 +43,36 @@ function devToolsPorts() {
 }
 
 async function getCookieHeader() {
+  // 1) daemon 在跑 → 直接取
+  try {
+    const r = await fetch(`${DAEMON}/cookies?domain=chaoxing.com`, { headers: CLOSE, signal: AbortSignal.timeout(5000) });
+    if (r.ok) {
+      const { cookies } = await r.json();
+      if (cookies && cookies.length) {
+        return cookies.map(c => `${c.name}=${c.value}`).join('; ');
+      }
+    }
+  } catch {}
+  // 2) daemon 没跑 → detached 拉起（首次会弹一次授权窗），等 health 就绪后取
+  try {
+    const { spawn } = await import('node:child_process');
+    spawn(process.execPath, [daemonPath], { detached: true, stdio: 'ignore', windowsHide: true }).unref();
+    for (let i = 0; i < 25; i++) {
+      await new Promise(r => setTimeout(r, 400));
+      try {
+        const h = await fetch(`${DAEMON}/health`, { headers: CLOSE, signal: AbortSignal.timeout(1000) });
+        if (h.ok && (await h.text()).includes('ck-cookie-daemon')) break;
+      } catch {}
+    }
+    const r = await fetch(`${DAEMON}/cookies?domain=chaoxing.com`, { headers: CLOSE, signal: AbortSignal.timeout(8000) });
+    if (r.ok) {
+      const { cookies } = await r.json();
+      if (cookies && cookies.length) {
+        return cookies.map(c => `${c.name}=${c.value}`).join('; ');
+      }
+    }
+  } catch {}
+  // 3) 兜底：直连 CDP（会再弹一次授权窗，仅在 daemon 完全无法启动时使用）
   for (const { port, wsPath } of devToolsPorts()) {
     try {
       const ws = new WebSocket(`ws://127.0.0.1:${port}${wsPath}`);
@@ -62,7 +100,7 @@ async function getCookieHeader() {
 }
 
 async function download(url, file, headers) {
-  const r = await fetch(url, { headers, redirect: 'follow' });
+  const r = await fetch(url, { headers: { ...headers, ...CLOSE }, redirect: 'follow' });
   if (!r.ok) throw new Error(`HTTP ${r.status}`);
   const buf = Buffer.from(await r.arrayBuffer());
   fs.writeFileSync(file, buf);
@@ -87,4 +125,4 @@ const results = await Promise.all(urls.map(async (url, i) => {
   }
 }));
 console.log(JSON.stringify(results, null, 1));
-process.exit(results.some(r => r.error) ? 1 : 0);
+process.exitCode = results.some(r => r.error) ? 1 : 0;

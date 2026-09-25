@@ -1,7 +1,7 @@
 ---
 domain: chaoxing.com
 aliases: [超星学习通, 学习通, Chaoxing]
-updated: 2026-09-12
+updated: 2026-09-24
 note: 超星平台经验存放在本技能内（web-access 是第三方技能，更新会覆盖其 site-patterns，勿写入）
 ---
 ## 平台特征
@@ -22,8 +22,10 @@ note: 超星平台经验存放在本技能内（web-access 是第三方技能，
 
 ## 已知陷阱
 - `p.ananas.chaoxing.com` 图片：curl 无 cookie 返回 403（早期记录的"0 字节/唯一通路是截图"已过时——带 CDP cookie 后可直下）；页面内 fetch 被 CORS 拦；canvas.toDataURL 被 SecurityError 污染拦截。直下取 cookie 必须走 CDP `Storage.getCookies`（`document.cookie` 只含部分非 HttpOnly cookie，不带全可能仍 403）（2026-09-12 验证）。
+- **新版 Chrome 对每条新建 CDP WebSocket 弹一次「远程调试授权」窗**（2026-09-24 验证）：cdp-proxy 只建一条长连接故只弹一次；但任何脚本每次直连 `ws://127.0.0.1:<port>/devtools/...` 都会再弹一窗——并行批改时逐生直下图片会每生一窗。解法：`scripts/ck-cookie-daemon.mjs`（端口 39217）常驻持有唯一 CDP 连接，`fetch-images.mjs` 经 `GET /cookies?domain=` 取 cookie，零弹窗；daemon 未运行时 fetch-images 自动 detached 拉起（首次仍弹一次）。
 - `/screenshot` 是视口截图，会裁掉超出视口或居中显示的竖版图片边缘，可能丢失照片类作业截图的关键内容（2026-09-12 卢雨欣案例：创建命令恰在裁掉区域），优先直下原图。
 - 批阅列表页点"批阅"按钮（onclick=toMarkWork）不弹窗也不新开 tab，必须自己从 data 属性取 URL 打开。
 - 主文档 body.innerText 不含图片信息，仅看文字会漏掉学生的实操截图，误判"没有实操证据"。
+- **学生以 docx/pdf 附件提交时，提取 JS（只抓 img + innerText）返回 0 图 + 空文字，极易误判"空白提交"**（2026-09-24 彭思媛/木拉迪力案例，误打 80 后改判）。判断：批阅页答案区有 `iframe.attach-iframe`，带 `filename`/`filetype`/`filesize`/`objectid` 属性。取附件：**GET `https://mooc1.chaoxing.com/ueditorupload/read?objectId=<objectid>&fileOriName=<urlencode文件名>` 直接打开预览页**（GET 即可；`/mooc2-ans/work/check-attach` 接口校验教师 id，传学生 id 报 "error teacher"，不必走）；预览页 `a.btnDown` 是 cldisk 签名直链（有时效），curl 下载需浏览器 UA + `Referer: https://mooc1.chaoxing.com/`，否则 403。docx 解析：python `zipfile` 提取 `word/document.xml`（正则抓 `<w:t>` 段落文字）+ `word/media/*` 内嵌截图——**实操证据通常全在附件内嵌图片里**。
 - 提交后页面自动跳到下一份学生；全部批完则跳回 `/work/mark` 批阅列表页，列表中学生状态全部为"已完成"即批改完毕（2026-09-12 验证）。多 tab 并行提交时用普通"提交"（markAction(1)）则无跳转问题；若误用"提交并进入下一份"，"下一份"按当时未批队列分配，两个 tab 可能跳到同一位学生。
 - `/screenshot` 偶发 "CDP 命令超时: Page.captureScreenshot"，sleep 3 后重试同一调用即可成功（2026-09-12 多次验证）。
