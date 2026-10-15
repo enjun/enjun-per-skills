@@ -1,496 +1,352 @@
-# Experimental Design Checklist
-
-## Research Question Formulation
-
-### Is the Question Well-Formed?
-- [ ] **Specific:** Clearly defined variables and relationships
-- [ ] **Answerable:** Can be addressed with available methods
-- [ ] **Relevant:** Addresses a gap in knowledge or practical need
-- [ ] **Feasible:** Resources, time, and ethical considerations allow it
-- [ ] **Falsifiable:** Can be proven wrong if incorrect
-
-### Have You Reviewed the Literature?
-- [ ] Identified what's already known
-- [ ] Found gaps or contradictions to address
-- [ ] Learned from methodological successes and failures
-- [ ] Identified appropriate outcome measures
-- [ ] Determined typical effect sizes in the field
-
-## Hypothesis Development
-
-### Is Your Hypothesis Testable?
-- [ ] Makes specific, quantifiable predictions
-- [ ] Variables are operationally defined
-- [ ] Specifies direction/nature of expected relationships
-- [ ] Can be falsified by potential observations
-
-### Types of Hypotheses
-- [ ] **Null hypothesis (H₀):** No effect/relationship exists
-- [ ] **Alternative hypothesis (H₁):** Effect/relationship exists
-- [ ] **Directional vs. non-directional:** One-tailed vs. two-tailed tests
-
-## Study Design Selection
-
-### What Type of Study is Appropriate?
-
-**Experimental (Intervention) Studies:**
-- [ ] **Randomized Controlled Trial (RCT):** Gold standard for causation
-- [ ] **Quasi-experimental:** Non-random assignment but manipulation
-- [ ] **Within-subjects:** Same participants in all conditions
-- [ ] **Between-subjects:** Different participants per condition
-- [ ] **Factorial:** Multiple independent variables
-- [ ] **Crossover:** Participants receive multiple interventions sequentially
-
-**Observational Studies:**
-- [ ] **Cohort:** Follow groups over time
-- [ ] **Case-control:** Compare those with/without outcome
-- [ ] **Cross-sectional:** Snapshot at one time point
-- [ ] **Ecological:** Population-level data
-
-**Consider:**
-- [ ] Can you randomly assign participants?
-- [ ] Can you manipulate the independent variable?
-- [ ] Is the outcome rare (favor case-control) or common?
-- [ ] Do you need to establish temporal sequence?
-- [ ] What's feasible given ethical, practical constraints?
-
-## Variables
-
-### Independent Variables (Manipulated/Predictor)
-- [ ] Clearly defined and operationalized
-- [ ] Appropriate levels/categories chosen
-- [ ] Manipulation is sufficient to test hypothesis
-- [ ] Manipulation check planned (if applicable)
-
-### Dependent Variables (Outcome/Response)
-- [ ] Directly measures the construct of interest
-- [ ] Validated and reliable measurement
-- [ ] Sensitive enough to detect expected effects
-- [ ] Appropriate for statistical analysis planned
-- [ ] Primary outcome clearly designated
-
-### Control Variables
-- [ ] **Confounding variables identified:**
-  - Variables that affect both IV and DV
-  - Alternative explanations for findings
-- [ ] **Strategy for control:**
-  - Randomization
-  - Matching
-  - Stratification
-  - Statistical adjustment
-  - Restriction (inclusion/exclusion criteria)
-  - Blinding
-
-### Extraneous Variables
-- [ ] Potential sources of noise identified
-- [ ] Standardized procedures to minimize
-- [ ] Environmental factors controlled
-- [ ] Time of day, setting, equipment standardized
-
-## Sampling
-
-### Population Definition
-- [ ] **Target population:** Who you want to generalize to
-- [ ] **Accessible population:** Who you can actually sample from
-- [ ] **Sample:** Who actually participates
-- [ ] Difference between these documented
-
-### Sampling Method
-- [ ] **Probability sampling (preferred for generalizability):**
-  - Simple random sampling
-  - Stratified sampling
-  - Cluster sampling
-  - Systematic sampling
-- [ ] **Non-probability sampling (common but limits generalizability):**
-  - Convenience sampling
-  - Purposive sampling
-  - Snowball sampling
-  - Quota sampling
-
-### Sample Size
-- [ ] **A priori power analysis conducted**
-  - Expected effect size (from literature or pilot)
-  - Desired power (typically .80 or .90)
-  - Significance level (typically .05)
-  - Statistical test to be used
-- [ ] Accounts for expected attrition/dropout
-- [ ] Sufficient for planned subgroup analyses
-- [ ] Practical constraints acknowledged
-
-### Inclusion/Exclusion Criteria
-- [ ] Clearly defined and justified
-- [ ] Not overly restrictive (limits generalizability)
-- [ ] Based on theoretical or practical considerations
-- [ ] Ethical considerations addressed
-- [ ] Documented and applied consistently
-
-## Blinding and Randomization
-
-### Randomization
-- [ ] **What is randomized:**
-  - Participant assignment to conditions
-  - Order of conditions (within-subjects)
-  - Stimuli/items presented
-- [ ] **Method of randomization:**
-  - Computer-generated random numbers
-  - Random number tables
-  - Coin flips (for very small studies)
-- [ ] **Allocation concealment:**
-  - Sequence generated before recruitment
-  - Allocation hidden until after enrollment
-  - Sequentially numbered, sealed envelopes (if needed)
-- [ ] **Stratified randomization:**
-  - Balance important variables across groups
-  - Block randomization to ensure equal group sizes
-- [ ] **Check randomization:**
-  - Compare groups at baseline
-  - Report any significant differences
-
-### Blinding
-- [ ] **Single-blind:** Participants don't know group assignment
-- [ ] **Double-blind:** Participants and researchers don't know
-- [ ] **Triple-blind:** Participants, researchers, and data analysts don't know
-- [ ] **Blinding feasibility:**
-  - Is true blinding possible?
-  - Placebo/sham controls needed?
-  - Identical appearance of interventions?
-- [ ] **Blinding check:**
-  - Assess whether blinding maintained
-  - Ask participants/researchers to guess assignments
-
-## Control Groups and Conditions
-
-### What Type of Control?
-- [ ] **No treatment control:** Natural course of condition
-- [ ] **Placebo control:** Inert treatment for comparison
-- [ ] **Active control:** Standard treatment comparison
-- [ ] **Wait-list control:** Delayed treatment
-- [ ] **Attention control:** Matches contact time without active ingredient
-
-### Multiple Conditions
-- [ ] Factorial designs for multiple factors
-- [ ] Dose-response relationship assessment
-- [ ] Mechanism testing with component analyses
-
-## Procedures
-
-### Protocol Development
-- [ ] **Detailed, written protocol:**
-  - Step-by-step procedures
-  - Scripts for standardized instructions
-  - Decision rules for handling issues
-  - Data collection forms
-- [ ] Pilot tested before main study
-- [ ] Staff trained to criterion
-- [ ] Compliance monitoring planned
-
-### Standardization
-- [ ] Same instructions for all participants
-- [ ] Same equipment and materials
-- [ ] Same environment/setting when possible
-- [ ] Same assessment timing
-- [ ] Deviations from protocol documented
-
-### Data Collection
-- [ ] **When collected:**
-  - Baseline measurements
-  - Post-intervention
-  - Follow-up timepoints
-- [ ] **Who collects:**
-  - Trained researchers
-  - Blinded when possible
-  - Inter-rater reliability established
-- [ ] **How collected:**
-  - Valid, reliable instruments
-  - Standardized administration
-  - Multiple methods if possible (triangulation)
-
-## Measurement
-
-### Validity
-- [ ] **Face validity:** Appears to measure construct
-- [ ] **Content validity:** Covers all aspects of construct
-- [ ] **Criterion validity:** Correlates with gold standard
-  - Concurrent validity
-  - Predictive validity
-- [ ] **Construct validity:** Measures theoretical construct
-  - Convergent validity (correlates with related measures)
-  - Discriminant validity (doesn't correlate with unrelated measures)
-
-### Reliability
-- [ ] **Test-retest:** Consistent over time
-- [ ] **Internal consistency:** Items measure same construct (Cronbach's α)
-- [ ] **Inter-rater reliability:** Agreement between raters (Cohen's κ, ICC)
-- [ ] **Parallel forms:** Alternative versions consistent
-
-### Measurement Considerations
-- [ ] Objective measures preferred when possible
-- [ ] Validated instruments used when available
-- [ ] Multiple measures of key constructs
-- [ ] Sensitivity to change considered
-- [ ] Floor/ceiling effects avoided
-- [ ] Response formats appropriate
-- [ ] Recall periods appropriate
-- [ ] Cultural appropriateness considered
-
-## Bias Minimization
-
-### Selection Bias
-- [ ] Random sampling when possible
-- [ ] Clearly defined eligibility criteria
-- [ ] Document who declines and why
-- [ ] Minimize self-selection
-
-### Performance Bias
-- [ ] Standardized protocols
-- [ ] Blinding of providers
-- [ ] Monitor protocol adherence
-- [ ] Document deviations
-
-### Detection Bias
-- [ ] Blinding of outcome assessors
-- [ ] Objective measures when possible
-- [ ] Standardized assessment procedures
-- [ ] Multiple raters with reliability checks
-
-### Attrition Bias
-- [ ] Strategies to minimize dropout
-- [ ] Track reasons for dropout
-- [ ] Compare dropouts to completers
-- [ ] Intention-to-treat analysis planned
-
-### Reporting Bias
-- [ ] Preregister study and analysis plan
-- [ ] Designate primary vs. secondary outcomes
-- [ ] Commit to reporting all outcomes
-- [ ] Distinguish planned from exploratory analyses
-
-## Data Management
-
-### Data Collection
-- [ ] Data collection forms designed and tested
-- [ ] REDCap, Qualtrics, or similar platforms
-- [ ] Range checks and validation rules
-- [ ] Regular backups
-- [ ] Secure storage (HIPAA/GDPR compliant if needed)
-
-### Data Quality
-- [ ] Real-time data validation
-- [ ] Regular quality checks
-- [ ] Missing data patterns monitored
-- [ ] Outliers identified and investigated
-- [ ] Protocol deviations documented
-
-### Data Security
-- [ ] De-identification procedures
-- [ ] Access controls
-- [ ] Audit trails
-- [ ] Compliance with regulations (IRB, HIPAA, GDPR)
-
-## Statistical Analysis Planning
-
-### Analysis Plan (Prespecify Before Data Collection)
-- [ ] **Primary analysis:**
-  - Statistical test(s) specified
-  - Hypothesis clearly stated
-  - Significance level set (usually α = .05)
-  - One-tailed or two-tailed
-- [ ] **Secondary analyses:**
-  - Clearly designated as secondary
-  - Exploratory analyses labeled as such
-- [ ] **Multiple comparisons:**
-  - Adjustment method specified (if needed)
-  - Primary outcome protects from inflation
-
-### Assumptions
-- [ ] Assumptions of statistical tests identified
-- [ ] Plan to check assumptions
-- [ ] Backup non-parametric alternatives
-- [ ] Transformation options considered
-
-### Missing Data
-- [ ] Anticipated amount of missingness
-- [ ] Missing data mechanism (MCAR, MAR, MNAR)
-- [ ] Handling strategy:
-  - Complete case analysis
-  - Multiple imputation
-  - Maximum likelihood
-- [ ] Sensitivity analyses planned
-
-### Effect Sizes
-- [ ] Appropriate effect size measures identified
-- [ ] Will be reported alongside p-values
-- [ ] Confidence intervals planned
-
-### Statistical Software
-- [ ] Software selected (R, SPSS, Stata, Python, etc.)
-- [ ] Version documented
-- [ ] Analysis scripts prepared in advance
-- [ ] Will be made available (Open Science)
-
-## Ethical Considerations
-
-### Ethical Approval
-- [ ] IRB/Ethics committee approval obtained
-- [ ] Study registered (ClinicalTrials.gov, etc.) if applicable
-- [ ] Protocol follows Declaration of Helsinki or equivalent
-
-### Informed Consent
-- [ ] Voluntary participation
-- [ ] Comprehensible explanation
-- [ ] Risks and benefits disclosed
-- [ ] Right to withdraw without penalty
-- [ ] Privacy protections explained
-- [ ] Compensation disclosed
-
-### Risk-Benefit Analysis
-- [ ] Potential benefits outweigh risks
-- [ ] Risks minimized
-- [ ] Vulnerable populations protected
-- [ ] Data safety monitoring (if high risk)
-
-### Confidentiality
-- [ ] Data de-identified
-- [ ] Secure storage
-- [ ] Limited access
-- [ ] Reporting doesn't allow re-identification
-
-## Validity Threats
-
-### Internal Validity (Causation)
-- [ ] **History:** External events between measurements
-- [ ] **Maturation:** Changes in participants over time
-- [ ] **Testing:** Effects of repeated measurement
-- [ ] **Instrumentation:** Changes in measurement over time
-- [ ] **Regression to mean:** Extreme scores becoming less extreme
-- [ ] **Selection:** Groups differ at baseline
-- [ ] **Attrition:** Differential dropout
-- [ ] **Diffusion:** Control group receives treatment elements
-
-### External Validity (Generalizability)
-- [ ] Sample representative of population
-- [ ] Setting realistic/natural
-- [ ] Treatment typical of real-world implementation
-- [ ] Outcome measures ecologically valid
-- [ ] Time frame appropriate
-
-### Construct Validity (Measurement)
-- [ ] Measures actually tap intended constructs
-- [ ] Operations match theoretical definitions
-- [ ] No confounding of constructs
-- [ ] Adequate coverage of construct
-
-### Statistical Conclusion Validity
-- [ ] Adequate statistical power
-- [ ] Assumptions met
-- [ ] Appropriate tests used
-- [ ] Alpha level appropriate
-- [ ] Multiple comparisons addressed
-
-## Reporting and Transparency
-
-### Preregistration
-- [ ] Study preregistered (OSF, ClinicalTrials.gov, AsPredicted)
-- [ ] Hypotheses stated a priori
-- [ ] Analysis plan documented
-- [ ] Distinguishes confirmatory from exploratory
-
-### Reporting Guidelines
-- [ ] **RCTs:** CONSORT checklist
-- [ ] **Observational studies:** STROBE checklist
-- [ ] **Systematic reviews:** PRISMA checklist
-- [ ] **Diagnostic studies:** STARD checklist
-- [ ] **Qualitative research:** COREQ checklist
-- [ ] **Case reports:** CARE guidelines
-
-### Transparency
-- [ ] All measures reported
-- [ ] All manipulations disclosed
-- [ ] Sample size determination explained
-- [ ] Exclusion criteria and numbers reported
-- [ ] Attrition documented
-- [ ] Deviations from protocol noted
-- [ ] Conflicts of interest disclosed
-
-### Open Science
-- [ ] Data sharing planned (when ethical)
-- [ ] Analysis code shared
-- [ ] Materials available
-- [ ] Preprint posted
-- [ ] Open access publication when possible
-
-## Post-Study Considerations
-
-### Data Analysis
-- [ ] Follow preregistered plan
-- [ ] Clearly label deviations and exploratory analyses
-- [ ] Check assumptions
-- [ ] Report all outcomes
-- [ ] Report effect sizes and CIs, not just p-values
-
-### Interpretation
-- [ ] Conclusions supported by data
-- [ ] Limitations acknowledged
-- [ ] Alternative explanations considered
-- [ ] Generalizability discussed
-- [ ] Clinical/practical significance addressed
-
-### Dissemination
-- [ ] Publish regardless of results (reduce publication bias)
-- [ ] Present at conferences
-- [ ] Share findings with participants (when appropriate)
-- [ ] Communicate to relevant stakeholders
-- [ ] Plain language summaries
-
-### Next Steps
-- [ ] Replication needed?
-- [ ] Follow-up studies identified
-- [ ] Mechanism studies planned
-- [ ] Clinical applications considered
-
-## Common Pitfalls to Avoid
-
-- [ ] No power analysis → underpowered study
-- [ ] Hypothesis formed after seeing data (HARKing)
-- [ ] No blinding when feasible → bias
-- [ ] P-hacking (data fishing, optional stopping)
-- [ ] Multiple testing without correction → false positives
-- [ ] Inadequate control group
-- [ ] Confounding not addressed
-- [ ] Instruments not validated
-- [ ] High attrition not addressed
-- [ ] Cherry-picking results to report
-- [ ] Causal language from correlational data
-- [ ] Ignoring assumptions of statistical tests
-- [ ] Not preregistering changes literature bias
-- [ ] Conflicts of interest not disclosed
-
-## Final Checklist Before Starting
-
-- [ ] Research question is clear and important
-- [ ] Hypothesis is testable and specific
-- [ ] Study design is appropriate
-- [ ] Sample size is adequate (power analysis)
-- [ ] Measures are valid and reliable
-- [ ] Confounds are controlled
-- [ ] Randomization and blinding implemented
-- [ ] Data collection is standardized
-- [ ] Analysis plan is prespecified
-- [ ] Ethical approval obtained
-- [ ] Study is preregistered
-- [ ] Resources are sufficient
-- [ ] Team is trained
-- [ ] Protocol is documented
-- [ ] Backup plans exist for problems
-
-## Remember
-
-**Good experimental design is about:**
-- Asking clear questions
-- Minimizing bias
-- Maximizing validity
-- Appropriate inference
-- Transparency
-- Reproducibility
-
-**The best time to think about these issues is before collecting data, not after.**
+# 仿真与原型实验设计检查单
+
+面向无线通信研究的实验设计自查框架（RIS、太赫兹、6G、ML for communications 等）。实验形式包括：蒙特卡洛仿真、参数扫描、基线与消融对比、硬件原型与外场实测。每个实验开跑前过一遍本清单。
+
+## 研究问题形成
+
+### 问题是否良构？
+- [ ] **具体：** 系统配置、性能指标、工作条件是否明确定义？（"RIS 辅助 MIMO 系统在中低 SNR 区间的频谱效率增益"是良构问题；"RIS 有没有用"不是）
+- [ ] **可回答：** 现有仿真平台、算力、硬件条件能否支撑该问题的实验？
+- [ ] **可证伪：** 若结果为负，能否明确判定假设不成立，而不是总能事后解释？
+- [ ] **有边界：** 结论的适用范围（频段、场景、阵列规模）是否预先界定？
+- [ ] **有意义：** 是否对应真实系统设计中的瓶颈或权衡，而非人造的差异？
+
+### 是否已综述文献确认空白？
+- [ ] 已梳理已有结论与典型性能数字（该方向通常能拿到多少 dB / bps/Hz 增益）
+- [ ] 明确了尚未回答的问题或相互矛盾的结论
+- [ ] 了解了领域惯用的信道模型、评测协议与代表性基线
+- [ ] 掌握了典型增益量级，可判断自己的预期增益是否值得报告
+- [ ] 确认拟做实验与已有工作不重复（或明确差异化定位）
+
+## 假设发展
+
+### 假设是否可检验？
+- [ ] 预测具体到**指标**（BER/BLER、频谱效率、能效、时延、复杂度）与**条件**（SNR 范围、阵元数、信道模型、导频开销）
+- [ ] 给出方向与预期量级（"N ≥ 64 时 SE 增益超过 X bps/Hz"优于"会有改善"）
+- [ ] 所有变量均可操作化定义（算法有伪码或公式，参数有取值）
+- [ ] 潜在的实验结果能够证伪该假设
+
+### 假设类型是否明确？
+- [ ] **性能增益假设：** 所提方法在指标 X 上优于基线 Y（幅度 + 条件）
+- [ ] **复杂度权衡假设：** 增益以可接受的计算/硬件/反馈开销为代价（FLOPs、存储、时延、功耗）
+- [ ] **机理假设：** 增益来源于某特定机制（如相位量化误差主导、近场效应、信道硬化、干扰抑制路径）
+- [ ] **等效性假设：** 简化方案与原方案性能等效（如降低复杂度而不损失性能）
+
+## 设计选择
+
+### 什么问题用什么手段？
+- [ ] **理论分析：** 上下界、标度律、收敛性、复杂度阶——能否推出闭式或渐近结果？适合回答"最优能到多少""随 N 如何增长"
+- [ ] **仿真：** 机理验证、参数扫描、算法对比、大样本统计——成本低、可控、可重复，适合回答"为什么""什么条件下成立"
+- [ ] **原型实测：** 检验仿真假设是否在真实硬件下成立（信道非理想、相位噪声、互耦、同步误差、校准误差），适合回答"还剩多少增益"
+- [ ] **现网/试验网试验：** 真实负载、干扰、移动性下的最终检验——成本最高、不可控变量最多，适合回答"部署后如何"
+
+### 何时需要组合设计？
+- [ ] 仿真筛选 + 原型验证：先用仿真缩小参数空间，再在原型上验证关键工作点
+- [ ] 理论 + 仿真互证：分析曲线与仿真点是否吻合，偏差是否可解释（蒙特卡洛方差 vs. 模型近似误差）
+- [ ] 仿真 + 实测交叉标定：用实测数据修正仿真模型，再外推未实测的工作点
+- [ ] 每种手段的结论边界是否明确——仿真结论不冒充实测结论，实测点数不足以宣称统计规律
+
+### 是否先做小规模试跑？
+- [ ] 正式实验前用小规模配置走通整条管线（少量 SNR 点、少量重复）
+- [ ] 试跑结果人工核对过：BER 计数器口径（编码前/后、含不含重传）、吞吐计算、单位换算
+- [ ] 全因子扫描的墙钟时间是否估算过、能否承受？断点续跑（checkpoint）是否支持？
+- [ ] 并行运行是否引入了共享状态污染（同一结果文件被覆盖、全局种子被消耗）？
+
+### 退化配置与 sanity check
+- [ ] 是否设置退化配置（无 RIS、随机相位、N → 极限、单用户退化为点对点）？
+- [ ] 极限情形是否与已知理论或教科书结果对齐（如 AWGN 下 BER 曲线与理论式重合、AWGN 容量线）？
+- [ ] 仿真器本身是否经过已知答案的验证（如与文献可复现曲线比对）？
+
+## 变量
+
+### 自变量（被操纵的系统参数）
+- [ ] 列出全部被操纵参数：阵元数 N、SNR、带宽、子载波数、子阵列规模、量化比特数、码本大小、反馈比特、训练轮数、网络超参数……
+- [ ] 取值范围与步长是否覆盖工作区间（如 SNR 从 -10 到 30 dB 均匀取点）？
+- [ ] 区分主研究参数与辅助配置参数，避免一次改动过多
+- [ ] 默认值与扫描计划是否写入配置文件，而非散落在代码里？
+
+### 因变量（性能指标）
+- [ ] 指标直接对应研究问题：BER/BLER、频谱效率、能效（bit/J）、和速率、时延、计算复杂度、信令开销
+- [ ] 指标定义无歧义：SE 是每链路还是每小区、含不含导频开销、瞬时还是遍历；EE 的分母是总功耗还是额外功耗
+- [ ] 主指标明确指定，其余为次要指标
+- [ ] 指标对预期效应足够灵敏（低 SNR 区看 BER，高 SNR 区看 SE；均值指标补 CDF 或分位数）
+- [ ] 是否同时覆盖性能与代价（增益 vs. 复杂度/开销/时延），避免单边报告
+- [ ] 是否包含可外部锚定的参照（理论界、文献数字）用于交叉验证自己的实现
+
+### 控制变量（保持恒定的条件）
+- [ ] 信道模型（3GPP TR 38.901、CDL、UMi/UMa 或自定义）及其版本固定并报告
+- [ ] 导频/训练开销、编码调制方式、HARQ/重传策略在各方法间一致
+- [ ] 所有对比方法走同一仿真管线（相同收端处理、相同计数器实现）
+- [ ] 阵列几何、载频、噪声系数、硬件损伤模型固定并在文中列出
+- [ ] 除被研究因素外，各配置间是否保证唯一差异？
+
+### 外生变量（引入噪声的因素）
+- [ ] 随机种子：信道实现、噪声、数据采样、网络初始化——是否固定并记录？
+- [ ] 实现细节：数值精度（浮点/定点）、并行度、缓存与截断、库版本、编译选项
+- [ ] 运行环境：CPU/GPU 型号、驱动版本是否记录（影响运行时间类指标）？
+- [ ] 硬件侧：温漂、校准状态、线缆与接头损耗、测量时段、仪器设置
+
+## 因子设计与参数扫描
+
+### 全因子 / 部分因子 / 单变量扫描
+- [ ] **全因子：** 所有参数组合全部运行——参数多时代价爆炸（5 个参数 × 10 个取值 = 10⁵ 组合）
+- [ ] **部分因子/正交设计：** 只跑代表性组合，估计主效应与关键交互
+- [ ] **单变量扫描（OFAT）：** 固定其余参数、扫一个参数——直观常用，但**看不到交互效应**
+- [ ] 是否存在疑似交互（如"N 的增益依赖 SNR""增益依赖 LOS/NLOS"）？若有，需要二维联合扫描或热力图
+- [ ] OFAT 的固定点选取是否声明并论证（固定点不应挑对自己最有利的配置）？
+
+### 扫描范围是否完整？
+- [ ] 范围覆盖工作点全区间（低/中/高 SNR、小/大阵列、近/远场），而非只挑有利区间
+- [ ] 边界包含物理极限与实际约束（如 N=1 退化、最大可用阵元数）
+- [ ] 步长足够密以刻画趋势与拐点（如近远场分界、量化位数饱和点附近）
+- [ ] 坐标尺度合理并明确（BER 用对数轴；SNR 线性扫还是 dB 均匀扫需说明）
+
+### 拐点与失效区
+- [ ] 增益消失或反转的区间是否主动寻找并报告（如超大规模阵元下的饱和、高 SNR 下的干扰受限）？
+- [ ] 失效区间的解释是数据支撑的还是推测？推测需标注
+
+## 样本量：重复与置信
+
+### 蒙特卡洛次数如何确定？
+- [ ] **错误事件数足够：** 要可靠显示 BER 10⁻⁵，至少需要约 100 个错误事件，即至少约 10⁷ 比特；稳妥取 10⁸–10⁹
+- [ ] 低误码区曲线是有置信支撑，还是只是噪声画的形状？截断点（"低于该线"）是否明确标注？
+- [ ] 独立重复次数：每个配置点的独立信道实现数是否足够（常见 ≥ 100–1000）？
+- [ ] 训练类方法（ML）：每个配置至少多个随机种子重复，报告均值与标准差
+- [ ] 曲线上的非单调抖动是否可解释——不是蒙特卡洛方差就是实现错误
+- [ ] 尾部指标（时延 99% 分位、中断概率）需要的样本数远多于均值指标——按尾部需求定样本量
+- [ ] 运行时长预算与样本量的权衡是否显式记录（预算内可承受的最大重复数）
+
+### 随机种子策略
+- [ ] 种子集合预先固定并记录，而非试跑后挑选
+- [ ] 不同方法使用**相同的种子集合**（配对比较，可显著减小方差）
+- [ ] 种子数改变时结论是否稳健（敏感性检验）？
+- [ ] 硬件实验无法重复同一信道时，是否说明重复策略与统计口径？
+
+### 置信报告
+- [ ] 关键结果报告置信区间或误差棒（95% CI 或均值 ± 标准差）
+- [ ] 明确误差棒含义（标准差、标准误还是置信区间——三者不可混用）
+- [ ] 结论在误差棒范围内是否仍然成立？差异小于蒙特卡洛噪声的"增益"不构成结论
+
+## 基线与消融
+
+### 基线选择
+- [ ] 是否包含领域公认基线：完美 CSI/理想相位上界、随机相位、经典优化算法、SOTA 方法？
+- [ ] 是否同时有**上界**（genie-aided、理想假设）与**实用基线**，以定位增益空间？
+- [ ] 基线复现自原始论文还是引用其标准设置？复现的基线性能与原文数字是否一致（对不上要先排查）？
+- [ ] 只与弱基线比（straw man）是常见拒稿理由——主动补强最容易被质疑的基线
+
+### 对比公平性
+- [ ] 相同信道实现（同种子）、相同导频开销、相同编码调制与收端处理
+- [ ] 相同调参努力：自己的方法调了几轮超参，基线是否获得同等的网格搜索/学习率调优？
+- [ ] 复杂度约束对齐：在等 FLOPs、等训练时间或等反馈比特下比较，而不是裸比性能
+- [ ] ML 方法：基线网络规模、训练数据量、早停准则是否对齐？
+- [ ] 训练与测试严格隔离：测试集使用不同的信道实现、场景或快照，训练集绝不参与调参选型
+
+### 消融实验
+- [ ] 每个组件的贡献是否单独分离（分别去掉模块 A/B/C 各测一次）？
+- [ ] 是否有"只留核心组件"的精简版本作为下界？
+- [ ] 增益归因是否明确——来自算法本身，还是来自额外的导频、算力或反馈？
+- [ ] 消融在主结果的工作点上做，还是另选了更有利的工作点？需声明
+
+## 测量与指标
+
+### 指标与问题匹配
+- [ ] 可靠性问题 → BER/BLER/中断概率；容量问题 → 遍历/中断容量；部署问题 → EE/覆盖/波束效率
+- [ ] 物理层代理指标与用户可感知指标（吞吐、时延、可靠性）是否区分清楚？
+- [ ] 平均值是否掩盖了尾部行为——是否补充 CDF、分位数或中断概率？
+
+### 测量协议标准化
+- [ ] 仿真侧：蒙特卡洛流程标准化（初始化 → 迭代 → 收敛判据 → 统计输出），收敛判据写明
+- [ ] 硬件侧：测量流程书面化——仪器型号、校准流程、衰减设置、触发方式、采样时长
+- [ ] 每次测量记录环境条件（温度、时间、连线状态）
+- [ ] 测量控制脚本与仪器配置文件版本化
+
+### 指标可靠性
+- [ ] 同一配置多次运行，运行间方差是否可接受？
+- [ ] 硬件测量重复多次取统计（仪器噪声、连接抖动、开关切换瞬态）
+- [ ] 硬件校准：功率校准、频偏校正、天线与线缆损耗补偿是否完成并记录？
+- [ ] 阵列类原型（RIS/大规模 MIMO）：阵元幅相校准、通道间时延对齐是否完成？
+- [ ] 高频段（太赫兹）：相位噪声、本振锁定状态、泄漏与驻波是否检查？
+- [ ] 仿真与硬件使用同一份指标计算代码，避免口径不一致
+
+## 偏倚最小化
+
+### 场景选择偏倚
+- [ ] 是否只报告有利场景（只有高 SNR、只有 LOS、只有特定频段或阵列规模）？
+- [ ] 场景矩阵（如 LOS/NLOS × 低/高 SNR × 多载频）预先指定，全部运行全部报告
+- [ ] 方法失效的区间是否如实呈现并给出解释？
+
+### 种子与样本选择偏倚
+- [ ] 是否试跑后只保留好看的种子或运行结果？（禁止——种子集合应预先固定）
+- [ ] 训练曲线是否全部展示，包括不收敛或发散的？
+- [ ] 异常点剔除必须有预先定义的规则，且报告剔除数量与理由
+
+### 报告偏倚
+- [ ] 预先写下分析计划：主指标、比较方法、统计口径
+- [ ] 不因结果不理想而更换指标、改定义或加条件
+- [ ] 负增益、不显著的对比也纳入正文或附录
+
+### 评测者偏倚
+- [ ] 出图、调参、选样例的人知道哪个结果属于自己的方法——用脚本自动出图，减少主观干预
+- [ ] 展示型图（波束图、热力图、样例）用的是代表性样本还是精心挑选的最佳样本？
+- [ ] 涉及主观评价的对比（如样例质量打分）是否匿名化后再评？
+
+## 数据管理
+
+### 存档与版本
+- [ ] 每次实验保存完整五件套：配置文件、代码版本（git commit hash）、随机种子、原始结果数据、运行日志
+- [ ] 结果目录命名规范（日期 + 实验名 + 配置标识），可反查配置
+- [ ] 大规模原始数据（IQ 采样、信道实现、训练检查点）与统计结果分开存放
+- [ ] 定期备份；关键实验有异地/远程副本
+
+### 原始数据与绘图数据分离
+- [ ] 仿真原始输出（CSV/二进制）保留，绘图脚本从原始数据生成图
+- [ ] 不手改数据文件；所有清洗与聚合步骤脚本化
+- [ ] 绘图脚本与数据一同归档，任何图可一键重新生成
+- [ ] 硬件测量：仪器原始导出文件保留，处理链（校准 → 对齐 → 统计）脚本化且顺序可追溯
+- [ ] 归档完成后做一次"换台机器能否重跑"的演练，缺什么当场补
+
+## 统计分析计划
+
+### 预先指定分析
+- [ ] 开跑之前写下：主指标、对比对象、汇总方式（均值/中位数/CDF）、显著性水平
+- [ ] 防止工程版 p-hacking：反复换指标、换区间、加过滤条件直到结果好看
+- [ ] 探索性发现明确标注为探索性，留给后续实验验证
+
+### 假设检验的适用性
+- [ ] 可重复仿真下的方法对比优先用同种子配对比较，而非独立样本比较
+- [ ] 效应量与绝对增益（dB、bps/Hz、百分比）必须报告，不能只给显著性判断
+- [ ] 多重比较（多场景 × 多指标 × 多基线）需校正（Bonferroni/FDR）或明确说明不校正的理由
+- [ ] 显著性不等于重要性：小于测量不确定度、量化步长或工程噪声容限的"显著"差异没有实用意义
+
+### 数据问题与稳健性
+- [ ] 异常值识别与处理规则预先定义
+- [ ] 未收敛、中断、失败的运行如实报告数量与原因，不得静默丢弃
+- [ ] 敏感性分析：关键结论对信道模型、量化位数、近似假设的改变是否稳健？
+
+### ML 训练类实验专项
+- [ ] 验证集独立于测试集，早停与选型只依据验证集
+- [ ] 多个随机种子训练并报告均值 ± 标准差，而非挑最好的一次
+- [ ] 训练曲线（loss、验证指标）完整展示，包括不收敛的运行
+- [ ] 测试集在模型定型前保持"冻结"，不得反复评测后再改模型
+- [ ] 训练数据生成（信道参数分布、快照数）是否描述到可重建的程度？
+- [ ] 超参数搜索空间与选择准则是否报告？
+
+## 效度威胁
+
+### 内部效度（增益是否真的来自所提方法）
+- [ ] **混淆配置：** 对比组间存在未声明的差异（不同开销、不同编码、不同收端）
+- [ ] **实现差异：** 增益来自方法本身，还是自己代码优化好、基线实现粗糙？
+- [ ] **数据泄漏：** ML 方法训练/测试信道实现重叠、测试集参与调参或模型选择
+- [ ] **回归均值：** 试跑中挑出的最佳配置，在正式重复中通常会变差——是否用独立数据确认？
+- [ ] **仿真器缺陷：** 信道模型实现错误、量化/舍入误差、收敛判据过松、计数器统计口径错误
+
+### 外部效度（结论能推广到哪）
+- [ ] 结论是否只在特定信道模型下成立？换 UMa/CDL/实测信道后是否仍成立？
+- [ ] 是否只在特定频段（Sub-6G vs. 太赫兹）或特定阵列规模成立？
+- [ ] 理想假设（完美 CSI、理想硬件、无互耦、理想同步）逐项去除后增益还剩多少？
+- [ ] 仿真结论外推到实际硬件的依据是否说明？外推边界在哪里？
+
+### 构念效度（指标是否测到了想测的东西）
+- [ ] 声称"能效提升"是否真的测了 bit/J，还是只报了速率？
+- [ ] 声称"低复杂度"给的是理论 FLOPs 还是实测运行时延与内存？两者可能不一致
+- [ ] 声称"鲁棒性"是否有非理想条件（信道估计误差、硬件损伤、失配）下的明确实验支撑？
+- [ ] 指标定义是否与领域惯例一致，避免自造对己有利的定义？
+
+### 统计结论效度
+- [ ] 重复次数/错误事件数是否足以支撑所画曲线的低误码区？
+- [ ] 误差棒与置信区间是否报告？曲线间差异是否超出蒙特卡洛噪声范围？
+- [ ] 多重比较是否处理？
+
+## 报告与可复现性
+
+### 可复现要素
+- [ ] 全部系统参数列出（含未变的默认参数），配置文件随论文或仓库公开
+- [ ] 随机种子与重复次数写明
+- [ ] 代码与数据是否公开（GitHub/Zenodo）；至少向审稿人提供
+- [ ] 仿真平台、库版本、硬件平台、编译选项记录
+- [ ] 描述详细到读者可独立复现出相同量级的结果
+
+### 仿真与实测严格区分
+- [ ] 每张图明确标注仿真或实测（图例、标题、caption）
+- [ ] 仿真曲线与实测曲线不得混排而不加区分
+- [ ] 插值与外推用虚线等视觉方式明确标注
+- [ ] 理论曲线与仿真点的对应关系说明清楚
+- [ ] 坐标轴范围未裁剪到只显示有利区域；截断的曲线用断轴或箭头注明
+- [ ] 曲线过密时随附数据表格或 CSV，保证读者可提取数值
+
+### 完整报告
+- [ ] 所有预先指定的场景全部报告，不挑有利子集
+- [ ] 基线设置引用原文或附录详述，含超参与训练细节
+- [ ] 负结果与失效区间如实呈现
+- [ ] 报告计算资源与运行时长，支撑复杂度相关声明
+
+## 研究后事项
+
+### 分析与解读
+- [ ] 按预设分析计划执行，偏离处明确标注并说明原因
+- [ ] 区分**数据说了什么**与**我如何解读**：增益 2 dB 是数据，"具有实用价值"是解读
+- [ ] 与理论预测对照：吻合则互证，偏差需定位来源（方差？模型近似？实现误差？）
+- [ ] 局限性诚实列出：假设、场景范围、硬件限制、未覆盖的工况
+
+### 发表
+- [ ] 结果无论正负都整理成文（减少领域内的发表偏倚）
+- [ ] 图表自含：坐标轴、单位、图例、误差棒含义、种子与重复数齐全
+- [ ] 补充材料含完整配置、代码与数据链接
+
+### 下一步
+- [ ] 仿真结论是否需要原型验证？哪些工作点优先上硬件？
+- [ ] 是否需要扩展到其他场景、频段或阵列规模？
+- [ ] 机理假设是否需要进一步的针对性实验（控制单一机制的对照实验）？
+- [ ] 本轮实验是否产生了新的可检验假设？
+
+## 常见陷阱
+
+- [ ] 只扫有利区间，回避方法失效的工作点
+- [ ] 单变量扫描看不到参数交互，得出"N 的增益与 SNR 无关"之类的伪结论
+- [ ] 蒙特卡洛次数不足，低 BER 区域的曲线形状是噪声
+- [ ] 事后挑种子、挑场景、挑指标、改指标定义
+- [ ] 基线敷衍调参、自己的方法精心调参——不公平对比
+- [ ] 只与弱基线或理想上界比，回避 SOTA 方法
+- [ ] ML 方法训练/测试信道重叠，泛化性能虚高
+- [ ] 增益来自额外导频/算力/反馈而非算法本身，且消融缺失
+- [ ] 在完美 CSI、理想硬件假设下得出结论并暗示可实用
+- [ ] 复杂度只报理论 FLOPs，回避实测时延与内存占用
+- [ ] 仿真结果写成系统实测结论（"系统性能提升 X%"）
+- [ ] 指标定义含糊（SE 含不含开销、EE 分母是什么、BER 是编码前还是后）
+- [ ] 无误差棒，单次运行结果直接画成曲线
+- [ ] 数据不可复现：配置未存、种子丢失、代码版本不明
+- [ ] 硬件测量未校准，绝对数值不可信
+- [ ] 试跑未核对统计口径（计数器、单位、编码前后），正式数据整体作废
+- [ ] 尾部指标样本不足，99% 分位数纯属噪声
+- [ ] 归档不完整，换台机器或半年后自己都无法重跑
+
+## 开始前最终检查单
+
+- [ ] 研究问题具体、可证伪，经文献确认非重复
+- [ ] 假设具体到指标与条件，有预期量级与方向
+- [ ] 手段组合（理论/仿真/原型/现网）与研究问题匹配
+- [ ] 自变量扫描范围覆盖工作区间，含退化校验配置与失效区
+- [ ] 控制变量清单固定，各配置间唯一差异是被研究因素
+- [ ] 蒙特卡洛次数、独立重复次数、种子策略预先确定（错误事件数够不够）
+- [ ] 基线清单与公平性约束（同开销、同调参努力）事先写明
+- [ ] 消融实验计划制定，能分离各组件贡献
+- [ ] 指标定义无歧义，主指标与次要指标指定
+- [ ] 场景矩阵预先指定，并承诺全部报告
+- [ ] 分析计划预先写下，防止事后挑指标
+- [ ] 数据管理方案就绪：配置 + 种子 + 日志 + 原始数据归档，图可重生成
+- [ ] sanity check 计划就绪：理论曲线对齐、退化配置、仿真器验证
+- [ ] 硬件实验：校准流程、测量协议、重复策略书面化
+- [ ] 代码可复现性落实：配置文件、版本控制、环境记录
+
+## 记住
+
+**好的实验设计在于：**
+- 问清楚问题，预设好指标与场景
+- 固定一切非研究因素，让对比之间只有唯一差异
+- 足够的重复与诚实的误差报告
+- 公平的基线与完整的消融
+- 预先承诺分析计划，事后如实报告全部结果
+- 配置、种子、代码、数据可复现
+
+**思考这些问题的最佳时机是跑第一批实验之前，而不是看到意外的曲线之后。**

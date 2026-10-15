@@ -1,484 +1,356 @@
-# Evidence Hierarchy and Quality Assessment
-
-## Traditional Evidence Hierarchy (Medical/Clinical)
-
-### Level 1: Systematic Reviews and Meta-Analyses
-**Description:** Comprehensive synthesis of all available evidence on a question.
-
-**Strengths:**
-- Combines multiple studies for greater power
-- Reduces impact of single-study anomalies
-- Can identify patterns across studies
-- Quantifies overall effect size
-
-**Weaknesses:**
-- Quality depends on included studies ("garbage in, garbage out")
-- Publication bias can distort findings
-- Heterogeneity may make pooling inappropriate
-- Can mask important differences between studies
-
-**Critical evaluation:**
-- Was search comprehensive (multiple databases, grey literature)?
-- Were inclusion criteria appropriate and prespecified?
-- Was study quality assessed?
-- Was heterogeneity explored?
-- Was publication bias assessed (funnel plots, fail-safe N)?
-- Were appropriate statistical methods used?
-
-### Level 2: Randomized Controlled Trials (RCTs)
-**Description:** Experimental studies with random assignment to conditions.
-
-**Strengths:**
-- Gold standard for establishing causation
-- Controls for known and unknown confounders
-- Minimizes selection bias
-- Enables causal inference
-
-**Weaknesses:**
-- May not be ethical or feasible
-- Artificial settings may limit generalizability
-- Often short-term with selected populations
-- Expensive and time-consuming
-
-**Critical evaluation:**
-- Was randomization adequate (sequence generation, allocation concealment)?
-- Was blinding implemented (participants, providers, assessors)?
-- Was sample size adequate (power analysis)?
-- Was intention-to-treat analysis used?
-- Was attrition rate acceptable and balanced?
-- Are results generalizable?
-
-### Level 3: Cohort Studies
-**Description:** Observational studies following groups over time.
-
-**Types:**
-- **Prospective:** Follow forward from exposure to outcome
-- **Retrospective:** Look backward at existing data
-
-**Strengths:**
-- Can study multiple outcomes
-- Establishes temporal sequence
-- Can calculate incidence and relative risk
-- More feasible than RCTs for many questions
-
-**Weaknesses:**
-- Susceptible to confounding
-- Selection bias possible
-- Attrition can bias results
-- Cannot prove causation definitively
-
-**Critical evaluation:**
-- Were cohorts comparable at baseline?
-- Was exposure measured reliably?
-- Was follow-up adequate and complete?
-- Were potential confounders measured and controlled?
-- Was outcome assessment blinded to exposure?
-
-### Level 4: Case-Control Studies
-**Description:** Compare people with outcome (cases) to those without (controls), looking back at exposures.
-
-**Strengths:**
-- Efficient for rare outcomes
-- Relatively quick and inexpensive
-- Can study multiple exposures
-- Useful for generating hypotheses
-
-**Weaknesses:**
-- Cannot calculate incidence
-- Susceptible to recall bias
-- Selection of controls is challenging
-- Cannot prove causation
-
-**Critical evaluation:**
-- Were cases and controls defined clearly?
-- Were controls appropriate (same source population)?
-- Was matching appropriate?
-- How was exposure ascertained (records vs. recall)?
-- Were potential confounders controlled?
-- Could recall bias explain findings?
-
-### Level 5: Cross-Sectional Studies
-**Description:** Snapshot observation at single point in time.
-
-**Strengths:**
-- Quick and inexpensive
-- Can assess prevalence
-- Useful for hypothesis generation
-- Can study multiple outcomes and exposures
-
-**Weaknesses:**
-- Cannot establish temporal sequence
-- Cannot determine causation
-- Prevalence-incidence bias
-- Survival bias
-
-**Critical evaluation:**
-- Was sample representative?
-- Were measures validated?
-- Could reverse causation explain findings?
-- Are confounders acknowledged?
-
-### Level 6: Case Series and Case Reports
-**Description:** Description of observations in clinical practice.
-
-**Strengths:**
-- Can identify new diseases or effects
-- Hypothesis-generating
-- Details rare phenomena
-- Quick to report
-
-**Weaknesses:**
-- No control group
-- No statistical inference possible
-- Highly susceptible to bias
-- Cannot establish causation or frequency
-
-**Use:** Primarily for hypothesis generation and clinical description.
-
-### Level 7: Expert Opinion
-**Description:** Statements by recognized authorities.
-
-**Strengths:**
-- Synthesizes experience
-- Useful when no research available
-- May integrate multiple sources
-
-**Weaknesses:**
-- Subjective and potentially biased
-- May not reflect current evidence
-- Appeal to authority fallacy risk
-- Individual expertise varies
-
-**Use:** Lowest level of evidence; should be supported by data when possible.
-
-## Nuances and Limitations of Traditional Hierarchy
-
-### When Lower-Level Evidence Can Be Strong
-1. **Well-designed observational studies** with:
-   - Large effects (hard to confound)
-   - Dose-response relationships
-   - Consistent findings across contexts
-   - Biological plausibility
-   - No plausible confounders
-
-2. **Multiple converging lines of evidence** from different study types
-
-3. **Natural experiments** approximating randomization
-
-### When Higher-Level Evidence Can Be Weak
-1. **Poor-quality RCTs** with:
-   - Inadequate randomization
-   - High attrition
-   - No blinding when feasible
-   - Conflicts of interest
-
-2. **Biased meta-analyses**:
-   - Publication bias
-   - Selective inclusion
-   - Inappropriate pooling
-   - Poor search strategy
-
-3. **Not addressing the right question**:
-   - Wrong population
-   - Wrong comparison
-   - Wrong outcome
-   - Too artificial to generalize
-
-## Alternative: GRADE System
-
-GRADE (Grading of Recommendations Assessment, Development and Evaluation) assesses evidence quality across four levels:
-
-### High Quality
-**Definition:** Very confident that true effect is close to estimated effect.
-
-**Characteristics:**
-- Well-conducted RCTs
-- Overwhelming evidence from observational studies
-- Large, consistent effects
-- No serious limitations
-
-### Moderate Quality
-**Definition:** Moderately confident; true effect likely close to estimated, but could be substantially different.
-
-**Downgrades from high:**
-- Some risk of bias
-- Inconsistency across studies
-- Indirectness (different populations/interventions)
-- Imprecision (wide confidence intervals)
-- Publication bias suspected
-
-### Low Quality
-**Definition:** Limited confidence; true effect may be substantially different.
-
-**Downgrades:**
-- Serious limitations in above factors
-- Observational studies without special strengths
-
-### Very Low Quality
-**Definition:** Very limited confidence; true effect likely substantially different.
-
-**Characteristics:**
-- Very serious limitations
-- Expert opinion
-- Multiple serious flaws
-
-## Study Quality Assessment Criteria
-
-### Internal Validity (Bias Control)
-**Questions:**
-- Was randomization adequate?
-- Was allocation concealed?
-- Were groups similar at baseline?
-- Was blinding implemented?
-- Was attrition minimal and balanced?
-- Was intention-to-treat used?
-- Were all outcomes reported?
-
-### External Validity (Generalizability)
-**Questions:**
-- Is sample representative of target population?
-- Are inclusion/exclusion criteria too restrictive?
-- Is setting realistic?
-- Are results applicable to other populations?
-- Are effects consistent across subgroups?
-
-### Statistical Conclusion Validity
-**Questions:**
-- Was sample size adequate (power)?
-- Were statistical tests appropriate?
-- Were assumptions checked?
-- Were effect sizes and confidence intervals reported?
-- Were multiple comparisons addressed?
-- Was analysis prespecified?
-
-### Construct Validity (Measurement)
-**Questions:**
-- Were measures validated and reliable?
-- Was outcome defined clearly and appropriately?
-- Were assessors blinded?
-- Were exposures measured accurately?
-- Was timing of measurement appropriate?
-
-## Critical Appraisal Tools
-
-### For Different Study Types
-
-**RCTs:**
-- Cochrane Risk of Bias Tool
-- Jadad Scale
-- PEDro Scale (for trials in physical therapy)
-
-**Observational Studies:**
-- Newcastle-Ottawa Scale
-- ROBINS-I (Risk of Bias in Non-randomized Studies)
-
-**Diagnostic Studies:**
-- QUADAS-2 (Quality Assessment of Diagnostic Accuracy Studies)
-
-**Systematic Reviews:**
-- AMSTAR-2 (A Measurement Tool to Assess Systematic Reviews)
-
-**All Study Types:**
-- CASP Checklists (Critical Appraisal Skills Programme)
-
-## Domain-Specific Considerations
-
-### Basic Science Research
-**Hierarchy differs:**
-1. Multiple convergent lines of evidence
-2. Mechanistic understanding
-3. Reproducible experiments
-4. Established theoretical framework
-
-**Key considerations:**
-- Replication essential
-- Mechanistic plausibility
-- Consistency across model systems
-- Convergence of methods
-
-### Psychological Research
-**Additional concerns:**
-- Replication crisis
-- Publication bias particularly problematic
-- Small effect sizes often expected
-- Cultural context matters
-- Measures often indirect (self-report)
-
-**Strong evidence includes:**
-- Preregistered studies
-- Large samples
-- Multiple measures
-- Behavioral (not just self-report) outcomes
-- Cross-cultural replication
-
-### Epidemiology
-**Causal inference frameworks:**
-- Bradford Hill criteria
-- Rothman's causal pies
-- Directed Acyclic Graphs (DAGs)
-
-**Strong observational evidence:**
-- Dose-response relationships
-- Temporal consistency
-- Biological plausibility
-- Specificity
-- Consistency across populations
-- Large effects unlikely due to confounding
-
-### Social Sciences
-**Challenges:**
-- Complex interventions
-- Context-dependent effects
-- Measurement challenges
-- Ethical constraints on RCTs
-
-**Strengthening evidence:**
-- Mixed methods
-- Natural experiments
-- Instrumental variables
-- Regression discontinuity designs
-- Multiple operationalizations
-
-## Synthesizing Evidence Across Studies
-
-### Consistency
-**Strong evidence:**
-- Multiple studies, different investigators
-- Different populations and settings
-- Different research designs converge
-- Different measurement methods
-
-**Weak evidence:**
-- Single study
-- Only one research group
-- Conflicting results
-- Publication bias evident
-
-### Biological/Theoretical Plausibility
-**Strengthens evidence:**
-- Known mechanism
-- Consistent with other knowledge
-- Dose-response relationship
-- Coherent with animal/in vitro data
-
-**Weakens evidence:**
-- No plausible mechanism
-- Contradicts established knowledge
-- Biological implausibility
-
-### Temporality
-**Essential for causation:**
-- Cause must precede effect
-- Cross-sectional studies cannot establish
-- Reverse causation must be ruled out
-
-### Specificity
-**Moderate indicator:**
-- Specific cause → specific effect strengthens causation
-- But lack of specificity doesn't rule out causation
-- Most causes have multiple effects
-
-### Strength of Association
-**Strong evidence:**
-- Large effects unlikely to be due to confounding
-- Dose-response relationships
-- All-or-none effects
-
-**Caution:**
-- Small effects may still be real
-- Large effects can still be confounded
-
-## Red Flags in Evidence Quality
-
-### Study Design Red Flags
-- No control group
-- Self-selected participants
-- No randomization when feasible
-- No blinding when feasible
-- Very small sample
-- Inappropriate statistical tests
-
-### Reporting Red Flags
-- Selective outcome reporting
-- No study registration/protocol
-- Missing methodological details
-- No conflicts of interest statement
-- Cherry-picked citations
-- Results don't match methods
-
-### Interpretation Red Flags
-- Causal language from correlational data
-- Claiming "proof"
-- Ignoring limitations
-- Overgeneralizing
-- Spinning negative results
-- Post hoc rationalization
-
-### Context Red Flags
-- Industry funding without independence
-- Single study in isolation
-- Contradicts preponderance of evidence
-- No replication
-- Published in predatory journal
-- Press release before peer review
-
-## Practical Decision Framework
-
-### When Evaluating Evidence, Ask:
-
-1. **What type of study is this?** (Design)
-2. **How well was it conducted?** (Quality)
-3. **What does it actually show?** (Results)
-4. **How likely is bias?** (Internal validity)
-5. **Does it apply to my question?** (External validity)
-6. **How does it fit with other evidence?** (Context)
-7. **Are the conclusions justified?** (Interpretation)
-8. **What are the limitations?** (Uncertainty)
-
-### Making Decisions with Imperfect Evidence
-
-**High-quality evidence:**
-- Strong confidence in acting on findings
-- Reasonable to change practice/policy
-
-**Moderate-quality evidence:**
-- Provisional conclusions
-- Consider in conjunction with other factors
-- May warrant action depending on stakes
-
-**Low-quality evidence:**
-- Weak confidence
-- Hypothesis-generating
-- Insufficient for major decisions alone
-- Consider cost/benefit of waiting for better evidence
-
-**Very low-quality evidence:**
-- Very uncertain
-- Should not drive decisions alone
-- Useful for identifying gaps and research needs
-
-### When Evidence is Conflicting
-
-**Strategies:**
-1. Weight by study quality
-2. Look for systematic differences (population, methods)
-3. Consider publication bias
-4. Update with most recent, rigorous evidence
-5. Conduct/await systematic review
-6. Consider if question is well-formed
-
-## Communicating Evidence Strength
-
-**Avoid:**
-- Absolute certainty ("proves")
-- False balance (equal weight to unequal evidence)
-- Ignoring uncertainty
-- Cherry-picking studies
-
-**Better:**
-- Quantify uncertainty
-- Describe strength of evidence
-- Acknowledge limitations
-- Present range of evidence
-- Distinguish established from emerging findings
-- Be clear about what is/isn't known
+# 工程与无线通信研究的证据质量评估
+
+本参考文件给出无线通信领域（RIS、太赫兹、6G、机器学习辅助通信等方向）研究证据的质量评估框架：证据如何分级、单项研究质量如何判断、多份证据何时可以相互印证、哪些迹象提示结论可疑，以及在不完美证据下如何决策与沟通。
+
+工程研究的证据形态与"对照实验"主导的领域不同，核心形式是**理论分析、仿真实验、硬件实测与现网验证**，且四者往往共存于同一篇论文。评估时既要判断证据属于哪一级，也要判断每一份证据本身做得好不好——这两件事相互独立。
+
+## 工程实证证据等级
+
+按"离物理现实的距离"由远及近，工程实证证据可分为五级。等级反映的是证据与真实部署环境的接近程度，**不是结论的可信度本身**（见下文"等级高不等于质量高"）。
+
+### 等级总览
+
+| 等级 | 证据形式 | 典型产物 | 相对成本 | 主要风险 |
+|---|---|---|---|---|
+| L1 | 理论分析 / 闭式解 | 性能界、闭式表达式、复杂度与收敛性证明 | 低 | 假设理想化、模型失配 |
+| L2 | 单一研究组仿真 | BER/速率曲线、系统级仿真、ML 训练结果 | 中 | 实现误差、基线不公平 |
+| L3 | 多独立研究组复现的仿真 | 多团队独立实现的一致结论、公开基准排名 | 中高 | 共享同一有缺陷的假设 |
+| L4 | 硬件原型 / 实测 | 暗室测量、OTA 测试、信道探测、样机链路实验 | 高 | 样本少、配置单一、测量误差 |
+| L5 | 现网试验 / 标准化采纳 | 试验网数据、多厂商互通测试、写入标准特性 | 很高 | 商业因素、细节不公开 |
+
+### L1 理论分析 / 闭式解
+
+**含义：** 从第一性原理（电磁理论、信息论、随机过程、优化理论）出发，推导性能界、闭式表达式、渐近结果或复杂度/收敛性结论。
+
+**典型形态：**
+- 遍历容量、中断概率的闭式表达式；误码率的精确或渐近分析
+- 自由度（DoF）分析、速率分集权衡、性能上界推导
+- RIS 级联信道模型与无源波束成形增益的缩放律（如阵元数 N 的平方缩放）
+- 太赫兹/近场传播模型、波束分裂与旁瓣分析
+- 算法复杂度、收敛性、最优性证明（凸性论证、全局最优条件）
+
+**可信度来源：**
+- 推导自洽，可被他人逐步代数验证
+- 假设明确列出，结论的适用条件清楚
+- 在已知特例下退化为文献中已有结果（边界校验）
+
+**局限：**
+- 假设通常理想化：独立瑞利衰落、完美 CSI、无限精度相位、理想硬件
+- 推导正确不等于假设成立——模型与真实信道的偏差可能远大于推导误差
+- 闭式解常依赖数值近似或界（Jensen、泰勒截断），高 SNR/低 SNR 区间外可能失真
+
+### L2 单一研究组仿真
+
+**含义：** 单一研究组基于自建或通用平台（MATLAB、Python、Sionna、ns-3 等）完成的蒙特卡洛仿真或系统级仿真。
+
+**典型形态：**
+- BER/中断概率随 SNR 的曲线、遍历速率/频谱效率对比
+- 3GPP 标准场景（UMa/UMi/RMa、TR 38.901 信道模型）下的系统级仿真
+- 射线追踪覆盖仿真、RIS 辅助链路的链路预算
+- ML 方法：训练/验证曲线、不同信道条件下的测试性能
+
+**可信度来源：**
+- 信道模型、评估方法学是否采用公认标准（3GPP 拓扑与参数、公开基准）
+- 平台成熟度与社区使用广度；随机种子与配置是否公开
+- 能系统性扫描参数（SNR、阵元数、用户数），这是实测做不到的
+
+**局限：**
+- 实现误差极难被发现（信道生成方向搞反、单位错误、基线实现偏弱都只体现为"数字不对"）
+- 结果依赖参数选择；未建模效应（硬件损伤、互耦、同步误差）完全不可见
+- 单组结果无外部校验，同一配置换人实现可能得到不同数字
+
+### L3 多独立研究组复现的仿真
+
+**含义：** 不同研究组用各自独立的实现与平台，得到方向和量级一致的结论。
+
+**典型形态：**
+- 某方法在多个团队的开源代码/仿真平台上得到相近增益
+- 公开基准（如深度学习信道估计、波束预测基准）上多组结果排名稳定
+- 综述与对比研究中，多个来源对同一技术量级的报道收敛
+
+**可信度来源：**
+- 独立实现消除了单组的实现偏差与编码错误
+- 多组随机性相互平均，选择性报告的空间被压缩
+- 复现本身就是对原始描述完整性的检验
+
+**局限：**
+- 各组可能共享同一有缺陷的假设（例如都用独立瑞利信道，则"复现成功"不能验证该方法在真实信道上的表现）
+- 复现的往往只是"方法层面的对比结论"，系统级、部署级的结论仍未经检验
+- 社区可能集体沿用同一过时的评估口径（如都忽略导频开销）
+
+### L4 硬件原型 / 实测
+
+**含义：** 用真实硬件在受控或半受控环境中进行测量，让物理世界有机会推翻模型。
+
+**典型形态：**
+- 微波暗室：天线/RIS 单元与阵列方向图、相位-幅度特性测量
+- OTA（空口）测试：整机或子系统在有源测试环境中的吞吐/波束性能
+- 信道探测（channel sounding）：毫米波/太赫兹典型场景的路径损耗、时延扩展、角度扩展实测
+- 现场点对点链路试验：RIS 样机辅助链路、太赫兹短距链路的端到端验证
+
+**可信度来源：**
+- 物理现实性强：相位误差、硬件损伤、互耦、同步误差、温度漂移等未建模效应自动包含在结果中
+- 能验证理论缩放律在真实器件下是否维持（如 RIS 增益随阵元数的实际增长）
+- 对后续标准化与工程立项说服力强
+
+**局限：**
+- 样本量小、配置单一：一台样机、一个距离、一组角度是常态，难以系统性扫描
+- 测量本身有误差：校准流程、测量不确定度、重复性往往未报告
+- 原型与产品实现差距大（控制链路时延、量化位数、功耗预算），实验条件经过仔细挑选
+- 成本高，独立复现罕见
+
+### L5 现网试验 / 标准化组织采纳
+
+**含义：** 结论在运营网络或标准化流程中经过多方质询与真实规模验证。
+
+**典型形态：**
+- 3GPP 评估假设下的链路级/系统级仿真校准（calibration）结果
+- 试验网/外场测试：真实流量、真实干扰、真实移动性下的性能数据
+- 多厂商互通测试（IOT）；技术特性写入 Release 版本并有多家支持
+
+**可信度来源：**
+- 多方利益相互制衡，单一团队的选择性报告难以存活
+- 真实环境的规模与多样性远超任何实验室
+- 经历了标准化会议上大量专家的对抗性质询
+
+**局限：**
+- 标准化采纳含商业与政治因素，"进了标准"不等于"技术最优"
+- 试验数据细节（配置、场景、统计口径）往往不公开，难以独立审视
+- 采纳反映的是当年可行性与产业共识，多年后回看可能被新方案取代
+
+### 等级高不等于质量高
+
+这一条必须与分级本身同等重视：
+
+- **设计糟糕的实测不如设计严谨的大规模仿真。** 未校准、无对照基线、单点测试、测量不确定度未知的原型实验，信息量低于覆盖多场景多配置、统计充分的系统级仿真。
+- **同等级内部的质量差异，可能比等级之间的差异更大。** 一份有消融、有置信区间、用标准信道模型、基线调优到位的 L2 仿真，比一份无对照、环境模糊的 L4 实测更值得采信。
+- **每一级回答的问题不同。** L1 回答"在假设下原理是否成立"，L2 回答"量级有多大、对参数是否敏感"，L4 回答"真实器件下是否仍然成立"，L5 回答"工程上是否可行且有人愿意用"。混淆问题与证据层级是常见错误：不能用理想假设下的闭式解回答部署可行性的问题。
+- 评估证据时应将**等级**与下文的**四效度判据**联合使用：先问它属于哪一级，再问这一份做得好不好。
+
+## 单项研究的质量判据：四种效度
+
+无论证据属于哪一级，单项研究都可以从四种效度来审视。这是工程研究质量评估的核心工具。
+
+### 内部效度：增益是否真由所提机制引起
+
+观察到的性能提升，是否可以被合理地归因于论文宣称的创新点，而不是其他被忽略的因素。
+
+**关键检查项：**
+- **基线公平性**：基线与所提方法是否在相同功率、天线数、带宽、复杂度、码本大小约束下比较？基线是领域公认的强基线（SOTA），还是被弱化的"稻草人"？基线参数是默认值还是经过同等努力调优？
+- **消融实验（ablation）**：对组件化方法，是否逐个移除/替换组件，验证每个部件的贡献？只有整体对比时，无法排除增益来自某个次要组件或实现细节。
+- **混淆因素**：超参数调优量是否对等？训练数据量与质量是否相同？随机种子如何处理？所提方法是否隐含使用了更多先验信息（更多导频、更精细的反馈、更大的搜索空间）？
+- **数据泄漏**（ML 方向）：测试集是否参与了模型设计、超参选择或早停？跨场景评估时训练与测试的信道条件是否真正独立？
+
+**典型失效案例：** 声称新波束管理算法带来增益，实际增益主要来自所允许的更大码本搜索空间；或基线用了默认迭代次数而所提方法按收敛判据运行。
+
+### 外部效度：结论能否泛化
+
+在所测配置下得到的结论，能否推广到论文宣称（或读者默认）的适用范围。
+
+**关键检查项：**
+- **场景覆盖**：UMa/UMi/RMa/室内是否覆盖？LOS 与 NLOS 是否都测？静态与移动是否都考虑？
+- **频段覆盖**：sub-6 GHz、毫米波、太赫兹的传播与硬件行为差异巨大，结论是否被推广到未测的频段？
+- **配置覆盖**：阵列规模、用户数、带宽、SNR 工作点、RIS 部署位置/距离等是否扫描？还是只有单一配置？
+- **跨数据集/跨平台**（ML 方向）：模型在另一信道模型、另一实测数据集上的性能如何？仿真器之间结果是否一致？
+- **声称与证据的匹配**：论文测了 3.5 GHz 静态单用户，却宣称适用于高速移动多用户场景，就是典型的外部效度缺口。
+
+### 构念效度：指标是否度量了宣称的东西
+
+论文的评测指标，是否真正对应其宣称要改善的对象。
+
+**关键检查项：**
+- **指标与宣称的对应**：用小区边缘吞吐量代理"用户体验"？用户体验还包含时延、抖动、可靠性、公平性。用可达速率的数学上界当作"实际吞吐量"？
+- **以偏概全的点**：用单个 SNR 点的性能代表全区间？高 SNR 下饱和的增益被宣称为"全域增益"？
+- **开销是否计入**：能效只除以发射功率而忽略基带/射频功耗？RIS 声称"无源"却未计入控制链路与波束训练开销？吞吐增益未扣除导频与信令开销？
+- **优化目标与评测指标是否一致**：训练时优化代理损失（如 MSE），评测时报告下游任务指标（如检测精度）——两者不一致时，改善可能不迁移。
+- **复杂度声明的完整性**：用渐进 Big-O 表述而省略常数因子？遗漏主导项（信道估计开销、矩阵求逆、推理时的在线计算）？
+
+### 统计结论效度：数据是否支持统计推断
+
+数值差异是否大到可以排除随机性的解释。
+
+**关键检查项：**
+- **蒙特卡洛次数**：试验次数是否与目标精度匹配？要分辨 1e-5 量级的 BER，10 万次试验只有约 10 个错误事件，统计涨落足以淹没趋势；此时应改用重要采样等外推方法或明确声明置信范围。
+- **置信区间与方差**：曲线是否给出置信区间？ML 结果是否报告多个独立训练运行的均值±标准差？实测是否给出测量不确定度与重复次数？
+- **显著性检验**：宣称"显著提升"时是否做了统计检验？两条曲线分离 0.2 dB 但无置信区间，完全可能是噪声。
+- **多重比较**：扫描了很多配置后挑出最好的报告？此时需要多重比较校正或至少在独立配置上验证。
+- **种子与可重复性**：随机种子数是否说明？结果对种子的敏感性如何？
+
+### 四效度快速核查表
+
+| 效度 | 核心问题 | 一句话自检 |
+|---|---|---|
+| 内部效度 | 增益真由所提机制引起？ | 换掉所提组件、只留公平基线，增益还在吗？ |
+| 外部效度 | 结论能泛化到哪？ | 声称的适用范围与实际测过的范围一致吗？ |
+| 构念效度 | 指标度量了宣称的东西？ | 扣掉导频、控制与计算开销后，还剩多少增益？ |
+| 统计结论效度 | 差异排除随机性了吗？ | 给出置信区间后，结论还站得住吗？ |
+
+## 证据收敛性
+
+单项证据无论多好，都弱于多条独立证据的相互印证。评估一组证据时，核心问题是：**它们是独立的吗？收敛吗？**
+
+### 证据何时更强
+
+- **多独立组复现**：不同团队、不同代码、不同平台得到一致结论。独立实现能消除单组的编码错误与实现偏差，是最有价值的收敛形式。
+- **不同方法学收敛**：理论预测趋势、仿真给出量级、实测确认存在性——三级证据指向同一结论时，可信度远高于任何单级。例如 RIS 无源波束成形增益的 N² 缩放律：理论推导给出形式，仿真验证量级，小规模原型观察到同向趋势。
+- **机理与经验证据一致**：增益不仅被观察到，其来源还能被独立验证的机理解释（如增益来自对多径能量的相干合并，且该路径结构有信道测量支持）。
+- **跨场景、跨频段一致（在声称范围内）**：多个场景/配置下结论稳定，且论文的适用范围声明与实际覆盖一致。
+
+### 证据何时更弱
+
+- **单一研究组**：所有支持证据来自同一团队（尤其是自引循环：结论只在自家后续论文中被"确认"），且无开源代码。
+- **互相矛盾的仿真结果**：A 组报告正增益、B 组报告负增益，且双方都未解释差异来源——这提示至少有一方的假设或实现有问题，在弄清之前双方都应降权。
+- **无法复现**：代码不公开、方法描述不完整、结果对未公开的超参数极度敏感、多次独立尝试均失败。
+- **证据孤点**：只有一个 SNR 点、一个场景、一个种子、一次测量。
+- **收敛是虚假的**：多份"独立"结果实际共用同一信道模型、同一基线代码或同一批作者——表面收敛，实质单一。
+
+## 情境因素
+
+证据本身的等级与效度之外，还需要放在更大的知识背景中审视。
+
+### 理论合理性
+
+- 增益是否有物理或信息论解释？无法解释的增益应视为可疑而非惊喜。
+- 结果是否逼近或越过已知极限？声称超过自由度界、超过归一化香农容量、违反互易性或能量守恒（如无源 RIS 提供超过其物理孔径对应的被动波束成形增益）的结论，在推翻已有理论之前，更可能是推导或测量错误。
+
+### 与既有知识的一致性
+
+- 与已发表的信道测量、标准模型行为、其他团队的观察一致，会显著增加可信度。
+- 与权威结果矛盾并非必然是错——突破往往始于矛盾——但主张者必须给出令人信服的差异解释（模型不同、配置不同、口径不同），否则应存疑。
+
+### 参数-性能关系的合理性
+
+性能随关键参数的变化趋势应符合物理直觉，异常曲线需要解释：
+
+- **随 SNR 的走向**：增益在高 SNR 是饱和（干扰受限/硬件受限的典型表现）还是持续扩大？与机理一致吗？
+- **随阵元数/天线数的缩放**：N、N²、log N——与理论缩放律吻合吗？偏离处（近场效应、互耦、量化限制）有解释吗？
+- **随距离/频率的变化**：太赫兹链路预算随距离的衰减、RIS 链路中路距项的主导作用，是否反映在结果里？
+- **异常形态**：非单调跳变、过度平滑、没有物理理由的拐点，都值得追问。
+
+### 来源可信度与利益冲突
+
+- **厂商实测**：通常有真实工程能力，但可能存在商业动机——选择有利配置、让竞争技术的实现偏弱、只发布摘要不发布细节。
+- **作者自己的基线实现**：基线由所提方法的作者实现时，无论有意无意，基线偏弱的风险都真实存在。缓解方式：使用第三方公开实现、按原文献配置复现并说明差异、开源自己的代码接受检验。
+- **标准化提案中的评估结果**：通常带公司立场，倾向于突出自家技术路线的优势配置。
+- **学术界同样有动机**：发表压力导致选择性报告，复现成本高导致无人纠错。
+- **通用缓解**：开源代码与配置文件、预注册实验设计（在标准化评估中相当于提前冻结评估假设）、第三方独立复现、利益冲突声明。
+
+## 证据红旗
+
+以下清单用于快速扫描一项工作是否存在可疑之处。红旗不等于结论必然错误，但每一条都需要作者给出解释。分四组：设计、报告、解读、情境。
+
+### 设计红旗
+
+- 全程假设完美 CSI，却宣称适用于实际系统，且未讨论导频开销与信道估计误差的影响
+- 无消融实验：组件化方法只有整体对比，无法归因增益来源
+- 基线用默认参数，自己的方法精心调优；或基线实现明显弱于原文献水平
+- 只测单一场景、单一频段、单一配置，但结论以通用措辞表述
+- 信道模型过度简化：大阵列/近场场景仍用独立同分布瑞利衰落
+- 没有与领域公认的强基线比较，只与显著更弱的方法比较
+- ML 方法：训练与测试条件分布不一致却报告测试性能；无独立测试环境；单一训练运行
+- 实测无校准说明、无测量不确定度、无重复次数
+- 复杂度分析遗漏主导项：信道估计开销、在线矩阵运算、控制链路时延未计入
+
+### 报告红旗
+
+- 只报告最有利的 SNR 点或工作区间（恰恰是方法占优的狭窄区域）
+- 曲线平滑漂亮却无置信区间，全文找不到蒙特卡洛次数或种子说明
+- 图表纵轴截断，放大微小差异的视觉印象
+- "显著提升"通篇无任何统计检验支撑
+- 代码与配置不公开，方法描述不足以复现
+- 表格中引用的基线数据与原文献不一致，且不一致方向总是对基线不利
+- 复杂度只给渐进 Big-O，省略数量级可观的常数因子差异
+- 实测环境描述模糊：距离、角度、硬件型号、校准方式缺失
+
+### 解读红旗
+
+- 仿真结论使用"证明了实际性能"一类的语言；理想假设下的闭式解被用来宣称真实系统增益
+- 过度泛化：单点、单场景实测被推广为"该技术现网可行"
+- 把理论上界当作可达值来宣称
+- 归因错误：增益被归功于创新点，实际主要来自不公平的资源分配或未计入的开销差异
+- 报告吞吐增益但完全不提导频、信令与计算开销
+- 把对弱基线的相对增益，表述为方案的绝对能力（"提升 30%"不说明绝对水平）
+- 对失效或退化的区间只字不提，只呈现有利区间并泛化结论
+
+### 情境红旗
+
+- 所有支持证据来自同一研究组，且无外部复现（已过去足够久）
+- 与独立团队公开发表的结果矛盾，且未给出差异解释
+- 领域内已知某配置对该方法不利，论文恰好回避了该配置且未讨论
+- 主要证据来自厂商白皮书、新闻稿或预印本，未经同行评审与复现
+- 结论与理论极限或能量守恒矛盾
+- 该方向上其他团队的主流仿真结果与该结论系统性不一致
+
+## 实用决策框架
+
+### 评估一份证据时要问的问题
+
+1. **这是什么类型的证据？**（理论 / 仿真 / 原型实测 / 现网——对应哪一级）
+2. **它的假设链是什么？哪一环最可疑？**（完美 CSI？简化信道模型？无开销假设？）
+3. **增益由什么机制引起？**消融、机理分析能否支持这个归因？
+4. **基线公平吗？**约束对齐了吗？基线够强吗？基线是谁实现的？
+5. **指标度量了宣称的东西吗？**（构念效度；开销计入了没有）
+6. **统计上可靠吗？**（试验次数、置信区间、种子、显著性）
+7. **覆盖了我关心的场景/频段/配置吗？**（外部效度；结论泛化到何处是无根据的）
+8. **有独立复现或不同方法学的收敛吗？**收敛是真实独立还是虚假共享？
+9. **来源有什么动机和利益？**结论对该来源的理论路线、产品或标准立场有利吗？
+10. **这与我要回答的问题相关吗？**证据质量再高，回答的若不是我的问题，也不能直接引用。
+
+### 不完美证据下的决策
+
+工程决策几乎总是在证据不完美时做出的——不可能等每一环都有 L4/L5 级证据。关键是让证据强度、决策风险与表述强度三者匹配：
+
+- **按决策风险匹配证据要求：**
+  - 高风险决策（标准提案立场、产品方向、大规模投入）：需要 L4/L5 级证据，或至少多个独立 L3 复现；对关键假设做敏感性分析；安排独立的验证环节。
+  - 中风险决策（研究方向选择、系统架构设计）：L2 加理论合理性即可启动，但应设置检查点，尽早安排成本最低、最能区分对错的验证实验。
+  - 低风险决策（论文中的初步探索、原型尝试）：L1/L2 可以接受，但对外表述的强度必须与证据等级匹配。
+- **保守设计**：按证据的悲观侧取值，为最可疑的假设保留裕量（如按带开销、带信道误差的性能预算）。
+- **主动补证据**：识别证据链中最薄弱的一环，设计代价最小的实验专门攻击它——通常这一个实验比再多仿真都更能降低不确定性。
+- **预设可证伪条件**：明确"在什么观测下我会放弃当前判断"。例如"若实测中 RIS 增益随距离的衰减快于 1/d² 项预测的规模，则放弃该部署方案"。
+- **区分"暂时接受"与"确信"**：基于 L2 证据的决策应当被记录为暂定结论，随新证据更新，而不是悄悄固化为事实。
+
+### 证据冲突时的处理
+
+两组证据指向不同结论时，不要简单按"谁等级高听谁的"，先找差异来源：
+
+1. **列出差异来源（按常见程度）：**
+   - 假设差异：信道模型（独立瑞利 vs 3GPP 几何随机 vs 实测校准模型）、CSI 假设、导频与开销是否计入
+   - 配置差异：阵元数、RIS 距离与位置、频段、SNR 工作点、码本大小、用户分布
+   - 实现口径：基线实现质量、迭代预算、量化精度、并行化假设
+   - 指标口径：平均用户 vs 边缘用户、遍历速率 vs 有限块长、归一化方式、是否扣除开销
+2. **统一配置复算**：在共同假设下重跑或重推双方设置，定位数字分歧出现在哪一步。这一步往往能直接解决问题。
+3. **按方法学质量加权**，而不是按结论的偏好加权：消融完整、统计充分、假设清晰的一方权重更高，即使它的结论不如人意。
+4. **无法解释时视为未决问题**：决策按悲观侧留裕量，同时标注该冲突为待解。
+5. **把冲突当作研究机会**："为什么 A 组与 B 组矛盾"本身常常是论文题目——系统性梳理差异假设并给出统一解释的工作，价值不低于又一个新算法。
+
+## 证据强度的沟通
+
+向审稿人、合作者、资助方表述结论时，措辞强度应与证据等级精确匹配。夸大不仅不诚实，也会在同行评审中被识别并削弱全文可信度。
+
+### 避免的表述
+
+- **"证明了（prove）"**：仿真只能"表明/支持"，理论只能在明确假设下"证明"，实测只能"观察到/验证到"。数值实验不是证明。
+- **混淆证据类型**：把仿真结论与实测结论写成同一强度的断言；把理想假设下的闭式解当作真实系统性能引用。
+- **隐藏假设链**：只报结论不报假设，读者无法判断适用范围。
+- **绝对化与全称表述**："该方案使容量翻倍"（哪个场景？哪段区间？相对什么基线？）。
+- **对不利结果沉默**：完全不提方法失效的区间，比坦率列出局限更容易招致质疑。
+
+### 更好的表述模式
+
+- **标明证据类型与条件**：
+  - "在 3GPP UMi NLOS 场景、TR 38.901 信道模型下的链路级仿真中，观察到约 X dB 增益"
+  - "在 2.6 GHz 的 RIS 原型实验中（口径 0.5 m，收发距离 3 m），测得……"
+  - "在完美 CSI 假设下可证明……（实际系统需扣除导频与反馈开销）"
+- **区分三种断言，并始终用对应的动词**：
+  - 理论证明的：*在假设 A 下，……有闭式解/是全局最优*
+  - 仿真观察到的：*在配置 B 下，仿真显示约 X 的增益（95% 置信区间 [., .]）*
+  - 实测确认的：*在条件 C 下，原型实验观察到同向趋势，量级为……*
+- **量化不确定性**：给出置信区间、多次独立运行的均值±标准差、测量不确定度；不给出时说明原因。
+- **明确适用与失效条件**："该方法在近场区域有效；当距离超出瑞利距离后增益退化为……"；"在低 SNR 区间（< 0 dB）增益消失"。
+- **给后续验证留接口**：说明哪些结论尚待实测/独立复现确认，主动列出局限。
+
+### 面向不同对象
+
+- **对审稿人**：主动、具体地列出假设与局限，比被审稿人指出要好；每一处强断言都能落到对应的证据等级上；对"显著提升"这类词，要么给出统计支撑，要么改用中性表述。
+- **对合作者与后续研究者**：转述他人工作时保留其证据等级——"他们在大规模仿真中显示该方案有 30% 增益（未含开销）"，而不是"X 方案有 30% 增益"。丢失限定条件的二手转述是领域内以讹传讹的主要来源。
+- **对资助方与产业伙伴**：区分"已验证"与"预期"，标注每一项关键数字的证据来源等级；给出从当前证据到部署验证之间还缺哪些环节。

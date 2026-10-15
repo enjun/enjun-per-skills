@@ -1,478 +1,479 @@
-# Logical Fallacies in Scientific Discourse
+# 科学论述中的逻辑谬误（Logical Fallacies in Scientific Discourse）
 
-## Fallacies of Causation
+## 因果类谬误（Fallacies of Causation）
 
-### 1. Post Hoc Ergo Propter Hoc (After This, Therefore Because of This)
-**Description:** Assuming that because B happened after A, A caused B.
+### 1. 事后归因（Post Hoc Ergo Propter Hoc，"在此之后，因此之故"）
+**描述：** 认为 B 发生在 A 之后，就断定 A 导致了 B。
 
-**Examples:**
-- "I took this supplement and my cold went away, so the supplement cured my cold."
-- "Autism diagnoses increased after vaccine schedules changed, so vaccines cause autism."
-- "I wore my lucky socks and won the game, so the socks caused the win."
+**示例：**
+- "我部署了 RIS（Reconfigurable Intelligent Surface，可重构智能表面），之后用户吞吐量上升了，所以是 RIS 带来的吞吐量提升。"
+- "某运营商升级基站固件后掉话率下降了，所以是固件升级降低了掉话率。（同期可能还调整了资费与负载）"
+- "我穿着幸运袜子跑仿真，结果这次收敛了，所以是袜子让仿真收敛的。"
 
-**Why fallacious:** Temporal sequence is necessary but not sufficient for causation. Correlation ≠ causation.
+**为何谬误：** 时间先后是因果关系的必要条件，但不是充分条件。相关 ≠ 因果。
 
-**Related:** *Cum hoc ergo propter hoc* (with this, therefore because of this) - correlation mistaken for causation even without temporal order.
+**相关谬误：** *共此之故（Cum hoc ergo propter hoc，"与此共存，因此之故"）*——把相关误认作因果，甚至不需要时间先后顺序。
 
-### 2. Confusing Correlation with Causation
-**Description:** Assuming correlation implies direct causal relationship.
+### 2. 混淆相关与因果（Confusing Correlation with Causation）
+**描述：** 认为相关性就意味着直接的因果关系。
 
-**Examples:**
-- "Countries that eat more chocolate have more Nobel Prize winners, so chocolate makes you smarter."
-- "Ice cream sales correlate with drowning deaths, so ice cream causes drowning."
+**示例：**
+- "巧克力消费量越高的国家诺贝尔奖得主越多，所以吃巧克力让人更聪明。"
+- "冰淇淋销量与溺水死亡人数正相关，所以冰淇淋导致溺水。"
 
-**Reality:** Often due to confounding variables (hot weather causes both ice cream sales and swimming).
+**真相：** 往往是混杂变量（Confounding Variable）在作祟（炎热天气同时推高了冰淇淋销量和游泳人数）。
 
-### 3. Reverse Causation
-**Description:** Confusing cause and effect direction.
+### 3. 因果倒置（Reverse Causation）
+**描述：** 混淆了原因与结果的方向。
 
-**Examples:**
-- "Depression is associated with inflammation, so inflammation causes depression." (Could be: depression causes inflammation)
-- "Wealthy people are healthier, so wealth causes health." (Could be: health enables wealth accumulation)
+**示例：**
+- "评测分数高的研究组 GPU 更多，所以是算力造就了高分。（也可能是：成果出色吸引了经费，才买得起更多 GPU）"
+- "高资费套餐用户的流失率更低，所以是高套餐留住了用户。（也可能是：本就不打算流失的用户才升级到高套餐）"
 
-**Solution:** Longitudinal studies and experimental designs to establish temporal order.
+**解决办法：** 通过纵向研究与受控实验设计来确立时间先后顺序。
 
-### 4. Single Cause Fallacy
-**Description:** Attributing complex phenomena to one cause when multiple factors contribute.
+### 4. 单一原因谬误（Single Cause Fallacy）
+**描述：** 把复杂现象归因于单一原因，而实际上多种因素共同起作用。
 
-**Examples:**
-- "Crime is caused by poverty." (Ignores many other contributing factors)
-- "Heart disease is caused by fat intake." (Oversimplifies multifactorial disease)
+**示例：**
+- "犯罪是由贫困导致的。"（忽略了众多其他促成因素）
+- "频谱效率低是带宽不足造成的。"（把多因素问题过度简化了）
 
-**Reality:** Most outcomes have multiple contributing causes.
+**真相：** 大多数结果都有多个促成原因。
 
-## Fallacies of Generalization
+## 概括类谬误（Fallacies of Generalization）
 
-### 5. Hasty Generalization
-**Description:** Drawing broad conclusions from insufficient evidence.
+### 5. 轻率概括（Hasty Generalization）
+**描述：** 从不充分的证据中得出过宽的结论。
 
-**Examples:**
-- "My uncle smoked and lived to 90, so smoking isn't dangerous."
-- "This drug worked in 5 patients, so it's effective for everyone."
-- "I saw three black swans, so all swans are black."
+**示例：**
+- "我叔叔抽了一辈子烟活到 90 岁，所以吸烟不危险。"
+- "这个 AI 波束预测模型只在 5 个场景里跑赢了基线，所以它对所有场景都有效。"
+- "我见过三只黑天鹅，所以所有天鹅都是黑的。"
 
-**Why fallacious:** Small, unrepresentative samples don't support universal claims.
+**为何谬误：** 小的、无代表性的样本无法支撑普遍性结论。
 
-### 6. Anecdotal Fallacy
-**Description:** Using personal experience or isolated examples as proof.
+### 6. 轶事谬误（Anecdotal Fallacy）
+**描述：** 把个人经历或孤立案例当作证明。
 
-**Examples:**
-- "I know someone who survived cancer using alternative medicine, so it works."
-- "My grandmother never exercised and lived to 100, so exercise is unnecessary."
+**示例：**
+- "我认识某团队靠这套未经校准的仿真设置发了论文，所以这套设置没问题。"
+- "我们组从来不随机种子（Random Seed）平均照样中稿，所以种子平均没必要。"
 
-**Why fallacious:** Anecdotes are unreliable due to selection bias, memory bias, and confounding. Plural of anecdote ≠ data.
+**为何谬误：** 轶事因选择偏差、记忆偏差和混杂因素而不可靠。轶事再多也不等于数据。
 
-### 7. Cherry Picking (Suppressing Evidence)
-**Description:** Selecting only evidence that supports your position while ignoring contradictory evidence.
+### 7. 选择性举证（Cherry Picking，隐瞒证据 Suppressing Evidence）
+**描述：** 只挑选支持自己立场的证据，无视与之矛盾的证据。
 
-**Examples:**
-- Citing only studies showing supplement benefits while ignoring null findings
-- Highlighting successful predictions while ignoring failed ones
-- Showing graphs that start at convenient points
+**示例：**
+- 只引用显示方案 A 优于基线的研究，无视结果持平或更差的研究
+- 只强调预测成功的案例，无视预测失败的案例
+- 只展示从"方便的"参考点开始的性能曲线（让增益显得更大）
 
-**Detection:** Look for systematic reviews, not individual studies.
+**检测方法：** 查找系统综述（Systematic Review），而不是只看单个研究。
 
-### 8. Ecological Fallacy
-**Description:** Inferring individual characteristics from group statistics.
+### 8. 生态学谬误（Ecological Fallacy）
+**描述：** 从群体统计特征推断个体特征。
 
-**Example:**
-- "Average income in this neighborhood is high, so this person must be wealthy."
-- "This country has low disease rates, so any individual from there is unlikely to have disease."
+**示例：**
+- "这个社区的平均收入很高，所以这个人一定很有钱。"
+- "这个数据集的整体误码率很低，所以其中任意一条链路的误码率也必然很低。"
 
-**Why fallacious:** Group-level patterns don't necessarily apply to individuals.
+**为何谬误：** 群体层面的规律未必适用于个体。
 
-## Fallacies of Authority and Tradition
+## 权威与传统类谬误（Fallacies of Authority and Tradition）
 
-### 9. Appeal to Authority (Argumentum ad Verecundiam)
-**Description:** Accepting claims because an authority figure said them, without evidence.
+### 9. 诉诸权威（Appeal to Authority，Argumentum ad Verecundiam）
+**描述：** 因为权威人物说了某论断就接受它，而不看证据。
 
-**Examples:**
-- "Dr. X says this treatment works, so it must." (If Dr. X provides no data)
-- "Einstein believed in God, so God exists." (Einstein's physics expertise doesn't transfer)
-- "99% of doctors recommend..." (Appeal to majority + authority without evidence)
+**示例：**
+- "X 院士说这个方案可行，所以一定可行。（如果 X 院士没有给出任何数据）"
+- "爱因斯坦信仰上帝，所以上帝存在。（爱因斯坦的物理学专长不能平移过来）"
+- "99% 的工程师都在用这个工具链……"（诉诸多数 + 诉诸权威，却没有证据）
 
-**Valid use of authority:** Experts providing evidence-based consensus in their domain.
+**权威的正当用法：** 专家在自己领域内给出基于证据的共识。
 
-**Invalid:** Authority opinions without evidence, or outside their expertise.
+**不当用法：** 没有证据支撑的权威意见，或超出其专业领域的意见。
 
-### 10. Appeal to Antiquity/Tradition
-**Description:** Assuming something is true or good because it's old or traditional.
+### 10. 诉诸古代/传统（Appeal to Antiquity/Tradition）
+**描述：** 认为某事物因为古老或传统就为真或为好。
 
-**Examples:**
-- "Traditional medicine has been used for thousands of years, so it must work."
-- "This theory has been accepted for decades, so it must be correct."
+**示例：**
+- "这套波束管理流程从 3GPP 早期版本沿用至今，所以它必然是最优的。"
+- "这个信道模型已被接受几十年，所以它必然正确。"
 
-**Why fallacious:** Age doesn't determine validity. Many old beliefs have been disproven.
+**为何谬误：** 年代不能决定正确性。许多古老的信念已被推翻。
 
-### 11. Appeal to Novelty
-**Description:** Assuming something is better because it's new.
+### 11. 诉诸新奇（Appeal to Novelty）
+**描述：** 认为某事物因为是新的就更好。
 
-**Examples:**
-- "This is the latest treatment, so it must be superior."
-- "New research overturns everything we knew." (Often overstated)
+**示例：**
+- "这是最新的 AI 原生方案，所以必然优于经典方法。"
+- "新研究推翻了我们已知的全部认知。"（往往言过其实）
 
-**Why fallacious:** New ≠ better. Established treatments often outperform novel ones.
+**为何谬误：** 新 ≠ 更好。成熟的方法经常胜过新颖的方法。
 
-## Fallacies of Relevance
+## 不相干类谬误（Fallacies of Relevance）
 
-### 12. Ad Hominem (Attack the Person)
-**Description:** Attacking the person making the argument rather than the argument itself.
+### 12. 人身攻击（Ad Hominem，攻击对方个人）
+**描述：** 攻击提出论证的人，而不是论证本身。
 
-**Types:**
-- **Abusive:** "He's an idiot, so his theory is wrong."
-- **Circumstantial:** "She's funded by industry, so her findings are false."
-- **Tu Quoque:** "You smoke, so your anti-smoking argument is invalid."
+**类型：**
+- **辱骂型：** "他是外行，所以他的理论是错的。"
+- **处境型：** "她的课题由设备厂商资助，所以她的结论是假的。"
+- **你也一样（Tu Quoque）：** "你们组自己也用这种不公平的对比方式，所以你们对它的批评不成立。"
 
-**Why fallacious:** Personal characteristics don't determine argument validity.
+**为何谬误：** 个人特征不能决定论证的有效性。
 
-**Note:** Conflicts of interest are worth noting but don't invalidate evidence.
+**注意：** 利益冲突值得指出，但它不能让证据本身失效。
 
-### 13. Genetic Fallacy
-**Description:** Judging something based on its origin rather than its merits.
+### 13. 起源谬误（Genetic Fallacy）
+**描述：** 根据事物的来源而非其自身优劣来评判它。
 
-**Examples:**
-- "This idea came from a drug company, so it's wrong."
-- "Ancient Greeks believed this, so it's outdated."
+**示例：**
+- "这个想法来自设备厂商，所以是错的。"
+- "这是 2G 时代就有的想法，所以已经过时。"
 
-**Better approach:** Evaluate evidence regardless of source.
+**更好的做法：** 无论来源如何，都直接评估证据。
 
-### 14. Appeal to Emotion
-**Description:** Manipulating emotions instead of presenting evidence.
+### 14. 诉诸情感（Appeal to Emotion）
+**描述：** 用操纵情感代替出示证据。
 
-**Types:**
-- **Appeal to fear:** "If you don't vaccinate, your child will die."
-- **Appeal to pity:** "Think of the suffering patients who need this unproven treatment."
-- **Appeal to flattery:** "Smart people like you know that..."
+**类型：**
+- **诉诸恐惧：** "如果不采纳这个标准提案，整个产业都会死掉。"
+- **诉诸怜悯：** "想想那些苦等这项未经验证的技术来救场的项目组吧。"
+- **诉诸奉承：** "像你这么聪明的人都知道……"
 
-**Why fallacious:** Emotional reactions don't determine truth.
+**为何谬误：** 情绪反应不能决定真伪。
 
-### 15. Appeal to Consequences (Argumentum ad Consequentiam)
-**Description:** Arguing something is true/false based on whether consequences are desirable.
+### 15. 诉诸后果（Appeal to Consequences，Argumentum ad Consequentiam）
+**描述：** 根据结论是否合意来论证其为真或为假。
 
-**Examples:**
-- "Climate change can't be real because the solutions would hurt the economy."
-- "Free will must exist because without it, morality is impossible."
+**示例：**
+- "气候变化不可能是真的，因为应对它的代价会拖累经济。"
+- "自由意志一定存在，因为没有它道德就不可能。"
 
-**Why fallacious:** Reality is independent of what we wish were true.
+**为何谬误：** 现实不因我们希望它如何而改变。
 
-### 16. Appeal to Nature (Naturalistic Fallacy)
-**Description:** Assuming "natural" means good, safe, or effective.
+### 16. 诉诸自然（Appeal to Nature，自然主义谬误 Naturalistic Fallacy）
+**描述：** 认为"自然"就意味着好、安全或有效。
 
-**Examples:**
-- "This treatment is natural, so it's safe."
-- "Organic food is natural, so it's healthier."
-- "Vaccines are unnatural, so they're harmful."
+**示例：**
+- "这个方案是'天然'（无源、免训练）的，所以一定安全。"
+- "有机食物是天然的，所以更健康。"
+- "AI 方法是'非天然'的黑箱，所以有害。"
 
-**Why fallacious:**
-- Many natural things are deadly (arsenic, snake venom, hurricanes)
-- Many synthetic things are beneficial (antibiotics, vaccines)
-- "Natural" is often poorly defined
+**为何谬误：**
+- 许多天然的东西是致命的（砷、蛇毒、飓风）
+- 许多人工合成的东西是有益的（光纤、混凝土、合成氨肥料）
+- "自然"一词往往定义不清
 
-### 17. Moralistic Fallacy
-**Description:** Assuming what ought to be true is true.
+### 17. 道德主义谬误（Moralistic Fallacy）
+**描述：** 认为"应当为真"的东西就是真的。
 
-**Examples:**
-- "There shouldn't be sex differences in ability, so they don't exist."
-- "People should be rational, so they are."
+**示例：**
+- "能力不该有性别差异，所以差异不存在。"
+- "用户理应理性地使用网络，所以他们确实是理性的。"
 
-**Why fallacious:** Desires about reality don't change reality.
+**为何谬误：** 对现实的愿望不会改变现实。
 
-## Fallacies of Structure
+## 结构类谬误（Fallacies of Structure）
 
-### 18. False Dichotomy (False Dilemma)
-**Description:** Presenting only two options when more exist.
+### 18. 虚假两难（False Dichotomy，虚假困境 False Dilemma）
+**描述：** 只给出两个选项，而实际上存在更多可能。
 
-**Examples:**
-- "Either you're with us or against us."
-- "It's either genetic or environmental." (Usually both)
-- "Either the treatment works or it doesn't." (Ignores partial effects)
+**示例：**
+- "要么支持我们，要么反对我们。"
+- "性能瓶颈要么在物理层，要么在 MAC 层。（通常两者都有）"
+- "这个算法要么有效要么无效。（忽略了在部分场景部分有效的中间情形）"
 
-**Reality:** Most issues have multiple options and shades of gray.
+**真相：** 大多数问题都有多个选项和灰色地带。
 
-### 19. Begging the Question (Circular Reasoning)
-**Description:** Assuming what you're trying to prove.
+### 19. 窃取论点（Begging the Question，循环论证 Circular Reasoning）
+**描述：** 把试图证明的结论偷偷当作前提。
 
-**Examples:**
-- "This medicine works because it has healing properties." (What are healing properties? That it works!)
-- "God exists because the Bible says so, and the Bible is true because it's God's word."
+**示例：**
+- "这个算法有效，因为它有提升性能的性质。（什么性质？就是'它有效'！）"
+- "上帝存在，因为《圣经》这么说；《圣经》是真的，因为它是上帝的话语。"
 
-**Detection:** Check if the conclusion is hidden in the premises.
+**检测方法：** 检查结论是否被藏在前提之中。
 
-### 20. Moving the Goalposts
-**Description:** Changing standards of evidence after initial standards are met.
+### 20. 移动球门（Moving the Goalposts）
+**描述：** 在最初的标准被达到之后，又更换证据标准。
 
-**Example:**
-- Skeptic: "Show me one study."
-- [Shows study]
-- Skeptic: "That's just one study; show me a meta-analysis."
-- [Shows meta-analysis]
-- Skeptic: "But meta-analyses have limitations..."
+**示例：**
+- 评审："给我看一组仿真结果。"
+- [给出结果]
+- 评审："这才一组，给我做统计显著性分析。"
+- [给出统计分析]
+- 评审："可统计方法本身也有局限……"
 
-**Why problematic:** No amount of evidence will ever be sufficient.
+**问题所在：** 这样一来，再多的证据也永远不够。
 
-### 21. Slippery Slope
-**Description:** Arguing that one step will inevitably lead to extreme outcomes without justification.
+### 21. 滑坡谬误（Slippery Slope）
+**描述：** 没有根据地断言某一步将不可避免地导向极端后果。
 
-**Example:**
-- "If we allow gene editing for disease, we'll end up with designer babies and eugenics."
+**示例：**
+- "一旦允许用 AI 自动调物理层参数，下一步就会自动生成整个波形，最终空口会变成没人能解释的黑箱。"
 
-**When valid:** If intermediate steps are actually likely.
+**何时成立：** 如果中间步骤确实很可能发生。
 
-**When fallacious:** If chain of events is speculative without evidence.
+**何时谬误：** 如果整条因果链只是无证据的推测。
 
-### 22. Straw Man
-**Description:** Misrepresenting an argument to make it easier to attack.
+### 22. 稻草人谬误（Straw Man）
+**描述：** 歪曲对方的论证，使其更容易被攻击。
 
-**Example:**
-- Position: "We should teach evolution in schools."
-- Straw man: "So you think we should tell kids they're just monkeys?"
+**示例：**
+- 原立场："我们建议这类对比在相同数目的信道实现（Channel Realization）下报告置信区间。"
+- 稻草人："所以你认为所有没给出置信区间的已发表工作都毫无价值？"
 
-**Detection:** Ask: Is this really what they're claiming?
+**检测方法：** 自问：这真是对方的观点吗？
 
-## Fallacies of Statistical and Scientific Reasoning
+## 统计与科学推理类谬误（Fallacies of Statistical and Scientific Reasoning）
 
-### 23. Texas Sharpshooter Fallacy
-**Description:** Cherry-picking data clusters to fit a pattern, like shooting arrows then drawing targets around them.
+### 23. 德州神枪手谬误（Texas Sharpshooter Fallacy）
+**描述：** 先射箭后画靶——挑出恰好聚在一起的数据来凑出"规律"。
 
-**Examples:**
-- Finding cancer clusters and claiming environmental causes (without accounting for random clustering)
-- Data mining until finding significant correlations
+**示例：**
+- 在仿真热图上挑出恰好表现最好的小区簇，然后宣称该 RIS 布局最优（未考虑随机波动造成的聚集）
+- 反复挖掘数据，直到挖出显著相关为止
 
-**Why fallacious:** Patterns in random data are inevitable; finding them doesn't prove causation.
+**为何谬误：** 随机数据中必然出现"模式"；找到模式并不能证明因果。
 
-### 24. Base Rate Fallacy
-**Description:** Ignoring prior probability when evaluating evidence.
+### 24. 基础比率谬误（Base Rate Fallacy）
+**描述：** 评估证据时忽略先验概率。
 
-**Example:**
-- Disease affects 0.1% of population; test is 99% accurate
-- Positive test ≠ 99% probability of disease
-- Actually ~9% probability (due to false positives exceeding true positives)
+**示例：**
+- 某类链路故障在现网中的基础发生率为 0.1%；检测算法的准确率为 99%
+- 告警触发 ≠ 99% 概率真有故障
+- 实际概率约 9%（假阳性数量超过了真阳性）
 
-**Solution:** Use Bayesian reasoning; consider base rates.
+**解决办法：** 使用贝叶斯推理（Bayesian Reasoning）；考虑基础比率（Base Rate）。
 
-### 25. Prosecutor's Fallacy
-**Description:** Confusing P(Evidence|Innocent) with P(Innocent|Evidence).
+### 25. 检控官谬误（Prosecutor's Fallacy）
+**描述：** 混淆 P(证据|无辜) 与 P(无辜|证据)。
 
-**Example:**
-- "The probability of this DNA match occurring by chance is 1 in 1 million, so there's only a 1 in 1 million chance the defendant is innocent."
+**示例：**
+- "这份 DNA 比对随机吻合的概率是百万分之一，所以被告无辜的概率也只有百万分之一。"
 
-**Why fallacious:** Ignores base rates and prior probability.
+**为何谬误：** 忽略了基础比率和先验概率。
 
-### 26. McNamara Fallacy (Quantitative Fallacy)
-**Description:** Focusing only on what can be easily measured while ignoring important unmeasured factors.
+### 26. 麦克纳马拉谬误（McNamara Fallacy，量化谬误 Quantitative Fallacy）
+**描述：** 只关注容易测量的东西，无视重要但未被测量的因素。
 
-**Example:**
-- Judging school quality only by test scores (ignoring creativity, social skills, ethics)
-- Measuring healthcare only by quantifiable outcomes (ignoring quality of life)
+**示例：**
+- 仅凭吞吐量评估网络质量（忽略时延抖动、能效、公平性）
+- 仅凭可量化指标评估通信系统（忽略鲁棒性、可维护性、可复现性）
 
-**Quote:** "Not everything that counts can be counted, and not everything that can be counted counts."
+**名言：** "不是所有算得出来的东西都重要，也不是所有重要的东西都算得出来。"
 
-### 27. Multiple Comparisons Fallacy
-**Description:** Not accounting for increased false positive rate when testing many hypotheses.
+### 27. 多重比较谬误（Multiple Comparisons Fallacy）
+**描述：** 检验大量假设时，未考虑假阳性率上升的问题。
 
-**Example:**
-- Testing 20 hypotheses at p < .05 gives ~65% chance of at least one false positive
-- Claiming jellybean color X causes acne after testing 20 colors
+**示例：**
+- 在 p < .05 下检验 20 个假设，出现至少一个假阳性的概率约 65%
+- 扫了 20 种波束宽度之后，宣称其中第 7 种宽度"导致"了性能差异
 
-**Solution:** Correct for multiple comparisons (Bonferroni, FDR).
+**解决办法：** 对多重比较做校正（Bonferroni 校正、FDR 错误发现率控制）。
 
-### 28. Reification (Hypostatization)
-**Description:** Treating abstract concepts as if they were concrete things.
+### 28. 具体化谬误（Reification，实体化 Hypostatization）
+**描述：** 把抽象概念当作具体事物来对待。
 
-**Examples:**
-- "Evolution wants organisms to survive." (Evolution doesn't "want")
-- "The gene for intelligence" (Intelligence isn't one gene)
-- "Nature selects..." (Nature doesn't consciously select)
+**示例：**
+- "进化想要生物存活。"（进化并不会"想要"）
+- "负责智力的那个基因"（智力并非由单一基因决定）
+- "自然选择了……"（自然不会进行有意识的选择）
+- "网络会主动规避拥塞。"（网络机制并不会"主动"思考）
 
-**Why problematic:** Can lead to confused thinking about mechanisms.
+**问题所在：** 会导致对机制的思考陷入混乱。
 
-## Fallacies of Scope and Definition
+## 范围与定义类谬误（Fallacies of Scope and Definition）
 
-### 29. No True Scotsman
-**Description:** Retroactively excluding counterexamples by redefining criteria.
+### 29. 没有真正的苏格兰人（No True Scotsman）
+**描述：** 通过事后重新定义标准来排除反例。
 
-**Example:**
-- "No natural remedy has side effects."
-- "But poison ivy is natural and causes reactions."
-- "Well, no *true* natural remedy has side effects."
+**示例：**
+- "没有任何 AI 信道预测方法会引入推理时延。"
+- "可是结构复杂的神经网络的推理时延并不小。"
+- "好吧，没有*真正的*轻量级 AI 信道预测方法会引入推理时延。"
 
-**Why fallacious:** Moves goalposts to protect claim from falsification.
+**为何谬误：** 挪动标准以使主张免于被证伪。
 
-### 30. Equivocation
-**Description:** Using a word with multiple meanings inconsistently.
+### 30. 偷换概念（Equivocation）
+**描述：** 对一个有多种含义的词作不一致的使用。
 
-**Example:**
-- "Evolution is just a theory. Theories are guesses. So evolution is just a guess."
-- (Conflates colloquial "theory" with scientific "theory")
+**示例：**
+- "进化只是个'理论'。理论就是猜测。所以进化只是猜测。"
+- （把日常语义的"理论"与科学意义上的"理论"混为一谈）
 
-**Detection:** Check if key terms are used consistently.
+**检测方法：** 检查关键术语是否被一致地使用。
 
-### 31. Ambiguity
-**Description:** Using vague language that can be interpreted multiple ways.
+### 31. 模糊歧义（Ambiguity）
+**描述：** 使用可作多种解读的含糊语言。
 
-**Example:**
-- "Quantum healing" (What does "quantum" mean here?)
-- "Natural" (Animals? Not synthetic? Organic? Common?)
+**示例：**
+- "量子赋能优化"（这里的"量子"到底是什么意思？）
+- "智能的"（指 AI？学习类？数据驱动？还是只是自适应？）
 
-**Why problematic:** Claims become unfalsifiable when terms are undefined.
+**问题所在：** 术语不加定义，主张就变得不可证伪。
 
-### 32. Mind Projection Fallacy
-**Description:** Projecting mental constructs onto reality.
+### 32. 心智投射谬误（Mind Projection Fallacy）
+**描述：** 把头脑中的概念结构投射到现实之上。
 
-**Example:**
-- Assuming categories that exist in language exist in nature
-- "Which chromosome is the gene for X on?" when X is polygenic and partially environmental
+**示例：**
+- 认为语言中存在的分类在自然界或系统中也真实存在
+- 追问"协议栈里负责低时延的是哪一层"，而低时延其实是跨层协同的涌现结果
 
-**Better:** Recognize human categories may not carve nature at the joints.
+**更好的做法：** 承认人类划定的分类未必切中自然（或系统）的真实关节。
 
-## Fallacies Specific to Science
+## 科学领域特有谬误（Fallacies Specific to Science）
 
-### 33. Galileo Gambit
-**Description:** "They laughed at Galileo, and he was right, so if they're laughing at me, I must be right too."
+### 33. 伽利略赌注（Galileo Gambit）
+**描述：** "他们当年嘲笑伽利略，而伽利略是对的；所以他们现在嘲笑我，说明我也是对的。"
 
-**Why fallacious:**
-- They laughed at Galileo, and he was right
-- They also laughed at countless crackpots who were wrong
-- Being an outsider doesn't make you right
+**为何谬误：**
+- 他们嘲笑过伽利略，而伽利略是对的
+- 他们也嘲笑过无数最终被证明荒谬的怪论
+- 身处主流之外并不能证明你正确
 
-**Reality:** Revolutionary ideas are usually well-supported by evidence.
+**真相：** 革命性想法通常都有充分的证据支撑。
 
-### 34. Argument from Ignorance (Ad Ignorantiam)
-**Description:** Assuming something is true because it hasn't been proven false (or vice versa).
+### 34. 诉诸无知（Argument from Ignorance，Ad Ignorantiam）
+**描述：** 因为某事未被证明为假就认为它为真（或反之）。
 
-**Examples:**
-- "No one has proven homeopathy doesn't work, so it works."
-- "We haven't found evidence of harm, so it must be safe."
+**示例：**
+- "没有人证明该波束赋形方案不优于传统方案，所以它更优。"
+- "我们没有发现该信道模型在任何场景下失效的证据，所以它一定可靠。"
 
-**Why fallacious:** Absence of evidence ≠ evidence of absence (though it can be, depending on how hard we've looked).
+**为何谬误：** 缺乏证据 ≠ "不存在"的证据（不过，如果已经找得足够彻底，缺乏证据也可以构成"不存在"的证据）。
 
-**Burden of proof:** Falls on the claimant, not the skeptic.
+**举证责任：** 在提出主张的一方，而不在质疑者。
 
-### 35. God of the Gaps
-**Description:** Explaining gaps in knowledge by invoking supernatural or unfalsifiable causes.
+### 35. 缝隙里的上帝（God of the Gaps）
+**描述：** 用超自然或不可证伪的原因来填补知识空白。
 
-**Examples:**
-- "We don't fully understand consciousness, so it must be spiritual."
-- "This complexity couldn't arise naturally, so it must be designed."
+**示例：**
+- "我们还不完全理解意识，所以它一定是精神性的。"
+- "如此复杂度不可能自然产生，所以一定是被设计的。"
 
-**Why problematic:**
-- Fills gaps with non-explanations
-- Discourages genuine investigation
-- History shows gaps get filled by natural explanations
+**问题所在：**
+- 用"非解释"填补空白
+- 打压真正的探究
+- 历史一再表明，空白最终都被自然解释所填补
 
-### 36. Nirvana Fallacy (Perfect Solution Fallacy)
-**Description:** Rejecting solutions because they're imperfect.
+### 36. 涅槃谬误（Nirvana Fallacy，完美方案谬误 Perfect Solution Fallacy）
+**描述：** 因为方案不完美就否决它。
 
-**Examples:**
-- "Vaccines aren't 100% effective, so they're worthless."
-- "This diet doesn't work for everyone, so it doesn't work."
+**示例：**
+- "这个信道估计算法的均方误差（MSE，Mean Squared Error）不是零，所以毫无价值。"
+- "这个波束赋形算法在个别场景下不如基线，所以一无是处。"
 
-**Reality:** Most interventions are partial; perfection is rare.
+**真相：** 大多数干预只有部分效果；完美是罕见的。
 
-**Better:** Compare to alternatives, not to perfection.
+**更好的做法：** 与替代方案比较，而不是与完美比较。
 
-### 37. Special Pleading
-**Description:** Applying standards to others but not to oneself.
+### 37. 片面辩护（Special Pleading，双重标准）
+**描述：** 对别人用一套标准，对自己用另一套。
 
-**Examples:**
-- "My anecdotes count as evidence, but yours don't."
-- "Mainstream medicine needs RCTs, but my alternative doesn't."
-- "Correlation doesn't imply causation—except when it supports my view."
+**示例：**
+- "我的个案经历算证据，你们的不算。"
+- "别人的信道测量数据必须做校准，我自己的不用。"
+- "相关不蕴含因果——除非它能支持我的观点。"
 
-**Why fallacious:** Evidence standards should apply consistently.
+**为何谬误：** 证据标准应当一致地适用。
 
-### 38. Unfalsifiability
-**Description:** Formulating claims in ways that cannot be tested or disproven.
+### 38. 不可证伪性（Unfalsifiability）
+**描述：** 把主张表述成无法被检验或反驳的形式。
 
-**Examples:**
-- "This energy can't be detected by any instrument."
-- "It works, but only if you truly believe."
-- "Failures prove the conspiracy is even deeper."
+**示例：**
+- "这种性能增益无法被任何测量手段检测到。"
+- "它有效——前提是你真心相信它有效。"
+- "失败恰恰证明掩盖的阴谋更深。"
 
-**Why problematic:** Unfalsifiable claims aren't scientific; they can't be tested.
+**问题所在：** 不可证伪的主张不属于科学；它们无法被检验。
 
-**Good science:** Makes specific, testable predictions.
+**好的科学：** 给出具体、可检验的预言。
 
-### 39. Affirming the Consequent
-**Description:** If A, then B. B is true. Therefore, A is true.
+### 39. 肯定后件（Affirming the Consequent）
+**描述：** 若 A 则 B；B 为真；所以 A 为真。
 
-**Example:**
-- "If the drug works, symptoms improve. Symptoms improved. Therefore, the drug worked."
-- (Could be placebo, natural history, regression to mean)
+**示例：**
+- "如果新算法有效，误码率（BER，Bit Error Rate）就会下降。BER 下降了。所以新算法有效。"
+- （也可能只是随机波动、负载变化、均值回归）
 
-**Why fallacious:** Other causes could produce the same outcome.
+**为何谬误：** 其他原因也可能产生同样的结果。
 
-**Valid form:** Modus ponens: If A, then B. A is true. Therefore, B is true.
+**有效形式：** 肯定前件（Modus Ponens）：若 A 则 B；A 为真；所以 B 为真。
 
-### 40. Denying the Antecedent
-**Description:** If A, then B. A is false. Therefore, B is false.
+### 40. 否定前件（Denying the Antecedent）
+**描述：** 若 A 则 B；A 为假；所以 B 为假。
 
-**Example:**
-- "If you have fever, you have infection. You don't have fever. Therefore, you don't have infection."
+**示例：**
+- "如果存在多径传播，功率时延谱（PDP，Power Delay Profile）就会出现多个峰。这条 PDP 没有多个峰。所以不存在多径传播。"
 
-**Why fallacious:** B can be true even when A is false.
+**为何谬误：** 即使 A 为假，B 也可能为真。
 
-## Avoiding Logical Fallacies
+## 避免逻辑谬误（Avoiding Logical Fallacies）
 
-### Practical Steps
+### 实践步骤（Practical Steps）
 
-1. **Identify the claim** - What exactly is being argued?
+1. **识别主张** —— 论证的到底是什么？
 
-2. **Identify the evidence** - What supports the claim?
+2. **识别证据** —— 什么在支持这个主张？
 
-3. **Check the logic** - Does the evidence actually support the claim?
+3. **检查逻辑** —— 证据真的支持这个主张吗？
 
-4. **Look for hidden assumptions** - What unstated beliefs does the argument rely on?
+4. **寻找隐含假设** —— 论证依赖哪些未言明的信念？
 
-5. **Consider alternatives** - What other explanations fit the evidence?
+5. **考虑替代解释** —— 还有哪些解释同样契合证据？
 
-6. **Check for emotional manipulation** - Is the argument relying on feelings rather than facts?
+6. **检查情感操纵** —— 论证是否在诉诸情绪而非事实？
 
-7. **Evaluate the source** - Are there conflicts of interest? Is this within their expertise?
+7. **评估来源** —— 是否存在利益冲突？是否在其专业范围之内？
 
-8. **Look for balance** - Are counterarguments addressed fairly?
+8. **寻找平衡** —— 是否公正地回应了反方论证？
 
-9. **Assess the evidence** - Is it anecdotal, observational, or experimental? How strong?
+9. **评估证据强度** —— 是轶事、观察性还是实验性证据？强度如何？
 
-10. **Be charitable** - Interpret arguments in their strongest form (steel man, not straw man).
+10. **保持善意理解** —— 以对方论证的最强形式来解读（立一个"钢人"，而非打"稻草人"）。
 
-### Questions to Ask
+### 应当自问的问题（Questions to Ask）
 
-- Is the conclusion supported by the premises?
-- Are there unstated assumptions?
-- Is the evidence relevant to the conclusion?
-- Are counterarguments acknowledged?
-- Could alternative explanations account for the evidence?
-- Is the reasoning consistent?
-- Are terms defined clearly?
-- Is evidence being cherry-picked?
-- Are emotions being manipulated?
-- Would this reasoning apply consistently to other cases?
+- 结论被前提支撑了吗？
+- 有没有未言明的假设？
+- 证据与结论相关吗？
+- 反方论证被承认了吗？
+- 替代解释能否同样解释证据？
+- 推理前后一致吗？
+- 术语定义清楚了吗？
+- 证据是否被选择性引用？
+- 情绪是否在被操纵？
+- 这套推理能否一致地应用于其他情形？
 
-### Common Patterns
+### 常见模式（Common Patterns）
 
-**Good Arguments:**
-- Clearly defined terms
-- Relevant, sufficient evidence
-- Valid logical structure
-- Acknowledges limitations and alternatives
-- Proportional conclusions
-- Transparent about uncertainty
-- Applies consistent standards
+**好论证：**
+- 术语定义清晰
+- 证据相关且充分
+- 逻辑结构有效
+- 承认局限与替代解释
+- 结论与证据成比例
+- 对不确定性保持透明
+- 标准适用一致
 
-**Poor Arguments:**
-- Vague or shifting definitions
-- Irrelevant or insufficient evidence
-- Logical leaps
-- Ignores counterevidence
-- Overclaimed conclusions
-- False certainty
-- Double standards
+**差论证：**
+- 定义含糊或漂移
+- 证据不相关或不足
+- 逻辑跳跃
+- 无视反面证据
+- 结论过度声称
+- 虚假的确定性
+- 双重标准
 
-## Remember
+## 记住（Remember）
 
-- **Fallacious reasoning doesn't mean the conclusion is false** - just that this argument doesn't support it.
-- **Identifying fallacies isn't about winning** - it's about better understanding reality.
-- **We all commit fallacies** - recognizing them in ourselves is as important as in others.
-- **Charity principle** - Interpret arguments generously; don't assume bad faith.
-- **Focus on claims, not people** - Ad hominem goes both ways.
+- **谬误推理不等于结论为假** —— 只是这个论证支持不了它。
+- **识别谬误不是为了赢** —— 而是为了更好地理解现实。
+- **我们所有人都会犯谬误** —— 在自己身上识别谬误与在别人身上识别同样重要。
+- **善意原则（Charity Principle）** —— 宽厚地解读对方的论证；不要预设对方居心不良。
+- **对事不对人** —— 人身攻击是双向的。

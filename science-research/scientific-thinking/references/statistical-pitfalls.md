@@ -1,506 +1,553 @@
-# Common Statistical Pitfalls
+# 常见统计陷阱
 
-## P-Value Misinterpretations
+## P 值误读
 
-### Pitfall 1: P-Value = Probability Hypothesis is True
-**Misconception:** p = .05 means 5% chance the null hypothesis is true.
+### 陷阱 1:P 值 = 假设为真的概率
+**误解:** p = .05 意味着原假设为真的概率是 5%。
 
-**Reality:** P-value is the probability of observing data this extreme (or more) *if* the null hypothesis is true. It says nothing about the probability the hypothesis is true.
+**事实:** p 值是在原假设为真的前提下,观察到如此极端(或更极端)数据的概率。它不能说明假设本身为真的概率。
 
-**Correct interpretation:** "If there were truly no effect, we would observe data this extreme only 5% of the time."
+**正确解读:**"如果确实不存在效应,我们只有 5% 的概率会观察到如此极端的数据。"
 
-### Pitfall 2: Non-Significant = No Effect
-**Misconception:** p > .05 proves there's no effect.
+### 陷阱 2:不显著 = 无效应
+**误解:** p > .05 证明了效应不存在。
 
-**Reality:** Absence of evidence ≠ evidence of absence. Non-significant results may indicate:
-- Insufficient statistical power
-- True effect too small to detect
-- High variability
-- Small sample size
+**事实:** 没有证据不等于证据不存在。不显著的结果可能意味着:
+- 统计功效不足
+- 真实效应太小,难以检测
+- 变异性过高
+- 样本量(或独立重复次数)过少
 
-**Better approach:**
-- Report confidence intervals
-- Conduct power analysis
-- Consider equivalence testing
+**更好的做法:**
+- 报告置信区间
+- 进行功效分析
+- 考虑等效性检验
 
-### Pitfall 3: Significant = Important
-**Misconception:** Statistical significance means practical importance.
+### 陷阱 3:显著 = 重要
+**误解:** 统计显著意味着实际重要。
 
-**Reality:** With large samples, trivial effects become "significant." A statistically significant 0.1 IQ point difference is meaningless in practice.
+**事实:** 样本量足够大时,微不足道的效应也会变得"显著"。统计显著的 0.1 dB 吞吐量差异,或 10⁻³ 与 9.99×10⁻⁴ 之间的 BER 差异,在实际中没有意义。
 
-**Better approach:**
-- Report effect sizes
-- Consider practical significance
-- Use confidence intervals
+**更好的做法:**
+- 报告效应量
+- 考虑实际显著性
+- 使用置信区间
 
-### Pitfall 4: P = .049 vs. P = .051
-**Misconception:** These are meaningfully different because one crosses the .05 threshold.
+### 陷阱 4:p = .049 与 p = .051
+**误解:** 两者有实质区别,因为一个跨过了 .05 阈值。
 
-**Reality:** These represent nearly identical evidence. The .05 threshold is arbitrary.
+**事实:** 它们代表的证据强度几乎完全相同。.05 这个阈值本身是人为约定。
 
-**Better approach:**
-- Treat p-values as continuous measures of evidence
-- Report exact p-values
-- Consider context and prior evidence
+**更好的做法:**
+- 把 p 值视为连续的证据强度度量
+- 报告精确的 p 值
+- 结合研究背景与既有证据来判断
 
-### Pitfall 5: One-Tailed Tests Without Justification
-**Misconception:** One-tailed tests are free extra power.
+### 陷阱 5:无正当理由的单尾检验
+**误解:** 单尾检验是免费获得的额外功效。
 
-**Reality:** One-tailed tests assume effects can only go one direction, which is rarely true. They're often used to artificially boost significance.
+**事实:** 单尾检验假设效应只可能朝一个方向,这在实际中很少成立。它常被用来人为抬高显著性。
 
-**When appropriate:** Only when effects in one direction are theoretically impossible or equivalent to null.
+**何时恰当:** 仅当某一方向的效应在理论上不可能存在、或等价于无效应时。
 
-## Multiple Comparisons Problems
+## 多重比较问题
 
-### Pitfall 6: Multiple Testing Without Correction
-**Problem:** Testing 20 hypotheses at p < .05 gives ~65% chance of at least one false positive.
+### 陷阱 6:多重检验未做校正
+**问题:** 在 p < .05 下检验 20 个假设,出现至少一个假阳性的概率约为 65%。
 
-**Examples:**
-- Testing many outcomes
-- Testing many subgroups
-- Conducting multiple interim analyses
-- Testing at multiple time points
+**示例:**
+- 检验多个性能指标(BER、吞吐量、时延、能效)
+- 在多个场景/子带/天线配置子组上分别检验
+- 仿真过程中多次"中途看结果"并据此决定是否停止
+- 在多个快照时刻分别检验
 
-**Solutions:**
-- Bonferroni correction (divide α by number of tests)
-- False Discovery Rate (FDR) control
-- Prespecify primary outcome
-- Treat exploratory analyses as hypothesis-generating
+**解决方法:**
+- Bonferroni 校正(把 α 除以检验次数)
+- 错误发现率(FDR)控制
+- 事先指定主要指标
+- 把探索性分析当作"产生假设"而非"验证假设"
 
-### Pitfall 7: Subgroup Analysis Fishing
-**Problem:** Testing many subgroups until finding significance.
+### 陷阱 7:子组分析钓鱼
+**问题:** 测试很多子组,直到某组出现显著结果。
 
-**Why problematic:**
-- Inflates false positive rate
-- Often reported without disclosure
-- "Interaction was significant in women" may be random
+**为何有问题:**
+- 抬高假阳性率
+- 报告时常常不披露检验了多少个子组
+- "增益仅在城区微蜂窝子组中显著"可能只是随机波动
 
-**Solutions:**
-- Prespecify subgroups
-- Use interaction tests, not separate tests
-- Require replication
-- Correct for multiple comparisons
+**解决方法:**
+- 事先规定子组
+- 使用交互作用检验,而非分组各自检验
+- 要求复现
+- 对多重比较做校正
 
-### Pitfall 8: Outcome Switching
-**Problem:** Analyzing many outcomes, reporting only significant ones.
+### 陷阱 8:指标切换
+**问题:** 分析很多指标,只报告显著的那些。
 
-**Detection signs:**
-- Secondary outcomes emphasized
-- Incomplete outcome reporting
-- Discrepancy between registration and publication
+**识别迹象:**
+- 次要指标被重点强调
+- 指标报告不完整
+- 与预注册(或项目书/会议摘要中承诺)的指标不一致
 
-**Solutions:**
-- Preregister all outcomes
-- Report all planned outcomes
-- Distinguish primary from secondary
+**工程示例:** 预注册时声明 BER 是主要指标,论文却以"吞吐量提升显著"作为核心结论。
 
-## Sample Size and Power Issues
+**解决方法:**
+- 预注册全部指标
+- 报告所有计划分析的指标
+- 区分主要指标与次要指标
 
-### Pitfall 9: Underpowered Studies
-**Problem:** Small samples have low probability of detecting true effects.
+## 样本量与功效问题
 
-**Consequences:**
-- High false negative rate
-- Significant results more likely to be false positives
-- Overestimated effect sizes (when significant)
+### 陷阱 9:功效不足的研究
+**问题:** 样本量小时,检测出真实效应的概率很低。
 
-**Solutions:**
-- Conduct a priori power analysis
-- Aim for 80-90% power
-- Consider effect size from prior research
+**工程语境:** 仿真中这对应"独立重复次数/蒙特卡洛样本数是否足够"——只用 20 个独立随机种子就宣称方案 A 的 BER 优于方案 B,很可能漏掉真实差异,或检出的是噪声。
 
-### Pitfall 10: Post-Hoc Power Analysis
-**Problem:** Calculating power after seeing results is circular and uninformative.
+**后果:**
+- 假阴性率高
+- 显著结果更可能是假阳性
+- 显著时效应量被高估("赢家诅咒":真实效应小时,只有最幸运的样本才会显著)
 
-**Why useless:**
-- Non-significant results always have low "post-hoc power"
-- It recapitulates the p-value without new information
+**解决方法:**
+- 事先进行功效分析(先验功效分析)
+- 以 80–90% 功效为目标
+- 效应量参考先前研究/文献中的典型值
 
-**Better approach:**
-- Calculate confidence intervals
-- Plan replication with adequate sample
-- Conduct prospective power analysis for future studies
+### 陷阱 10:事后功效分析
+**问题:** 看到结果之后再计算功效是循环论证,没有信息量。
 
-### Pitfall 11: Small Sample Fallacy
-**Problem:** Trusting results from very small samples.
+**为何无用:**
+- 不显著的结果"事后功效"必然低
+- 它只是换一种方式复述 p 值,不提供新信息
 
-**Issues:**
-- High sampling variability
-- Outliers have large influence
-- Assumptions of tests violated
-- Confidence intervals very wide
+**更好的做法:**
+- 计算置信区间
+- 用足够的样本量(独立重复次数)规划复现实验
+- 为未来的实验做前瞻性功效分析
 
-**Guidelines:**
-- Be skeptical of n < 30
-- Check assumptions carefully
-- Consider non-parametric tests
-- Replicate findings
+### 陷阱 11:小样本谬误
+**问题:** 过度信任极小样本得到的结果。
 
-## Effect Size Misunderstandings
+**问题所在:**
+- 抽样变异性高
+- 离群值影响巨大
+- 检验的前提假设容易违反
+- 置信区间极宽
 
-### Pitfall 12: Ignoring Effect Size
-**Problem:** Focusing only on significance, not magnitude.
+**工程语境:** 蒙特卡洛估计的方差随独立样本数按 1/N 下降;用几百个衰落快照去估计 10⁻⁵ 量级的 BER 完全不可信——稀有事件估计需要专门的方差缩减技术(如重要抽样)。
 
-**Why problematic:**
-- Significance ≠ importance
-- Can't compare across studies
-- Doesn't inform practical decisions
+**指南:**
+- 对独立重复次数 n < 30 的结果保持怀疑
+- 仔细检查前提假设
+- 考虑非参数检验
+- 复现验证结果
 
-**Solutions:**
-- Always report effect sizes
-- Use standardized measures (Cohen's d, r, η²)
-- Interpret using field conventions
-- Consider minimum clinically important difference
+## 效应量误解
 
-### Pitfall 13: Misinterpreting Standardized Effect Sizes
-**Problem:** Treating Cohen's d = 0.5 as "medium" without context.
+### 陷阱 12:忽略效应量
+**问题:** 只关注是否显著,不关注效应大小。
 
-**Reality:**
-- Field-specific norms vary
-- Some fields have larger typical effects
-- Real-world importance depends on context
+**为何有问题:**
+- 显著 ≠ 重要
+- 无法跨研究比较
+- 不能为实际决策提供依据
 
-**Better approach:**
-- Compare to effects in same domain
-- Consider practical implications
-- Look at raw effect sizes too
+**解决方法:**
+- 始终报告效应量
+- 使用标准化度量(Cohen's d、r、η²)
+- 按领域惯例进行解读
+- 考虑最小实际有意义差异(如目标 BER 改善量、用户可感知的吞吐量提升)
 
-### Pitfall 14: Confusing Explained Variance with Importance
-**Problem:** "Only explains 5% of variance" = unimportant.
+### 陷阱 13:误读标准化效应量
+**问题:** 不看上下文,把 Cohen's d = 0.5 一律当作"中等"效应。
 
-**Reality:**
-- Height explains ~5% of variation in NBA player salary but is crucial
-- Complex phenomena have many small contributors
-- Predictive accuracy ≠ causal importance
+**事实:**
+- 各领域的惯例差异很大
+- 有些领域的典型效应本来就大
+- 现实中的重要性取决于具体场景
 
-**Consideration:** Context matters more than percentage alone.
+**更好的做法:**
+- 与同一领域的典型效应比较(如文献中信道参数对 BER 的典型影响)
+- 考虑实际影响
+- 同时查看非标准化的原始效应量
 
-## Correlation and Causation
+### 陷阱 14:混淆解释方差与重要性
+**问题:**"只解释了 5% 的方差" = 不重要。
 
-### Pitfall 15: Correlation Implies Causation
-**Problem:** Inferring causation from correlation.
+**事实:**
+- 工程反例:RIS 单元的相位量化比特数可能只解释总吞吐量方差的几个百分点,却直接决定硬件成本与方案可行性
+- 复杂现象由许多小的贡献因素共同决定
+- 预测精度 ≠ 因果重要性
 
-**Alternative explanations:**
-- Reverse causation (B causes A, not A causes B)
-- Confounding (C causes both A and B)
-- Coincidence
-- Selection bias
+**要点:** 具体背景比百分比本身更重要。
 
-**Criteria for causation:**
-- Temporal precedence
-- Covariation
-- No plausible alternatives
-- Ideally: experimental manipulation
+## 相关与因果
 
-### Pitfall 16: Ecological Fallacy
-**Problem:** Inferring individual-level relationships from group-level data.
+### 陷阱 15:相关即因果
+**问题:** 从相关性推断因果。
 
-**Example:** Countries with more chocolate consumption have more Nobel laureates doesn't mean eating chocolate makes you win Nobels.
+**其他解释:**
+- 反向因果(B 导致 A,而非 A 导致 B)
+- 混杂(C 同时导致 A 和 B)
+- 巧合
+- 选择偏差
 
-**Why problematic:** Group-level correlations may not hold at individual level.
+**工程示例:** 部署 RIS 后吞吐量上升,可能只是同期流量模型或用户分布发生了变化(混杂),而非 RIS 带来的因果增益;没有受控对比就无法排除其他解释。
 
-### Pitfall 17: Simpson's Paradox
-**Problem:** Trend appears in groups but reverses when combined (or vice versa).
+**因果推断的判据:**
+- 时间先后(原因在前)
+- 协变关系
+- 无合理的替代解释
+- 理想情况:实验性操纵(随机化/受控仿真对比)
 
-**Example:** Treatment appears worse overall but better in every subgroup.
+### 陷阱 16:生态谬误
+**问题:** 从群体层面数据推断个体层面关系。
 
-**Cause:** Confounding variable distributed differently across groups.
+**示例:** 基站密度更高的城市平均用户速率也更高,并不意味着给某个具体小区加装基站就一定能提升其中单个用户的速率。
 
-**Solution:** Consider confounders and look at appropriate level of analysis.
+**为何有问题:** 群体层面的相关性在个体层面未必成立。
 
-## Regression and Modeling Pitfalls
+### 陷阱 17:辛普森悖论
+**问题:** 趋势在各子组中出现,合并后反转(或相反)。
 
-### Pitfall 18: Overfitting
-**Problem:** Model fits sample data well but doesn't generalize.
+**示例:** 方案 A 的总体 BER 高于方案 B,但在每一个 SNR 区间内 A 都更好——只因 A 恰好在低 SNR 场景上测试得更多。
 
-**Causes:**
-- Too many predictors relative to sample size
-- Fitting noise rather than signal
-- No cross-validation
+**原因:** 混杂变量在各子组间的分布不同。
 
-**Solutions:**
-- Use cross-validation
-- Penalized regression (LASSO, ridge)
-- Independent test set
-- Simpler models
+**解决方法:** 考虑混杂因素,并选择合适的分析层面。
 
-### Pitfall 19: Extrapolation Beyond Data Range
-**Problem:** Predicting outside the range of observed data.
+## 回归与建模陷阱
 
-**Why dangerous:**
-- Relationships may not hold outside observed range
-- Increased uncertainty not reflected in predictions
+### 陷阱 18:过拟合
+**问题:** 模型在训练样本上拟合很好,但无法泛化。
 
-**Solution:** Only interpolate; avoid extrapolation.
+**原因:**
+- 相对样本量而言预测变量过多
+- 拟合了噪声而非信号
+- 没有交叉验证
 
-### Pitfall 20: Ignoring Model Assumptions
-**Problem:** Using statistical tests without checking assumptions.
+**工程示例:** 信道预测网络在训练场景上误差极小,换一个信道模型或新场景误差就急剧增大;在有限个 SNR 采样点上用高阶多项式拟合 BER 曲线,会在点间剧烈振荡。
 
-**Common violations:**
-- Non-normality (for parametric tests)
-- Heteroscedasticity (unequal variances)
-- Non-independence
-- Linearity
-- No multicollinearity
+**解决方法:**
+- 使用交叉验证
+- 正则化(LASSO、岭回归)
+- 独立测试集
+- 更简单的模型
 
-**Solutions:**
-- Check assumptions with diagnostics
-- Use robust methods
-- Transform data
-- Use appropriate non-parametric alternatives
+### 陷阱 19:超出数据范围外推
+**问题:** 在观测数据范围之外做预测。
 
-### Pitfall 21: Treating Non-Significant Covariates as Eliminating Confounding
-**Problem:** "We controlled for X and it wasn't significant, so it's not a confounder."
+**为何危险:**
+- 关系在观测范围之外可能不成立
+- 预测值没有反映随之增大的不确定性
 
-**Reality:** Non-significant covariates can still be important confounders. Significance ≠ confounding.
+**工程示例:** 只在 SNR 0–20 dB 内仿真/训练,却外推到 10⁻⁵ BER 对应的 30 dB 以上区域;信道模型只在实测的频段与天线配置上校准,却用于其他频段。
 
-**Solution:** Include theoretically important covariates regardless of significance.
+**解决方法:** 只做内插;避免外推。
 
-### Pitfall 22: Collinearity Masking Effects
-**Problem:** When predictors are highly correlated, true effects may appear non-significant.
+### 陷阱 20:忽略模型假设
+**问题:** 不检查前提假设就使用统计检验。
 
-**Manifestations:**
-- Large standard errors
-- Unstable coefficients
-- Sign changes when adding/removing variables
+**常见违反:**
+- 非正态性(参数检验)
+- 异方差(方差不等)
+- 非独立性(如共享同一随机种子的仿真样本)
+- 非线性
+- 存在多重共线性
 
-**Detection:**
-- Variance Inflation Factors (VIF)
-- Correlation matrices
+**解决方法:**
+- 用诊断手段检查假设
+- 使用稳健方法
+- 对数据做变换
+- 使用合适的非参数替代方法
 
-**Solutions:**
-- Remove redundant predictors
-- Combine correlated variables
-- Use regularization methods
+### 陷阱 21:把不显著协变量当作已消除混杂
+**问题:**"我们控制了 X,X 不显著,所以它不是混杂因素。"
 
-## Specific Test Misuses
+**事实:** 不显著的协变量仍可能是重要混杂。显著与否 ≠ 是否构成混杂。
 
-### Pitfall 23: T-Test for Multiple Groups
-**Problem:** Conducting multiple t-tests instead of ANOVA.
+**工程示例:** 控制用户移动速度后其系数不显著,不代表移动性不影响结论——速度与场景高度相关时,其效应可能被其他变量吸收。
 
-**Why wrong:** Inflates Type I error rate dramatically.
+**解决方法:** 只要理论上重要,无论显著与否都应纳入协变量。
 
-**Correct approach:**
-- Use ANOVA first
-- Follow with planned comparisons or post-hoc tests with correction
+### 陷阱 22:共线性掩盖效应
+**问题:** 预测变量高度相关时,真实效应可能表现为不显著。
 
-### Pitfall 24: Pearson Correlation for Non-Linear Relationships
-**Problem:** Using Pearson's r for curved relationships.
+**表现:**
+- 标准误很大
+- 系数不稳定
+- 增删变量时系数符号翻转
 
-**Why misleading:** r measures linear relationships only.
+**工程示例:** 天线数与阵列孔径、基站高度与覆盖半径往往高度相关,各自的"独立效应"难以分离。
 
-**Solutions:**
-- Check scatterplots first
-- Use Spearman's ρ for monotonic relationships
-- Consider polynomial or non-linear models
+**检测:**
+- 方差膨胀因子(VIF)
+- 相关矩阵
 
-### Pitfall 25: Chi-Square with Small Expected Frequencies
-**Problem:** Chi-square test with expected cell counts < 5.
+**解决方法:**
+- 删除冗余预测变量
+- 合并相关变量
+- 使用正则化方法
 
-**Why wrong:** Violates test assumptions, p-values inaccurate.
+## 特定检验的误用
 
-**Solutions:**
-- Fisher's exact test
-- Combine categories
-- Increase sample size
+### 陷阱 23:对多组数据反复使用 t 检验
+**问题:** 用多次 t 检验代替方差分析(ANOVA)。
 
-### Pitfall 26: Paired vs. Independent Tests
-**Problem:** Using independent samples test for paired data (or vice versa).
+**为何错误:** 第一类错误率急剧膨胀(比较 5 种调制方案需要 10 次两两检验)。
 
-**Why wrong:**
-- Wastes power (paired data analyzed as independent)
-- Violates independence assumption (independent data analyzed as paired)
+**正确做法:**
+- 先做 ANOVA(或其非参数对应,如 Kruskal-Wallis 检验)
+- 再做事先计划的比较,或经校正的事后多重比较
 
-**Solution:** Match test to design.
+### 陷阱 24:对非线性关系使用 Pearson 相关
+**问题:** 对曲线关系使用 Pearson r。
 
-## Confidence Interval Misinterpretations
+**为何误导:** r 只度量线性关系。
 
-### Pitfall 27: 95% CI = 95% Probability True Value Inside
-**Misconception:** "95% chance the true value is in this interval."
+**工程示例:** BER 与 SNR 在原始尺度上是陡峭的曲线,直接算 r 没有意义;应在对数尺度上考察,或改用合适的模型。
 
-**Reality:** The true value either is or isn't in this specific interval. If we repeated the study many times, 95% of resulting intervals would contain the true value.
+**解决方法:**
+- 先画散点图
+- 单调关系可用 Spearman ρ
+- 考虑多项式或非线性模型
 
-**Better interpretation:** "We're 95% confident this interval contains the true value."
+### 陷阱 25:期望频数过小时使用卡方检验
+**问题:** 期望单元格计数 < 5 时使用卡方检验。
 
-### Pitfall 28: Overlapping CIs = No Difference
-**Problem:** Assuming overlapping confidence intervals mean no significant difference.
+**为何错误:** 违反检验假设,p 值不准确。
 
-**Reality:** Overlapping CIs are less stringent than difference tests. Two CIs can overlap while the difference between groups is significant.
+**工程示例:** 把误帧按失败原因分类(CRC 错误、同步失败、HARQ 超时等)做卡方检验,某些类别样本极少时不能直接套用。
 
-**Guideline:** Overlap of point estimate with other CI is more relevant than overlap of intervals.
+**解决方法:**
+- Fisher 精确检验
+- 合并类别
+- 增大样本量
 
-### Pitfall 29: Ignoring CI Width
-**Problem:** Focusing only on whether CI includes zero, not precision.
+### 陷阱 26:配对检验与独立检验混用
+**问题:** 对配对数据使用独立样本检验(或相反)。
 
-**Why important:** Wide CIs indicate high uncertainty. "Significant" effects with huge CIs are less convincing.
+**为何错误:**
+- 浪费功效(配对数据按独立分析)
+- 违反独立性假设(独立数据按配对分析)
 
-**Consider:** Both significance and precision.
+**工程示例:** 两种算法在同一组信道实现(同一组随机种子)上比较时应使用配对检验——配对设计能消掉信道实现之间的差异,功效高得多。
 
-## Bayesian vs. Frequentist Confusions
+**解决方法:** 检验方法与实验设计相匹配。
 
-### Pitfall 30: Mixing Bayesian and Frequentist Interpretations
-**Problem:** Making Bayesian statements from frequentist analyses.
+## 置信区间误读
 
-**Examples:**
-- "Probability hypothesis is true" (Bayesian) from p-value (frequentist)
-- "Evidence for null" from non-significant result (frequentist can't support null)
+### 陷阱 27:95% 置信区间 = 真值有 95% 概率落在其中
+**误解:**"真实值有 95% 的概率在这个区间里。"
 
-**Solution:**
-- Be clear about framework
-- Use Bayesian methods for Bayesian questions
-- Use Bayes factors to compare hypotheses
+**事实:** 对这一个具体区间而言,真值要么在、要么不在。如果多次重复同一研究,所得置信区间中有 95% 会包含真值。
 
-### Pitfall 31: Ignoring Prior Probability
-**Problem:** Treating all hypotheses as equally likely initially.
+**更好的解读:**"我们有 95% 的把握认为该区间包含真实值。"
 
-**Reality:** Extraordinary claims need extraordinary evidence. Prior plausibility matters.
+### 陷阱 28:置信区间重叠 = 无差异
+**问题:** 认为置信区间重叠就意味着差异不显著。
 
-**Consider:**
-- Plausibility given existing knowledge
-- Mechanism plausibility
-- Base rates
+**事实:** 区间重叠的判据比差异检验宽松。两个置信区间可以重叠,而组间差异仍然显著。
 
-## Data Transformation Issues
+**工程示例:** 两种预编码方案的 BER 置信区间互相重叠,但配对差异检验可能已经显著。
 
-### Pitfall 32: Dichotomizing Continuous Variables
-**Problem:** Splitting continuous variables at arbitrary cutoffs.
+**指南:** 更相关的是"一个组的点估计是否落入另一组的置信区间",而非区间是否重叠。
 
-**Consequences:**
-- Loss of information and power
-- Arbitrary distinctions
-- Discarding individual differences
+### 陷阱 29:忽略置信区间的宽度
+**问题:** 只看置信区间是否包含零,不看精度。
 
-**Exceptions:** Clinically meaningful cutoffs with strong justification.
+**为何重要:** 宽的置信区间意味着不确定性高。带有巨大置信区间的"显著"效应,说服力要打折扣。
 
-**Better:** Keep continuous or use multiple categories.
+**工程示例:** 只跑几十次独立重复得到的吞吐量增益,置信区间可能宽到同时覆盖"无增益"与"翻倍"。
 
-### Pitfall 33: Trying Multiple Transformations
-**Problem:** Testing many transformations until finding significance.
+**要点:** 显著性与精度都要看。
 
-**Why problematic:** Inflates Type I error, is a form of p-hacking.
+## 贝叶斯与频率派的混淆
 
-**Better approach:**
-- Prespecify transformations
-- Use theory-driven transformations
-- Correct for multiple testing if exploring
+### 陷阱 30:混用贝叶斯与频率派解释
+**问题:** 从频率派分析中得出贝叶斯式结论。
 
-## Missing Data Problems
+**示例:**
+- 从 p 值(频率派)推出"假设为真的概率"(贝叶斯)
+- 从不显著结果推出"支持原假设的证据"(频率派检验不能支持原假设)
 
-### Pitfall 34: Listwise Deletion by Default
-**Problem:** Automatically deleting all cases with any missing data.
+**工程示例:** 不能因为 p > .05 就宣称"新算法与基线性能相同"——这是把不显著当成了等效性证明(见陷阱 2 与等效性检验)。
 
-**Consequences:**
-- Reduced power
-- Potential bias if data not missing completely at random (MCAR)
+**解决方法:**
+- 明确自己使用的框架
+- 贝叶斯问题用贝叶斯方法回答
+- 用贝叶斯因子比较假设
 
-**Better approaches:**
-- Multiple imputation
-- Maximum likelihood methods
-- Analyze missingness patterns
+### 陷阱 31:忽略先验概率
+**问题:** 把所有假设当作先验等可能。
 
-### Pitfall 35: Ignoring Missing Data Mechanisms
-**Problem:** Not considering why data are missing.
+**事实:** 非同寻常的主张需要非同寻常的证据。先验合理性很重要。
 
-**Types:**
-- MCAR (Missing Completely at Random): Safe to delete
-- MAR (Missing at Random): Can impute
-- MNAR (Missing Not at Random): May bias results
+**工程示例:** 一篇声称"突破香农极限"的论文先验概率极低,需要的证据强度远高于"在特定场景下提升 5% 吞吐量"这类与既有知识相容的主张。
 
-**Solution:** Analyze patterns, use appropriate methods, consider sensitivity analyses.
+**应考虑:**
+- 与既有知识的相容性
+- 机理上是否说得通
+- 基础比率(这类主张通常为真的频率)
 
-## Publication and Reporting Issues
+## 数据变换问题
 
-### Pitfall 36: Selective Reporting
-**Problem:** Only reporting significant results or favorable analyses.
+### 陷阱 32:把连续变量二值化
+**问题:** 在任意切点上把连续变量切成两类。
 
-**Consequences:**
-- Literature appears more consistent than reality
-- Meta-analyses biased
-- Wasted research effort
+**后果:**
+- 损失信息与功效
+- 人为制造界限
+- 丢弃个体差异
 
-**Solutions:**
-- Preregistration
-- Report all analyses
-- Use reporting guidelines (CONSORT, PRISMA, etc.)
+**工程示例:** 把连续的 SNR 或用户速度按随手选的阈值分成"高/低"两组再比较,白白丢掉信息。
 
-### Pitfall 37: Rounding to p < .05
-**Problem:** Reporting exact p-values selectively (e.g., p = .049 but p < .05 for .051).
+**例外:** 有明确物理意义且论证充分的门限(如满足目标 BER 所需的 SNR 门限、标准定义的时延/可靠性需求门限)。
 
-**Why problematic:** Obscures values near threshold, enables p-hacking detection evasion.
+**更好:** 保留连续形式,或分成多个区间。
 
-**Better:** Always report exact p-values.
+### 陷阱 33:尝试多种变换
+**问题:** 试遍各种变换直到出现显著结果。
 
-### Pitfall 38: No Data Sharing
-**Problem:** Not making data available for verification or reanalysis.
+**为何有问题:** 膨胀第一类错误,是一种 p 值操纵。
 
-**Consequences:**
-- Can't verify results
-- Can't include in meta-analyses
-- Hinders scientific progress
+**工程示例:** 对吞吐量数据依次尝试 log、sqrt、Box-Cox 变换,只报告"最显著"的那一种。
 
-**Best practice:** Share data unless privacy concerns prohibit.
+**更好的做法:**
+- 事先规定变换
+- 使用有理论依据的变换(如 BER 天然用对数尺度)
+- 如果是探索性的,对多重检验做校正
 
-## Cross-Validation and Generalization
+## 缺失数据问题
 
-### Pitfall 39: No Cross-Validation
-**Problem:** Testing model on same data used to build it.
+### 陷阱 34:默认整例删除
+**问题:** 自动删除任何含缺失数据的样本。
 
-**Consequence:** Overly optimistic performance estimates.
+**后果:**
+- 功效下降
+- 若数据并非完全随机缺失(MCAR),会引入偏差
 
-**Solutions:**
-- Split data (train/test)
-- K-fold cross-validation
-- Independent validation sample
+**工程示例:** 外场测量中丢弃任何含缺失快照的测量轮次,可能系统性丢掉高速移动或深衰落场景的样本。
 
-### Pitfall 40: Data Leakage
-**Problem:** Information from test set leaking into training.
+**更好的做法:**
+- 多重插补
+- 极大似然方法
+- 分析缺失模式本身
 
-**Examples:**
-- Normalizing before splitting
-- Feature selection on full dataset
-- Including temporal information
+### 陷阱 35:忽略缺失数据机制
+**问题:** 不考虑数据为什么缺失。
 
-**Consequence:** Inflated performance metrics.
+**类型:**
+- MCAR(完全随机缺失):删除是安全的
+- MAR(随机缺失,缺失概率取决于其他已观测变量):可以插补
+- MNAR(非随机缺失,缺失与未观测值本身相关):可能使结果有偏
 
-**Prevention:** All preprocessing decisions made using only training data.
+**工程示例:** 深衰落时测量/采集更容易失败,缺失与链路质量本身相关(MNAR),直接删样本会让性能估计偏乐观。
 
-## Meta-Analysis Pitfalls
+**解决方法:** 分析缺失模式,使用合适的方法,做敏感性分析。
 
-### Pitfall 41: Apples and Oranges
-**Problem:** Combining studies with different designs, populations, or measures.
+## 发表与报告问题
 
-**Balance:** Need homogeneity but also comprehensiveness.
+### 陷阱 36:选择性报告
+**问题:** 只报告显著的结果或有利的分析。
 
-**Solutions:**
-- Clear inclusion criteria
-- Subgroup analyses
-- Meta-regression for moderators
+**后果:**
+- 文献显得比实际更一致
+- 元分析(系统性综述)有偏
+- 浪费研究资源
 
-### Pitfall 42: Ignoring Publication Bias
-**Problem:** Published studies overrepresent significant results.
+**工程示例:** 只报告有利场景(高 SNR、特定信道模型)下优于基线的结果,不利的场景曲线被省略。
 
-**Consequences:** Overestimated effects in meta-analyses.
+**解决方法:**
+- 预注册(事先固定实验配置与指标)
+- 报告全部分析
+- 遵循报告规范(如机器学习可复现性清单、基准测试报告指南)
 
-**Detection:**
-- Funnel plots
-- Trim-and-fill
+### 陷阱 37:把 p 值凑成 p < .05
+**问题:** 有选择地报告精确 p 值(如 .049 写精确值,.051 却写成 p < .05)。
+
+**为何有问题:** 掩盖了阈值附近的数值,也便于逃避 p 值操纵检测。
+
+**更好:** 始终报告精确 p 值。
+
+### 陷阱 38:不共享数据
+**问题:** 不提供数据供验证或再分析。
+
+**后果:**
+- 结果无法验证
+- 无法纳入元分析(系统性综述)
+- 阻碍科学进步
+
+**最佳实践:** 除隐私/保密限制外应共享数据。对仿真研究而言,共享代码以及完整的随机种子与参数配置,通常足以复现全部结果。
+
+## 交叉验证与泛化
+
+### 陷阱 39:不做交叉验证
+**问题:** 用构建模型所用的同一批数据评估模型。
+
+**后果:** 性能估计过于乐观。
+
+**工程示例:** 用同一批信道样本既训练信道预测网络又报告其精度;用测试数据调超参数后,再在同一批数据上报告结果。
+
+**解决方法:**
+- 划分数据(训练/测试)
+- K 折交叉验证
+- 独立验证样本(全新场景/信道模型/实测数据)
+
+### 陷阱 40:数据泄露
+**问题:** 测试集的信息泄露进训练过程。
+
+**示例:**
+- 划分之前先归一化(用了全量数据的均值/方差)
+- 在整个数据集上做特征选择
+- 泄露时间信息(训练集包含时间上更晚的快照)
+- 同一随机种子/同一信道实现生成的样本同时进入训练集与测试集
+
+**后果:** 性能指标被抬高。
+
+**预防:** 所有预处理决策只依据训练数据做出。
+
+## 元分析陷阱
+
+### 陷阱 41:苹果和橘子
+**问题:** 把设计、对象、度量都不同的研究合并。
+
+**工程示例:** 把使用不同信道模型、不同仿真假设(理想 CSI 与非理想 CSI)的研究,或一个仿真研究与一个实测研究,直接合并计算"平均增益"。
+
+**权衡:** 既需要同质性,也需要全面性。
+
+**解决方法:**
+- 明确的纳入标准
+- 子组分析
+- 用元回归考察调节变量
+
+### 陷阱 42:忽略发表偏倚
+**问题:** 已发表的研究过度代表显著结果。
+
+**后果:** 元分析(系统性综述)中的效应被高估。
+
+**工程示例:** "方案 X 优于基线"的结果更容易发表,"未发现显著增益"的结果常留在抽屉里,于是综述中的平均增益被系统性抬高。
+
+**检测:**
+- 漏斗图
+- 剪补法(trim-and-fill)
 - PET-PEESE
-- P-curve analysis
+- p 曲线分析
 
-**Solutions:**
-- Include unpublished studies
-- Register reviews
-- Use bias-correction methods
+**解决方法:**
+- 纳入未发表研究(预印本、技术报告)
+- 注册综述方案
+- 使用偏倚校正方法
 
-## General Best Practices
+## 一般最佳实践
 
-1. **Preregister studies** - Distinguish confirmatory from exploratory
-2. **Report transparently** - All analyses, not just significant ones
-3. **Check assumptions** - Don't blindly apply tests
-4. **Use appropriate tests** - Match test to data and design
-5. **Report effect sizes** - Not just p-values
-6. **Consider practical significance** - Not just statistical
-7. **Replicate findings** - One study is rarely definitive
-8. **Share data and code** - Enable verification
-9. **Use confidence intervals** - Show uncertainty
-10. **Think causally carefully** - Most research is correlational
+1. **预注册研究** - 区分验证性与探索性分析(仿真研究中:跑数据前固定假设、指标与配置)
+2. **透明报告** - 报告所有分析,而不只是显著的那些
+3. **检查假设** - 不要盲目套用检验
+4. **使用合适的检验** - 检验方法与数据和设计相匹配
+5. **报告效应量** - 而不只是 p 值
+6. **考虑实际显著性** - 而不只是统计显著性
+7. **复现结果** - 一项研究很少是决定性的(换随机种子、换场景、换信道模型再验证)
+8. **共享数据与代码** - 使验证成为可能
+9. **使用置信区间** - 展示不确定性
+10. **谨慎对待因果** - 多数研究是相关性的

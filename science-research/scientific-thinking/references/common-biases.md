@@ -1,364 +1,332 @@
-# Common Biases in Scientific Research
-
-## Cognitive Biases Affecting Researchers
-
-### 1. Confirmation Bias
-**Description:** Tendency to search for, interpret, and recall information that confirms preexisting beliefs.
-
-**Manifestations:**
-- Designing studies that can only support the hypothesis
-- Interpreting ambiguous results as supportive
-- Remembering hits and forgetting misses
-- Selectively citing literature that agrees
-
-**Mitigation:**
-- Preregister hypotheses and analysis plans
-- Actively seek disconfirming evidence
-- Use blinded data analysis
-- Consider alternative hypotheses
-
-### 2. Hindsight Bias (I-Knew-It-All-Along Effect)
-**Description:** After an event, people perceive it as having been more predictable than it actually was.
-
-**Manifestations:**
-- HARKing (Hypothesizing After Results are Known)
-- Claiming predictions that weren't made
-- Underestimating surprise at results
-
-**Mitigation:**
-- Document predictions before data collection
-- Preregister studies
-- Distinguish exploratory from confirmatory analyses
-
-### 3. Publication Bias (File Drawer Problem)
-**Description:** Positive/significant results are more likely to be published than negative/null results.
-
-**Manifestations:**
-- Literature appears to support effects that don't exist
-- Overestimation of effect sizes
-- Inability to estimate true effects from published literature
-
-**Mitigation:**
-- Publish null results
-- Use preregistration and registered reports
-- Conduct systematic reviews with grey literature
-- Check for funnel plot asymmetry in meta-analyses
-
-### 4. Anchoring Bias
-**Description:** Over-reliance on the first piece of information encountered.
-
-**Manifestations:**
-- Initial hypotheses unduly influence interpretation
-- First studies in a field set expectations
-- Pilot data biases main study interpretation
-
-**Mitigation:**
-- Consider multiple initial hypotheses
-- Evaluate evidence independently
-- Use structured decision-making
-
-### 5. Availability Heuristic
-**Description:** Overestimating likelihood of events based on how easily examples come to mind.
-
-**Manifestations:**
-- Overemphasizing recent or dramatic findings
-- Neglecting base rates
-- Anecdotal evidence overshadowing statistics
-
-**Mitigation:**
-- Consult systematic reviews, not memorable papers
-- Consider base rates explicitly
-- Use statistical thinking, not intuition
-
-### 6. Bandwagon Effect
-**Description:** Adopting beliefs because many others hold them.
-
-**Manifestations:**
-- Following research trends without critical evaluation
-- Citing widely-cited papers without reading
-- Accepting "textbook knowledge" uncritically
-
-**Mitigation:**
-- Evaluate evidence independently
-- Read original sources
-- Question assumptions
-
-### 7. Belief Perseverance
-**Description:** Maintaining beliefs even after evidence disproving them.
-
-**Manifestations:**
-- Defending theories despite contradictory evidence
-- Finding ad hoc explanations for discrepant results
-- Dismissing replication failures
-
-**Mitigation:**
-- Explicitly consider what evidence would change your mind
-- Update beliefs based on evidence
-- Distinguish between theories and ego
-
-### 8. Outcome Bias
-**Description:** Judging decisions based on outcomes rather than the quality of the decision at the time.
-
-**Manifestations:**
-- Valuing lucky guesses over sound methodology
-- Dismissing good studies with null results
-- Rewarding sensational findings over rigorous methods
-
-**Mitigation:**
-- Evaluate methodology independently of results
-- Value rigor and transparency
-- Recognize role of chance
-
-## Experimental and Methodological Biases
-
-### 9. Selection Bias
-**Description:** Systematic differences between those selected for study and those not selected.
-
-**Types:**
-- **Sampling bias:** Non-random sample
-- **Attrition bias:** Systematic dropout
-- **Volunteer bias:** Self-selected participants differ
-- **Berkson's bias:** Hospital patients differ from general population
-- **Survivorship bias:** Only examining "survivors"
-
-**Detection:**
-- Compare characteristics of participants vs. target population
-- Analyze dropout patterns
-- Consider who is missing from the sample
-
-**Mitigation:**
-- Random sampling
-- Track and analyze non-responders
-- Use strategies to minimize dropout
-- Report participant flow diagrams
-
-### 10. Observer Bias (Detection Bias)
-**Description:** Researchers' expectations influence observations or measurements.
-
-**Manifestations:**
-- Measuring outcomes differently across groups
-- Interpreting ambiguous results based on group assignment
-- Unconsciously cueing participants
-
-**Mitigation:**
-- Blinding of observers/assessors
-- Objective, automated measurements
-- Standardized protocols
-- Inter-rater reliability checks
-
-### 11. Performance Bias
-**Description:** Systematic differences in care provided to comparison groups.
-
-**Manifestations:**
-- Treating experimental group differently
-- Providing additional attention to one group
-- Differential adherence to protocols
-
-**Mitigation:**
-- Standardize all procedures
-- Blind participants and providers
-- Use placebo controls
-- Monitor protocol adherence
-
-### 12. Measurement Bias (Information Bias)
-**Description:** Systematic errors in how variables are measured.
-
-**Types:**
-- **Recall bias:** Systematic differences in accuracy of recall
-- **Social desirability bias:** Responding in socially acceptable ways
-- **Interviewer bias:** Interviewer's characteristics affect responses
-- **Instrument bias:** Measurement tools systematically err
-
-**Mitigation:**
-- Use validated, objective measures
-- Standardize data collection
-- Blind participants to hypotheses
-- Verify self-reports with objective data
-
-### 13. Confounding Bias
-**Description:** Effect of extraneous variable mixed with the variable of interest.
-
-**Examples:**
-- Age confounding relationship between exercise and health
-- Socioeconomic status confounding education and outcomes
-- Indication bias in treatment studies
-
-**Mitigation:**
-- Randomization
-- Matching
-- Statistical adjustment
-- Stratification
-- Restriction
-
-### 14. Reporting Bias
-**Description:** Selective reporting of results.
-
-**Types:**
-- **Outcome reporting bias:** Selectively reporting outcomes
-- **Time-lag bias:** Delayed publication of negative results
-- **Language bias:** Publishing positive results in English
-- **Citation bias:** Preferentially citing positive studies
-
-**Mitigation:**
-- Preregister all outcomes
-- Report all planned analyses
-- Distinguish primary from secondary outcomes
-- Use study registries
-
-### 15. Spectrum Bias
-**Description:** Test performance varies depending on the spectrum of disease severity in the sample.
-
-**Manifestations:**
-- Diagnostic tests appearing more accurate in extreme cases
-- Treatment effects differing by severity
-
-**Mitigation:**
-- Test in representative samples
-- Report performance across disease spectrum
-- Avoid case-control designs for diagnostic studies
-
-### 16. Lead-Time Bias
-**Description:** Apparent survival benefit due to earlier detection, not improved outcomes.
-
-**Example:**
-- Screening detecting disease earlier makes survival seem longer, even if death occurs at same age
-
-**Mitigation:**
-- Measure mortality, not just survival from diagnosis
-- Use randomized screening trials
-- Consider length-time and overdiagnosis bias
-
-### 17. Length-Time Bias
-**Description:** Screening disproportionately detects slower-growing, less aggressive cases.
-
-**Example:**
-- Slow-growing cancers detected more often than fast-growing ones, making screening appear beneficial
-
-**Mitigation:**
-- Randomized trials with mortality endpoints
-- Consider disease natural history
-
-### 18. Response Bias
-**Description:** Systematic pattern in how participants respond.
-
-**Types:**
-- **Acquiescence bias:** Tendency to agree
-- **Extreme responding:** Always choosing extreme options
-- **Neutral responding:** Avoiding extreme responses
-- **Demand characteristics:** Responding based on perceived expectations
-
-**Mitigation:**
-- Mix positive and negative items
-- Use multiple response formats
-- Blind participants to hypotheses
-- Use behavioral measures
-
-## Statistical and Analysis Biases
-
-### 19. P-Hacking (Data Dredging)
-**Description:** Manipulating data or analyses until significant results emerge.
-
-**Manifestations:**
-- Collecting data until significance reached
-- Testing multiple outcomes, reporting only significant ones
-- Trying multiple analysis methods
-- Excluding "outliers" to reach significance
-- Subgroup analyses until finding significance
-
-**Detection:**
-- Suspiciously perfect p-values (just below .05)
-- Many researcher degrees of freedom
-- Undisclosed analyses
-- Fishing expeditions
-
-**Mitigation:**
-- Preregister analysis plans
-- Report all analyses conducted
-- Correct for multiple comparisons
-- Distinguish exploratory from confirmatory
-
-### 20. HARKing (Hypothesizing After Results are Known)
-**Description:** Presenting post hoc hypotheses as if they were predicted a priori.
-
-**Why problematic:**
-- Inflates apparent evidence
-- Conflates exploration with confirmation
-- Misrepresents the scientific process
-
-**Mitigation:**
-- Preregister hypotheses
-- Clearly label exploratory analyses
-- Require replication of unexpected findings
-
-### 21. Base Rate Neglect
-**Description:** Ignoring prior probability when evaluating evidence.
-
-**Example:**
-- Test with 95% accuracy in rare disease (1% prevalence): positive result only 16% likely to indicate disease
-
-**Mitigation:**
-- Always consider base rates/prior probability
-- Use Bayesian reasoning
-- Report positive and negative predictive values
-
-### 22. Regression to the Mean
-**Description:** Extreme measurements tend to be followed by less extreme ones.
-
-**Manifestations:**
-- Treatment effects in extreme groups may be regression artifacts
-- "Sophomore slump" in high performers
-
-**Mitigation:**
-- Use control groups
-- Consider natural variation
-- Don't select based on extreme baseline values without controls
-
-### 23. Texas Sharpshooter Fallacy
-**Description:** Selecting data after seeing patterns, like shooting arrows then drawing targets around clusters.
-
-**Manifestations:**
-- Finding patterns in random data
-- Subgroup analyses selected post hoc
-- Geographic clustering studies without correction
-
-**Mitigation:**
-- Prespecify hypotheses
-- Correct for multiple comparisons
-- Replicate findings in independent data
-
-## Reducing Bias: Best Practices
-
-### Study Design
-1. Randomization
-2. Blinding (single, double, triple)
-3. Control groups
-4. Adequate sample size
-5. Preregistration
-
-### Data Collection
-1. Standardized protocols
-2. Validated instruments
-3. Objective measures when possible
-4. Multiple observers/raters
-5. Complete data collection
-
-### Analysis
-1. Intention-to-treat analysis
-2. Prespecified analyses
-3. Appropriate statistical tests
-4. Multiple comparison corrections
-5. Sensitivity analyses
-
-### Reporting
-1. Complete transparency
-2. CONSORT, PRISMA, or similar guidelines
-3. Report all outcomes
-4. Distinguish exploratory from confirmatory
-5. Share data and code
-
-### Meta-Level
-1. Adversarial collaboration
-2. Replication studies
-3. Open science practices
-4. Peer review
-5. Systematic reviews
+# 科研中的常见偏倚
+
+## 影响研究者的认知偏倚
+
+### 1. 确认偏倚（Confirmation Bias）
+**描述：** 倾向于寻找、解读并记住那些证实自己既有信念的信息。
+
+**表现：**
+- 设计只能支持自己假设的实验（例如只选取能凸显所提方法优势的仿真场景）
+- 把模糊结果解读为支持性证据（例如把不明显的性能差异解释为"基本持平但更稳健"）
+- 记住命中、忘记未命中（记住自己方法超过基线的场景，忘掉被基线反超的场景）
+- 选择性引用与自己观点一致的文献，忽略报告负结果或复现失败的论文
+
+**缓解：**
+- 预先注册假设与分析计划（提前写下将测试哪些场景、哪些指标）
+- 主动寻找否定性证据（如在最不利于自己方法的信道条件下测试）
+- 采用盲态数据分析（隐藏数据与方法的对应关系后再分析）
+- 认真考虑替代假设（如增益是否来自实现细节而非所提机制）
+
+### 2. 后见之明偏倚（Hindsight Bias，"我早就知道"效应）
+**描述：** 事件发生后，人们会觉得它比实际情况更可预测。
+
+**表现：**
+- HARKing（Hypothesizing After Results are Known，结果已知后提出假设）
+- 声称做出过实际并未做出的预测（如"我们早就预料到该波束管理方案在高速移动场景会失效"）
+- 低估结果带来的惊讶程度（把意外的大增益说成"意料之中"）
+
+**缓解：**
+- 在收集数据（运行仿真或实验）之前记录预测
+- 预注册研究
+- 区分探索性分析与验证性分析
+
+### 3. 发表偏倚（Publication Bias，"文件抽屉"问题）
+**描述：** 正结果/显著结果比负结果/零结果更容易发表。
+
+**表现：**
+- 文献整体上似乎支持实际并不存在的效应（如某技术被反复报告有效，但复现团队得不到同等增益）
+- 效应量被高估（RIS、AI 波束预测等热点技术的公开增益普遍偏高）
+- 无法从已发表文献中估计真实效应
+
+**缓解：**
+- 发表零结果（如"在标准城市宏站场景下未观察到显著增益"的工作同样有价值）
+- 使用预注册与注册报告（registered reports）
+- 系统综述中纳入灰色文献（预印本、技术报告、学位论文）
+- 在元分析中检查漏斗图不对称性
+
+### 4. 锚定偏倚（Anchoring Bias）
+**描述：** 过度依赖最先获得的信息。
+
+**表现：**
+- 最初的假设不适当地影响后续解读
+- 领域内早期研究设定了后来者的期望（如首篇 RIS 原型实测论文的增益数字成为后续工作的"锚"）
+- 先导性仿真数据影响正式研究的解读
+
+**缓解：**
+- 同时考虑多个初始假设
+- 独立评估每项证据
+- 采用结构化决策流程
+
+### 5. 可得性启发（Availability Heuristic）
+**描述：** 根据例子浮现在脑海的难易程度来判断事件发生的可能性，从而高估其概率。
+
+**表现：**
+- 过分看重近期或轰动性的发现（如某次大会报告中的惊艳演示）
+- 忽视基础比率（大多数 ML for PHY 论文的改进幅度其实很小）
+- 轶事式证据盖过统计证据（"听说某团队复现失败了"取代对复现率的统计）
+
+**缓解：**
+- 查阅系统综述，而非凭印象记住的个别论文
+- 显式考虑基础比率
+- 用统计思维而非直觉
+
+### 6. 从众效应（Bandwagon Effect）
+**描述：** 因为许多人都持有某种信念而接受该信念。
+
+**表现：**
+- 不加批判地跟随研究热点（RIS、太赫兹、通感一体化、大模型信道预测）
+- 没有读过原文就引用高被引论文
+- 不加批判地接受"教科书知识"（如某些长期沿用的信道模型假设）
+
+**缓解：**
+- 独立评估证据
+- 阅读原始文献
+- 质疑既定假设
+
+### 7. 信念固着（Belief Perseverance）
+**描述：** 即使证据已经推翻了某个信念，仍然坚持该信念。
+
+**表现：**
+- 面对矛盾证据仍为自己的理论辩护（如某预编码方案在实测信道中无增益，仍坚称"实测条件不标准"）
+- 为不一致的仿真结果寻找特设（ad hoc）解释
+- 无视复现失败
+
+**缓解：**
+- 明确写下"什么样的证据会让我改变看法"
+- 基于证据更新信念
+- 区分理论与自我（理论被否定不等于个人被否定）
+
+### 8. 结果偏倚（Outcome Bias）
+**描述：** 根据结果的好坏来评判决策，而不是评判决策当时所依据的信息与方法质量。
+
+**表现：**
+- 因一次"蒙对"的结果而肯定草率的方法论（如参数是随手试出来的，结果恰好很好）
+- 因结果为零而否定方法严谨的研究
+- 奖励轰动性发现而非严谨方法
+
+**缓解：**
+- 独立于结果评估方法论
+- 重视严谨性与透明度
+- 承认运气的作用
+
+## 实验与方法学偏倚
+
+### 9. 选择偏倚（Selection Bias）
+**描述：** 被选入研究的对象与未被选入者之间存在系统性差异。
+
+**类型：**
+- **抽样偏倚（Sampling bias）：** 样本非随机（如仿真场景只覆盖城市宏站，不覆盖乡村或室内）
+- **流失偏倚（Attrition bias）：** 系统性退出（如悄悄丢弃不收敛、不满意的仿真运行）
+- **志愿偏倚（Volunteer bias）：** 自愿参与者与众不同（如自愿开放测试床数据的团队往往对其结果更有信心）
+- **Berkson 偏倚（Berkson's bias）：** 来自特定渠道的样本与总体不同（如仅收集自某公开数据集的场景，其分布与真实部署环境不同）
+- **幸存者偏倚（Survivorship bias）：** 只考察"幸存者"（如只分析已发表的原型实验，忽略失败或未发表的原型）
+
+**检测：**
+- 比较被选对象与目标总体的特征（比较所测场景参数分布与目标部署环境的分布）
+- 分析流失模式（检查被丢弃的仿真运行是否集中于某些条件）
+- 考虑样本中"缺少了谁"（哪些场景、信道、负载条件从未被测试）
+
+**缓解：**
+- 随机抽样（按目标环境的分布随机采样场景参数）
+- 跟踪并分析未响应者（记录并报告所有被排除的运行及其原因）
+- 采用减少流失的策略（保留全部运行结果，包括失败案例）
+- 报告流程图（场景筛选与排除流程图，标注每步的纳入/排除标准与数量）
+
+### 10. 观察者偏倚（Observer Bias，检测偏倚 Detection Bias）
+**描述：** 研究者的期望影响其观察或测量。
+
+**表现：**
+- 对不同组采用不同的测量方式（如为自己的方法手动微调测量窗口或网格对齐，而基线不做）
+- 依据分组归属解读模糊结果（评测者知道哪条曲线是自己方法的结果，因而倾向于把性能抖动解释为"对齐误差"而非"方法缺陷"）
+- 无意识地提示被试（向参与盲测的同学透露哪份结果出自自己方法）
+
+**缓解：**
+- 对观察者/评估者设盲（打乱曲线标签与图例后再评测）
+- 采用客观、自动化的测量（脚本自动从原始数据计算指标）
+- 标准化操作规程
+- 评估者间信度检验（多人独立评测并比较一致性）
+
+### 11. 实施偏倚（Performance Bias）
+**描述：** 提供给各比较组的"处理"存在系统性差异（与所研究因素无关的差异）。
+
+**表现：**
+- 对实验组区别对待（自己提出的方法精心调参、充分调优，基线只用默认参数跑一遍）
+- 给某一组额外关注（为所提方法投入更多工程优化时间）
+- 对规程的遵守程度不同（基线未充分收敛即记录结果）
+
+**缓解：**
+- 标准化全部流程（为所有方法设定相同的调参预算与搜索空间）
+- 对被试与实施者设盲（基线实现者不知道自己实现的是对比方法）
+- 采用等强度对照（对基线施加与所提方法相同的优化精力，如同样轮次的超参数搜索）
+- 监控规程遵守情况（记录每个方法的训练/调优成本）
+
+### 12. 测量偏倚（Measurement Bias，信息偏倚 Information Bias）
+**描述：** 变量测量方式中的系统性误差。
+
+**类型：**
+- **回忆偏倚（Recall bias）：** 回忆的准确性存在系统性差异（如凭记忆事后补写实验设置，而非依据日志）
+- **社会期望偏倚（Social desirability bias）：** 以社会可接受的方式作答（如学生向导师汇报时倾向只报告"成功"的运行）
+- **访谈者偏倚（Interviewer bias）：** 访谈者特征影响回答（如专家调研中的诱导性提问使受访者迎合访谈者预期）
+- **仪器偏倚（Instrument bias）：** 测量工具系统性出错（如频谱分析仪未校准、信道探测器校准漂移、仿真器版本不一致）
+
+**缓解：**
+- 使用经过验证的客观测量手段
+- 标准化数据采集流程
+- 对被试隐藏研究假设
+- 用客观数据核对自我报告（用日志核对口头汇报）
+
+### 13. 混杂偏倚（Confounding Bias）
+**描述：** 无关变量的效应与研究关注的变量的效应混在一起。
+
+**示例：**
+- 阵列规模（RIS 单元数/天线数）混杂了"新调度算法"与吞吐量的关系（更大阵列本身就能带来增益）
+- 用户密度混杂了波束赋形方案与频谱效率的关系
+- 训练数据量混杂了模型架构与预测精度的关系（性能提升可能只是因为数据更多）
+- 对比研究中的适应证偏倚（indication bias）——把更容易改善的场景分配给新方法
+
+**缓解：**
+- 随机化（随机分配场景条件、随机化可控参数）
+- 匹配（让对比组在阵列规模、用户密度等关键变量上保持一致）
+- 统计调整（协变量校正）
+- 分层分析
+- 限制（只在某一控制范围内比较，如固定阵列规模）
+
+### 14. 报告偏倚（Reporting Bias）
+**描述：** 对结果的选择性报告。
+
+**类型：**
+- **结果报告偏倚（Outcome reporting bias）：** 选择性地报告结果（只报和速率不报误码率；只展示有利的 SNR 区间或分位数）
+- **时间滞后偏倚（Time-lag bias）：** 负结果被延迟发表
+- **语言偏倚（Language bias）：** 正结果以英文发表（负结果滞留于非英文文献）
+- **引用偏倚（Citation bias）：** 优先引用正结果研究
+
+**缓解：**
+- 预先注册所有要报告的结果
+- 报告所有计划的分析（包括"不好看"的指标与场景）
+- 区分主要结果与次要结果
+- 使用研究注册库
+
+### 15. 反应偏倚（Response Bias）
+**描述：** 被试作答方式的系统性模式。
+
+**类型：**
+- **默许偏倚（Acquiescence bias）：** 倾向于同意（在问卷或评审讨论中倾向附和主流观点）
+- **极端反应（Extreme responding）：** 总是选择极端选项（评审总是给最高分或最低分）
+- **中性反应（Neutral responding）：** 回避极端选项（问卷全部选中间档）
+- **需求特征（Demand characteristics）：** 依据感知到的期望来作答（团队成员猜到"应该得出方法更优"的结论后，按期望汇报观察）
+
+**缓解：**
+- 混合使用正向与反向题项
+- 使用多种作答格式
+- 对被试隐藏研究假设
+- 使用行为测量（用客观性能日志替代口头评价）
+
+## 统计与分析偏倚
+
+### 16. P 值操纵（P-Hacking，数据捕捞 Data Dredging）
+**描述：** 反复操纵数据或分析，直到出现显著结果。
+
+**表现：**
+- 持续收集数据直到达到显著性（不断换随机种子重复仿真，直到差异"显著"或曲线好看）
+- 测试多个结果变量、只报告显著的（测多个指标、多个场景，只报有利者）
+- 尝试多种分析方法（换着用均值/中位数/90 分位数、不同的统计聚合窗口）
+- 剔除"离群值"以凑出显著性（把不利的仿真运行当异常点删掉）
+- 反复做子组分析直到找到显著性（按 SNR 段、用户位置、信道模型反复分组比较）
+
+**检测：**
+- 可疑地"完美"的 p 值（恰好略低于 0.05）
+- 研究者自由度过大（太多可随意选择的分析选项）
+- 未公开说明的分析
+- "钓鱼式"探索
+
+**缓解：**
+- 预注册分析计划
+- 报告所有进行过的分析
+- 多重比较校正
+- 区分探索性分析与验证性分析
+
+### 17. HARKing（结果已知后提出假设，Hypothesizing After Results are Known）
+**描述：** 把事后提出的假设伪装成先验预测来呈现。
+
+**为何有害：**
+- 虚增表面证据强度（把探索性发现包装成验证性证据）
+- 混淆探索与确认
+- 歪曲真实的科学过程
+
+**缓解：**
+- 预注册假设
+- 明确标注探索性分析
+- 对意外发现要求独立复现（换随机种子/换场景/换信道模型）
+
+### 18. 基率忽视（Base Rate Neglect）
+**描述：** 评估证据时忽略先验概率。
+
+**示例：**
+- 一款准确率 95% 的无线链路故障预测模型，在故障发生率仅 1% 的网络中：当它报出"故障"时，真正故障的概率只有约 16%（由贝叶斯推理可得），大量告警其实是虚警
+
+**缓解：**
+- 始终考虑基础比率/先验概率
+- 采用贝叶斯推理
+- 同时报告阳性预测值与阴性预测值（PPV/NPV），而不只报准确率
+
+### 19. 均值回归（Regression to the Mean）
+**描述：** 极端的测量值之后往往跟随较不极端的测量值。
+
+**表现：**
+- 在极端群体中的"处理效应"可能只是回归假象（挑选基线性能最差的小区部署新算法，随后的提升可能主要来自回归）
+- 高表现者的"下滑"（上一轮表现最好的仿真配置或模型，在重复运行或下一轮评测中"退步"）
+
+**缓解：**
+- 使用对照组
+- 考虑自然变异（重复运行取分布而非单次结果）
+- 不要在没有对照的情况下基于极端基线值进行选择
+
+### 20. 德州神枪手谬误（Texas Sharpshooter Fallacy）
+**描述：** 先看到数据中的模式、再围绕模式划定"靶心"，就像先射箭再围绕箭簇画靶。
+
+**表现：**
+- 在随机数据中"发现"模式（在大量仿真输出的随机波动中找到"规律"）
+- 事后挑选子组分析（看过总体结果后选择某个呈现显著差异的子组来报告）
+- 不做校正的聚类研究（在干扰或掉话的地理分布热图中"发现"簇而不做显著性校正）
+
+**缓解：**
+- 预先指定假设
+- 多重比较校正
+- 在独立数据上复现发现（新随机种子、新场景、新数据集）
+
+## 减少偏倚：最佳实践
+
+### 研究设计
+1. 随机化（场景参数、可控变量与运行顺序的随机分配）
+2. 盲法（单盲、双盲、三盲；仿真研究中至少做到"分析盲"——分析者不知道哪组数据对应哪个方法）
+3. 对照组（强基线、消融变体、等强度对照）
+4. 足够的样本量（充分的运行次数、场景数量与统计功效）
+5. 预注册（预先公开实验方案与分析计划）
+
+### 数据收集
+1. 标准化规程（统一的仿真配置、参数记录与命名）
+2. 经过验证的工具（可信的信道模型、校准过的测量仪器）
+3. 尽量采用客观测量（脚本自动提取指标，避免手工读取）
+4. 多个观察者/评估者（关键结果由多人独立核验）
+5. 完整的数据收集（保留全部运行结果与日志，包括失败案例）
+
+### 分析
+1. 意向性分析（intention-to-treat）：按最初分配分析全部场景/运行，包括中途失败的运行
+2. 预先指定的分析
+3. 恰当的统计检验
+4. 多重比较校正
+5. 敏感性分析（对关键建模假设做稳健性检查）
+
+### 报告
+1. 完全透明（报告全部参数、随机种子与软件版本）
+2. 遵循报告规范（系统综述采用结构化筛选与纳入/排除清单；仿真研究提供可复现的完整配置说明）
+3. 报告所有结果（包括不利条件下的结果）
+4. 区分探索性与验证性分析
+5. 开放代码与数据（结果数据与日志存档，供他人核验）
+
+### 元层面（Meta-Level）
+1. 对抗性合作（与持不同观点的团队共同设计实验）
+2. 复现研究（鼓励复现与独立验证）
+3. 开放科学实践
+4. 同行评审
+5. 系统综述

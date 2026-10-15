@@ -1,169 +1,186 @@
-# Scientific Method Core Principles
+# 科学方法核心原则
 
-## Fundamental Principles
+## 基本原则（Fundamental Principles）
 
-### 1. Empiricism
-- Knowledge derives from observable, measurable evidence
-- Claims must be testable through observation or experiment
-- Subjective experience alone is insufficient for scientific conclusions
+### 1. 经验主义（Empiricism）
+- 知识来源于可观察、可测量的证据
+- 任何论断必须能通过观测或实验加以检验
+- 仅凭主观感受不足以得出科学结论
 
-### 2. Falsifiability (Popper's Criterion)
-- A hypothesis must be capable of being proven false
-- Unfalsifiable claims are not scientific (e.g., "invisible, undetectable forces")
-- Good hypotheses make specific, testable predictions
+### 2. 可证伪性（Falsifiability，波普尔准则）
+- 假说必须具备被证伪的可能性
+- 不可证伪的论断不属于科学范畴（例如"存在不可观测、不可检测的影响因素"）
+- 好的假说能给出具体、可检验的预测，例如："在给定 RIS 单元数与部署位置下，所提相位优化算法应使接收 SNR 相较随机相位配置提升 X dB"
 
-### 3. Reproducibility
-- Results must be replicable by independent researchers
-- Methods must be described with sufficient detail for replication
-- Single studies are rarely definitive; replication strengthens confidence
+### 3. 可复现性（Reproducibility）
+- 结果必须能被独立研究者复现
+- 方法描述必须详细到足以支持复现（仿真参数、信道模型、随机种子、硬件配置、训练超参数等）
+- 单项研究很少具有决定性；重复验证才能增强可信度
 
-### 4. Parsimony (Occam's Razor)
-- Prefer simpler explanations over complex ones when both fit the data
-- Don't multiply entities unnecessarily
-- Extraordinary claims require extraordinary evidence
+### 4. 简约性（Parsimony，奥卡姆剃刀）
+- 当多种解释同样契合数据时，优先选择更简单的那个
+- 如无必要，勿增实体
+- 非同寻常的论断需要非同寻常的证据
 
-### 5. Systematic Observation
-- Use standardized, rigorous methods
-- Control for confounding variables
-- Minimize observer bias through blinding and protocols
+### 5. 系统观察（Systematic Observation）
+- 使用标准化、严格的方法
+- 控制混淆变量（confounding variables）
+- 通过固定流程与协议（如固定随机种子、盲测对比）最小化观察者偏差
 
-## The Scientific Process
+## 科学过程（The Scientific Process）
 
-### 1. Question Formation
-- Identify a specific, answerable question
-- Ensure the question is within the scope of scientific inquiry
-- Consider whether current methods can address the question
+### 1. 提出问题（Question Formation）
+- 明确一个具体、可回答的问题
+- 确认问题在科学研究范围之内
+- 考虑现有方法能否回答该问题
 
-### 2. Literature Review
-- Survey existing knowledge
-- Identify gaps and contradictions
-- Build on previous work rather than reinventing
+### 2. 文献调研（Literature Review）
+- 梳理已有知识
+- 识别研究空白与相互矛盾的结论
+- 在已有工作基础上推进，而非重复造轮子
 
-### 3. Hypothesis Development
-- State a clear, testable prediction
-- Define variables operationally
-- Specify the expected relationship between variables
+### 3. 假说构建（Hypothesis Development）
+- 给出清晰、可检验的预测
+- 对变量给出可操作化定义（如以频谱效率、中断概率、时延等可测指标刻画"性能"）
+- 明确说明变量之间的预期关系
 
-### 4. Experimental Design
-- Choose appropriate methodology
-- Identify independent and dependent variables
-- Control confounding variables
-- Select appropriate sample size and population
-- Plan statistical analyses in advance
+### 4. 实验设计（Experimental Design）
+- 选择合适的研究方法
+- 明确自变量与因变量
+- 控制混淆变量
+- 选择合适的样本规模与对象（Monte Carlo 次数、信道实现数、场景与网络拓扑）
+- 提前规划统计分析方法
 
-### 5. Data Collection
-- Follow protocols consistently
-- Record all observations, including unexpected results
-- Maintain detailed lab notebooks or data logs
-- Use validated measurement instruments
+### 5. 数据采集（Data Collection）
+- 严格遵循既定协议
+- 记录所有观测结果，包括意外结果
+- 保留详细的实验记录或数据日志
+- 使用经过验证的测量工具与仿真平台
 
-### 6. Analysis
-- Apply appropriate statistical methods
-- Test assumptions of statistical tests
-- Consider effect size, not just significance
-- Look for alternative explanations
+### 6. 分析（Analysis）
+- 应用合适的统计方法
+- 检验统计方法的假设前提是否成立
+- 关注效应量（effect size），而不仅是显著性
+- 寻找替代解释
 
-### 7. Interpretation
-- Distinguish between correlation and causation
-- Acknowledge limitations
-- Consider alternative interpretations
-- Avoid overgeneralizing beyond the data
+### 7. 解释（Interpretation）
+- 区分相关性与因果性
+- 承认研究局限
+- 考虑其他合理解释
+- 避免超出数据支持范围的过度概括
 
-### 8. Communication
-- Report methods transparently
-- Include negative results
-- Acknowledge conflicts of interest
-- Make data and code available when possible
+### 8. 交流发表（Communication）
+- 透明地报告方法
+- 报告负面结果
+- 说明利益冲突
+- 在可能时公开数据与代码
 
-## Critical Evaluation Criteria
+## 批判性评价准则（Critical Evaluation Criteria）
 
-### When Reviewing Scientific Work, Ask:
+### 审视一项科学工作时，应提出以下问题：
 
-**Validity Questions:**
-- Does the study measure what it claims to measure?
-- Are the methods appropriate for the research question?
-- Were controls adequate?
-- Could confounding variables explain the results?
+**效度（Validity）问题：**
+- 研究所测量的指标是否就是其声称测量的对象？
+- 方法是否与研究问题相匹配？
+- 对照（控制组）设置是否充分？
+- 混淆因素能否解释结果？
 
-**Reliability Questions:**
-- Are measurements consistent?
-- Would the study produce similar results if repeated?
-- Are inter-rater reliability and measurement precision reported?
+**信度（Reliability）问题：**
+- 测量结果是否一致？
+- 若重复该研究，能否得到相近结果？
+- 是否报告了测量精度与统计稳定性（如置信区间、Monte Carlo 方差）？
 
-**Generalizability Questions:**
-- Is the sample representative of the target population?
-- Are the conditions realistic or artificial?
-- Do the results apply beyond the specific context?
+**可推广性（Generalizability）问题：**
+- 样本是否代表目标场景/总体？
+- 评估条件是贴近现实的还是理想化的（如完美 CSI、理想连续相移、i.i.d. 信道）？
+- 结论能否推广到该特定场景之外？
 
-**Statistical Questions:**
-- Is the sample size adequate for the analysis?
-- Are the statistical tests appropriate?
-- Are effect sizes reported alongside p-values?
-- Were multiple comparisons corrected?
+**统计（Statistical）问题：**
+- 样本量（Monte Carlo 次数、实验重复次数）是否足以支撑该分析？
+- 统计检验是否恰当？
+- 是否在报告 p 值的同时报告效应量？
+- 多重比较是否经过校正？
 
-**Logical Questions:**
-- Do the conclusions follow from the data?
-- Are alternative explanations considered?
-- Are causal claims supported by the study design?
-- Are limitations acknowledged?
+**逻辑（Logical）问题：**
+- 结论能否从数据中必然推出？
+- 是否考虑了替代解释？
+- 因果性论断是否有相应的研究设计支撑？
+- 是否承认了研究局限？
 
-## Red Flags in Scientific Claims
+## 科学论断中的危险信号（Red Flags in Scientific Claims）
 
-1. **Cherry-picking data** - Highlighting only supporting evidence
-2. **Moving goalposts** - Changing predictions after seeing results
-3. **Ad hoc hypotheses** - Adding explanations to rescue a failed prediction
-4. **Appeal to authority** - "Expert X says" without evidence
-5. **Anecdotal evidence** - Relying on personal stories over systematic data
-6. **Correlation implies causation** - Confusing association with causality
-7. **Post hoc rationalization** - Explaining results after the fact without prediction
-8. **Ignoring base rates** - Not considering prior probability
-9. **Confirmation bias** - Seeking only evidence that supports beliefs
-10. **Publication bias** - Only positive results get published
+1. **选择性摘取数据（Cherry-picking）** - 只强调支持性证据（如只在低相关信道或特定 SNR 区间展示结果）
+2. **移动球门（Moving goalposts）** - 看到结果后更改预测或成功标准
+3. **特设假说（Ad hoc hypotheses）** - 在预测失败后追加解释以挽救假说
+4. **诉诸权威（Appeal to authority）** - "某专家说"而无证据支撑
+5. **轶事证据（Anecdotal evidence）** - 依赖个别案例或单点实测，而非系统性数据
+6. **相关即因果（Correlation implies causation）** - 混淆关联与因果
+7. **事后合理化（Post hoc rationalization）** - 事后解释结果，而非事先预测
+8. **忽略基础比率（Ignoring base rates）** - 不考虑先验概率（如新算法在随机初始化下碰巧超过基线的可能性）
+9. **确认偏误（Confirmation bias）** - 只寻找支持既有信念的证据
+10. **发表偏倚（Publication bias）** - 只有正面结果被发表
 
-## Standards for Causal Inference
+## 因果与有效性论证标准（工程研究）
 
-### Bradford Hill Criteria (adapted)
-1. **Strength** - Strong associations are more likely causal
-2. **Consistency** - Repeated observations by different researchers
-3. **Specificity** - Specific outcomes from specific causes
-4. **Temporality** - Cause precedes effect (essential)
-5. **Biological gradient** - Dose-response relationship
-6. **Plausibility** - Coherent with existing knowledge
-7. **Coherence** - Consistent with other evidence
-8. **Experiment** - Experimental evidence supports causation
-9. **Analogy** - Similar cause-effect relationships exist
+工程研究中（尤其是通信系统性能类研究）要论证"某设计/算法导致了某性能提升"，可参考以下标准清单：
 
-### Establishing Causation Requires:
-- Temporal precedence (cause before effect)
-- Covariation (cause and effect correlate)
-- Elimination of alternative explanations
-- Ideally: experimental manipulation showing cause produces effect
+### 1. 控制变量与消融实验（Ablation）
+- 每次只改变一个因素，其余仿真/实验条件保持不变
+- 通过消融实验逐项移除设计模块，验证每个组件的独立贡献
+- 所提方法与基线使用相同的信道实现、随机种子与统计口径
 
-## Peer Review and Scientific Consensus
+### 2. 机理一致性
+- 性能提升应能用原理解释（如自由度增益、波束对准、分集阶数、可达速率的理论界），而非"经验上就是好"
+- 理论分析与仿真/实测趋势应相互印证
+- 若提升幅度明显超出机理解释范围，应怀疑存在其他混淆因素
 
-### Understanding Peer Review
-- Filters obvious errors but isn't perfect
-- Reviewers can miss problems or have biases
-- Published ≠ proven; it means "passed initial scrutiny"
-- Retraction mechanisms exist for flawed papers
+### 3. 参数-性能关系的单调性（类剂量-响应）论证
+- 若机理成立，性能增益应随关键参数呈现单调、可预期的变化（如随 RIS 单元数、反射孔径、SNR、导频开销的增加而按预期趋势变化）
+- 一致的剂量-响应式趋势比孤立单点结果更具说服力
+- 趋势出现异常拐点时，应给出机理解释或如实承认局限
 
-### Scientific Consensus
-- Emerges from convergence of multiple independent lines of evidence
-- Consensus can change with new evidence
-- Individual studies rarely overturn consensus
-- Consider the weight of evidence, not individual papers
+### 4. 独立重复与可复现性
+- 在不同信道实现、不同随机种子、不同平台/代码库下独立重复
+- 结果稳定且量级一致，方能支持因果结论
+- 单次运行、单个数据点的"提升"不构成证据
 
-## Open Science Principles
+### 5. 排除混淆因素
+- 公平基线：对比方法是否在同等假设、同等信息、同等算力/训练预算下运行（例如避免用完美 CSI 的新方法对比仅统计 CSI 的基线）
+- 实现差异：排除代码质量、实现细节本身带来的性能差异
+- 调参公平：所有方法的超参数是否均经过同等充分的调优
+- 统计口径一致：是否用同一指标定义、同一场景集合进行评估
 
-### Transparency Practices
-- Preregistration of hypotheses and methods
-- Open data sharing
-- Open-source code
-- Preprints for rapid dissemination
-- Registered reports (peer review before data collection)
+### 确立因果关系需要：
+- 时间先后（引入该机制之后性能随之改变，且改变方式与机理一致）
+- 共变（设计变化与性能变化相关）
+- 排除替代解释（混淆因素、实现差异、不公平基线均已排除）
+- 理想情况：通过受控实验（主动操纵设计变量）证明"原因产生结果"
 
-### Why Transparency Matters
-- Reduces publication bias
-- Enables verification
-- Prevents p-hacking and HARKing (Hypothesizing After Results are Known)
-- Accelerates scientific progress
+## 同行评审与科学共识（Peer Review and Scientific Consensus）
+
+### 理解同行评审
+- 能过滤明显错误，但并不完美
+- 审稿人可能遗漏问题或带有偏见
+- 发表 ≠ 证明；它只意味着"通过了初步审查"
+- 对有缺陷的论文存在撤稿（retraction）机制
+
+### 科学共识
+- 由多条独立证据线的收敛而形成
+- 共识可随新证据而改变
+- 个别研究很少能推翻共识
+- 应考虑证据的整体权重，而非单篇论文
+
+## 开放科学原则（Open Science Principles）
+
+### 透明性实践（Transparency Practices）
+- 预注册（Preregistration）假说与方法
+- 开放数据共享
+- 开源代码
+- 预印本（Preprint）以快速传播
+- 注册报告（Registered Reports，数据采集前先行同行评审）
+
+### 透明性为何重要
+- 减少发表偏倚
+- 使独立验证成为可能
+- 防止 p 值操纵（p-hacking）与结果后编造假说（HARKing，Hypothesizing After Results are Known）
+- 加速科学进步
