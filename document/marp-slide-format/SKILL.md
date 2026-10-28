@@ -1,6 +1,6 @@
 ---
 name: marp-slide-format
-description: Marp幻灯片格式控制技能。当用户需要制作Marp幻灯片、调整表格/图片布局、设置样式、控制页面显示时使用。适用于任何需要Marp格式调整的场景，包括表格居中、图片大小控制、双列布局、高亮框等。
+description: Marp幻灯片格式控制技能。当用户需要制作Marp幻灯片、调整表格/图片布局、设置样式、控制页面显示时使用。适用于任何需要Marp格式调整的场景，包括表格居中、图片大小控制、双列布局、高亮框、参考文献页（IEEE标准引用格式并附Obsidian本地知识库链接）等。
 ---
 
 # Marp幻灯片格式控制技能
@@ -176,6 +176,63 @@ $$
 内容...
 ```
 
+### 8. 参考文献页
+
+**规则**：
+- 参考文献必须使用 IEEE 标准引用格式：正文用 `[1]`、`[2]` 编号标注，文献页按序号排列
+- 每条文献末尾附上 Obsidian 本地知识库中对应资料的链接。生成文献页前，先在知识库目录中按文献标题/关键词检索笔记（Grep 检索 `.md` 文件，路径由用户指定），命中则取笔记内记录的链接（URL/DOI）或笔记本身的 `obsidian://` 链接
+
+**IEEE 引用格式模板**（作者姓+名首字母，论文标题加引号，期刊/会议名用斜体）：
+
+```markdown
+<!-- 期刊论文 -->
+[1] A. Author, B. Author, and C. Author, "论文标题," *IEEE Trans. Wireless Commun.*, vol. 68, no. 3, pp. 1234-1246, Mar. 2020.
+
+<!-- 会议论文 -->
+[2] A. Author and B. Author, "论文标题," in *Proc. IEEE GLOBECOM*, Rio de Janeiro, Brazil, Dec. 2022, pp. 1-6.
+
+<!-- 3GPP 规范 -->
+[3] 3GPP, "Study on channel model for frequencies from 0.5 to 100 GHz," TR 38.901, V17.0.0, Mar. 2022.
+
+<!-- 网络资源 -->
+[4] Author or Organization, "页面标题," Year. [Online]. Available: https://...
+```
+
+**知识库链接追加**：检索命中的文献，在条目末尾追加链接（`obsidian://open?vault=库名&file=笔记路径` 可直接跳转到对应笔记）：
+
+```markdown
+[1] A. Author, "论文标题," *IEEE Trans. Wireless Commun.*, vol. 68, no. 3, pp. 1234-1246, Mar. 2020. [知识库笔记](obsidian://open?vault=MyVault&file=文献/论文标题)
+
+[2] 3GPP, "NR; Physical channels and modulation," TS 38.211, V18.1.0, Apr. 2024. [Online]. Available: https://笔记中记录的URL
+```
+
+**整页代码模板**：
+
+```markdown
+---
+
+<!-- _header: "参考文献" -->
+
+<div class="refs">
+
+[1] A. Author, "论文标题," *IEEE Trans. Wireless Commun.*, vol. 68, no. 3, pp. 1234-1246, Mar. 2020. [知识库笔记](obsidian://open?vault=MyVault&file=文献/论文标题)
+
+[2] ...
+
+</div>
+```
+
+**CSS 配置**（字号明显小于正文，一般一页放 6-8 条）：
+
+```yaml
+style: |
+  .refs {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .refs p { margin-bottom: 6px; }
+```
+
 ## 完整CSS模板
 
 以下是一个完整的Marp CSS配置示例，包含了常用的样式定义：
@@ -232,6 +289,11 @@ style: |
     border-radius: 4px;
     border-left: 4px solid #ffc107;
   }
+  .refs {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .refs p { margin-bottom: 6px; }
 ---
 ```
 
@@ -261,8 +323,9 @@ style: |
 
 当用户需要格式控制时：
 
-1. 识别用户的具体需求（表格居中？图片大小？双列布局？）
+1. 识别用户的具体需求（表格居中？图片大小？双列布局？参考文献页？）
 2. 提供对应的代码模板
 3. 解释为什么需要使用这种方法
 4. 如需要，提供完整的frontmatter配置
-5. 确保用户理解代码的工作原理
+5. 涉及参考文献页时：条目一律用IEEE标准引用格式，并先在用户的Obsidian本地知识库中检索对应笔记，把笔记链接附到文献条目末尾
+6. 确保用户理解代码的工作原理
