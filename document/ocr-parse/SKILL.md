@@ -62,8 +62,8 @@ scp xej@192.168.49.10:workspace/github/Unlimited-OCR/output/<doc>_clean/<doc>.md
 8. 冒烟测试：生成含已知文字的 PNG → POST /ocr → 逐字核对。
 坑：HF 批量下载文件可能损坏——安装失败先 `.venv/bin/python -m zipfile -t` 校验；安装脚本的"成功"标记必须绑定真实检查（`test -d .venv/lib/python3.10/site-packages/<包名>`），禁止无条件 echo。
 
-## 附录 B：fix_clean.py 整理规则（v5，2026-10-29 定稿）
-1. 丢弃 header/footer/page_number 块；text/other 块含 e-mail: 或 Digital Object Identifier 的（IEEE 首页作者脚注）一并丢弃
+## 附录 B：fix_clean.py 整理规则（v6，2026-10-29 定稿）
+1. 丢弃 header/footer/page_number 块；text/other 块含 e-mail: 或 Digital Object Identifier 的（IEEE 首页作者脚注）一并丢弃；末尾再行级兜底——整行匹配 Digital Object Identifier / e-mail: / Date of publication / ISSN©IEEE（`\d{4}-\d{3}[\dXx]©` 或 `©YYYY IEEE`）/ IEEE Xplore / authorized licensed use / authorized use limited to / this article has been accepted / for use by 的行删除（OCR 把页脚误判为 text 块时兜住，如 Ramezani2023 残留的 DOI/© 行），结束时打印 JUNK_LINES 计数
 2. 行内公式 "$ x $" 内侧空格必须剥除（Obsidian 对 $ 后紧跟空格不渲染）→ $x$
 3. equation 块：剥掉一切 $ 字符（模型会输出 $ 独占一行甚至多层堆叠的跨行结构）→ 统一 $$ 块
 4. gundam 裁剪会把多行长公式切成多块（前块 begin 无 end、后块反之）→ 相邻 $$ 块间无正文时自动缝合至配平（上限跨 3 块）
@@ -71,3 +71,4 @@ scp xej@192.168.49.10:workspace/github/Unlimited-OCR/output/<doc>_clean/<doc>.md
 6. 花括号配平检查必须跳过转义 { }（\left\{ 的 { 不是失衡）——栈匹配法
 7. 诊断一律用 heredoc 写脚本执行，禁止 python -c 内联复杂代码；反斜杠经 JSON 层会减半，构造字面反斜杠用 chr(92)
 8. 交付前验证：BAD 块数=0、ARRAY 开闭计数、用户报障点上下文 repr
+9. title 块内换行合并为单行标题（OCR 对长标题的块内硬换行，如 Ramezani2023 三行题名）；例外：块内所有行均为全大写（仅字母/数字/空格及 -:.,&() 等）时视为多个独立标题，逐行输出（如 zheng2025 附录块 APPENDIX A 与 PROOF OF PROPERTY 1 同块两行，不可合并）
