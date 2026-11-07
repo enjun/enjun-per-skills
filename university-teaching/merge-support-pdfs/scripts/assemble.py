@@ -19,31 +19,46 @@ ap.add_argument("--folder", required=True)
 ap.add_argument("--out", default="支撑材料.pdf")
 a = ap.parse_args()
 
-HB = a.folder
+HB = os.path.normpath(a.folder)
 PDF = os.path.join(HB, "_pdf")
 meta = json.load(open(os.path.join(PDF, "pages.json"), encoding="utf-8"))
 total_expected = meta["total"]
-cats = meta["cats"]
 n_cover = meta["cover"]
 pm_cats = meta["pages_map"]["cats"]
+cat_order = meta["cat_order"]
+assign = meta["assign"]
 
-def item_pdf(n):
-    for d in (PDF, HB):
-        for f in os.listdir(d):
-            if re.match(rf"^{n}([\s\-（]|$)", f) and f.lower().endswith(".pdf"):
-                return os.path.join(d, f)
-    raise FileNotFoundError(n)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from catalog import catalog as list_files
 
-ordered = [(os.path.join(PDF, "_cover.pdf"), None),
-           (os.path.join(PDF, "_toc.pdf"), None)]
-for c, cname, lo, hi in cats:
-    ordered.append((os.path.join(PDF, "_dividers.pdf"), int(c)))
-    for n in range(lo, hi + 1):
-        ordered.append((item_pdf(n), None))
+by_key = {}
+for p, ns, nm, k in list_files(HB):
+    if k in by_key and by_key[k].lower().endswith(".pdf"):
+        continue
+    by_key[k] = p
+
+def find_file(num_str):
+    key = tuple(int(x) for x in re.findall(r"\d+", num_str))
+    if key in by_key:
+        return by_key[key]
+    first = [v for k, v in by_key.items() if k[0] == key[0]]
+    if len(first) == 1:
+        return first[0]
+    raise FileNotFoundError(num_str)
+
+ordered = [(os.path.join(PDF, "_cover.pdf"), None, None),
+           (os.path.join(PDF, "_toc.pdf"), None, None)]
+for cname in cat_order:
+    ordered.append((os.path.join(PDF, "_dividers.pdf"), None, cat_order.index(cname) + 1))
+    for ns in assign[cname]:
+        try:
+            ordered.append((find_in(HB, ns), None, None))
+        except FileNotFoundError:
+            print(f"!! 缺文件跳过: 序号{ns}")
 
 # ---- 阶段一：PyMuPDF 装配内容 ----
 new = fitz.open()
-for path, div_page in ordered:
+for path, need, div_page in ordered:
     rsrc = fitz.open(path)
     first_new = new.page_count
     if div_page is not None:
@@ -111,6 +126,6 @@ for i in range(1, d.page_count):
 rot = [i + 1 for i, p in enumerate(d) if p.rotation]
 print("悬空引用:", dangling, "| 页码缺失/不符页:", bad_num[:8] or "无", "| 旋转页:", rot or "无")
 print("分类起始页（物理页）:")
-for c, cname, lo, hi in cats:
-    print(f"  {c}. {cname} → 第{pm_cats[str(c)] + n_cover}页")
+for cname in cat_order:
+    print(f"  {cname} → 第{pm_cats[cname] + n_cover}页")
 sys.exit(0 if (dangling == 0 and not bad_num and not rot) else 1)
