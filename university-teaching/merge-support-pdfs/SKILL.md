@@ -1,12 +1,16 @@
 ---
 name: merge-support-pdfs
-description: 将按“序号N-名称”命名的单个支撑材料文件（PDF/Word）按分类顺序合并为一本带封面、目录、分类标题页、右下角页码的汇总PDF，并同步材料清单记录表。凡涉及支撑材料汇总/合册、佐证材料汇编、成果材料整理归档、材料清单记录表同步、批量Word转PDF、PDF加页码/目录/分类标题页/首页标题条、合并PDF后Acrobat报“数字越界”无法保存、页码叠加丢失或文字旋转错位、删除PDF某一页、PDF悬空对象引用修复、更新某个word后重新出册等场景，即使用户没有明确说“合并”二字，也应使用本技能。
+description: 把按“序号N-名称”命名的单个支撑材料文件（PDF/Word）按分类顺序合并为一本带封面、目录、分类标题页、右下角页码的汇总PDF，并同步材料清单记录表。当用户要求“合并支撑材料/出汇总册/重新合并”并指向材料目录时手动调用。
+disable-model-invocation: true
+argument-hint: [材料目录路径，默认 D:\workspace\claude-code\docx\合并版]
 ---
+
+> **本技能仅限用户手动调用**（`disable-model-invocation: true` 已使其对模型不可见）：面向本项目的阶段性整册任务——重跑会重新转换全部 Word 并重建整册，耗时数分钟；日常小改动不必整体重出。
 
 # 支撑材料汇总合册
 
 把材料文件夹中按序号命名的单个支撑材料（.pdf / .docx）合并为一本汇总 PDF：
-**封面（无页码）→ 目录（页码从1起）→ [分类标题页 + 该分类各项材料] × N**，除封面外每页右下角有页码（封面不计页码）。
+**封面（无页码）→ 目录（页码从1起）→ [分类标题页 + 该分类各项材料] × N**，除封面外每页右下角有页码。
 
 ## 材料与目录约定
 
@@ -20,14 +24,14 @@ description: 将按“序号N-名称”命名的单个支撑材料文件（PDF/W
 
 ### 1) 批量 docx→PDF
 ```bash
-python <skills>/scripts/conv_docx.py --folder <材料目录>
+python scripts/conv_docx.py --folder <材料目录>
 ```
 - 增量模式：跳过已存在的 PDF。**docx 更新后必须先删除 `_pdf/` 里对应旧 PDF**（或整体清空重转），否则沿用旧转换。
 - 自动跳过清单类文件（成果清单分类结果2新 / 材料清单记录表 / ~$ 临时文件）。
 
 ### 2) 首页标题（缺“序号N：名称”的文件）
 ```bash
-python <skills>/scripts/add_item_titles.py --folder <材料目录> [--items 11,20,49]
+python scripts/add_item_titles.py --folder <材料目录> [--items 11,20,49]
 ```
 - 自动检测：PDF 首页文本 / docx 正文含 `序号N：` 视为已有；纯扫描件无文本层视为缺失。
 - PDF：pdftoppm 渲染首页 → 检测顶部留白 → 留白够直接写入 / 不足则原内容等比缩小让出标题带 → **新首页整页替换**（规避 /Rotate 旋转与 pypdf 合并方向陷阱）。首页变为图像页（丢失文本层，佐证可接受）。
@@ -36,14 +40,14 @@ python <skills>/scripts/add_item_titles.py --folder <材料目录> [--items 11,2
 
 ### 3) 封面 / 目录 / 分类标题页 / 页码戳
 ```bash
-python <skills>/scripts/make_front_matter.py --folder <材料目录>
+python scripts/make_front_matter.py --folder <材料目录>
 ```
 - 产出 `_cover.pdf`、`_toc.pdf`（两遍法回填真实页码）、`_dividers.pdf`（每分类1页，黑体40pt加粗，水平+垂直居中）、`_stamp.pdf`（页脚 PAGE 域右对齐）、`pages.json`。
 - 页码规则：封面无页码不盖戳；目录页从1起；每个分类占1页标题页计入页码。
 
 ### 4) 装配 + 自检
 ```bash
-python <skills>/scripts/assemble.py --folder <材料目录>
+python scripts/assemble.py --folder <材料目录>
 ```
 - 合并 + 右下角页码 + 自动校验（悬空引用 / 逐页页码 / 旋转页），异常时退出码1。
 
