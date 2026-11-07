@@ -1,0 +1,23 @@
+{
+  "skill_name": "merge-support-pdfs",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "合并版目录里的支撑材料更新了几个word，重新合并成一本，页码和目录都要更新",
+      "expected_output": "更新的docx重新转换，目录页码重算，整册重建，页码连续",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "序号15文件，删除“关于赖虹建教授的情况说明”一页",
+      "expected_output": "定位该页/该内容块并删除，整册页码前移重算",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "合并后的PDF在Adobe Acrobat里编辑后无法保存，提示数字越界，帮我修复",
+      "expected_output": "识别悬空对象引用，定位损坏源文件，重建后消除引用，Acrobat可正常保存",
+      "files": []
+    }
+  ]
+}
